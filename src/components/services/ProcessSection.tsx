@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Calendar, Package, Lock, Wrench, Award } from 'lucide-react';
 
+
 const steps = [
   {
     id: 1,
@@ -40,15 +41,16 @@ const steps = [
   }
 ];
 
+
 export default function ProcessSection() {
   return (
     <section className="py-16 md:py-24 bg-gray-100">
       <div className="layout-container flex flex-col max-w-[1280px] mx-auto px-4 md:px-10">
         
-        <div className="flex flex-col md:flex-row gap-12 items-start">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
           
           {/* Left Column: Sticky Header & Image */}
-          <div className="flex-1 sticky top-24">
+          <div className="flex-1 md:sticky md:top-24">
             <h2 className="text-emerald-700 font-bold uppercase tracking-wider text-sm mb-3">
               Our Process
             </h2>
@@ -60,13 +62,14 @@ export default function ProcessSection() {
               Whether you have one laptop or a thousand servers, we handle it with the same level of care.
             </p>
             
-            <div className="relative rounded-xl overflow-hidden shadow-lg h-64 md:h-80 w-full bg-slate-100">
+            <div className="relative rounded-xl overflow-hidden shadow-lg h-48 md:h-80 w-full bg-slate-100">
               {/* Replace src with your actual image path */}
               <div className="bg-green-800 h-full w-full">
                 
               </div>
             </div>
           </div>
+
 
           {/* Right Column: Timeline Steps */}
           <div className="flex-1 w-full">
@@ -78,7 +81,7 @@ export default function ProcessSection() {
                   <div key={step.id} className={`flex gap-4 ${isLast ? '' : 'pb-12'} relative`}>
                     
                     {/* Icon Column */}
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center relative">
                       <div 
                         className={`size-10 rounded-full flex items-center justify-center shrink-0 z-10 
                           ${step.variant === 'start' ? 'bg-emerald-700 text-white' : ''}
@@ -91,12 +94,13 @@ export default function ProcessSection() {
                       
                       {/* Vertical Line Connector */}
                       {!isLast && (
-                        <div className="w-0.5 bg-slate-200 absolute top-10 bottom-0 left-5 -translate-x-1/2"></div>
+                        <div className="w-0.5 bg-slate-300 absolute top-10 bottom-[-3rem] left-[1.25rem]"></div>
                       )}
                     </div>
 
+
                     {/* Text Content */}
-                    <div className="pt-1">
+                    <div className="pt-1 flex-1">
                       <h4 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h4>
                       <p className="text-slate-600 leading-relaxed">{step.description}</p>
                     </div>
