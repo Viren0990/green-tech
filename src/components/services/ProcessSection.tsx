@@ -45,7 +45,7 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="py-16 md:py-24 bg-gray-100">
-      <div className="layout-container flex flex-col max-w-[1280px] mx-auto px-4 md:px-10">
+      <div className="layout-container flex flex-col max-w-7xl mx-auto px-4 md:px-10">
         
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
           
@@ -94,7 +94,7 @@ export default function ProcessSection() {
                       
                       {/* Vertical Line Connector */}
                       {!isLast && (
-                        <div className="w-0.5 bg-slate-300 absolute top-10 bottom-[-3rem] left-[1.25rem]"></div>
+                        <div className="w-0.5 bg-slate-300 absolute top-10 -bottom-12 left-5"></div>
                       )}
                     </div>
 

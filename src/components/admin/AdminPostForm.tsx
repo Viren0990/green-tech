@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { createPost } from '@/src/actions/posts';
 import { Upload, X, Image as ImageIcon, Loader2 } from 'lucide-react';
 
-
 interface SelectedImage {
   file: File;
   preview: string;
@@ -134,7 +133,8 @@ export default function AdminPostForm() {
           id="title"
           name="title"
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
+          disabled={isSubmitting}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition disabled:bg-gray-50 disabled:cursor-not-allowed"
           placeholder="e.g., Laptop Motherboard Repair Project"
         />
       </div>
@@ -149,7 +149,8 @@ export default function AdminPostForm() {
           name="content"
           required
           rows={6}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition resize-none"
+          disabled={isSubmitting}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition resize-none disabled:bg-gray-50 disabled:cursor-not-allowed"
           placeholder="Describe the project, process, or transformation story..."
         />
       </div>
@@ -164,7 +165,8 @@ export default function AdminPostForm() {
           id="author"
           name="author"
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
+          disabled={isSubmitting}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition disabled:bg-gray-50 disabled:cursor-not-allowed"
           placeholder="Your name"
         />
       </div>
@@ -179,8 +181,10 @@ export default function AdminPostForm() {
         <div className="mb-4">
           <label 
             htmlFor="image-select"
-            className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-green-500 transition cursor-pointer ${
-              selectedImages.length >= 5 ? 'opacity-50 cursor-not-allowed' : ''
+            className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-gray-300 rounded-lg transition ${
+              selectedImages.length >= 5 || isSubmitting
+                ? 'opacity-50 cursor-not-allowed' 
+                : 'hover:border-green-500 cursor-pointer'
             }`}
           >
             <ImageIcon size={20} />
@@ -192,14 +196,17 @@ export default function AdminPostForm() {
             accept="image/*"
             multiple
             onChange={handleImageSelect}
-            disabled={selectedImages.length >= 5}
+            disabled={selectedImages.length >= 5 || isSubmitting}
             className="hidden"
           />
           <p className="text-sm text-gray-500 mt-2">
             {selectedImages.length}/5 images selected
           </p>
           <p className="text-xs text-gray-400 mt-1">
-            Images will be uploaded when you click "Publish Post"
+            {isSubmitting 
+              ? 'Uploading images...' 
+              : 'Images will be uploaded when you click "Publish Post"'
+            }
           </p>
         </div>
 
@@ -214,12 +221,17 @@ export default function AdminPostForm() {
                     alt={`Selected ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
+                  {isSubmitting && (
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <Loader2 className="animate-spin text-white" size={24} />
+                    </div>
+                  )}
                 </div>
                 <button
                   type="button"
                   onClick={() => removeImage(index)}
                   disabled={isSubmitting}
-                  className="absolute top-2 right-2 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition hover:bg-red-600 disabled:opacity-50"
+                  className="absolute top-2 right-2 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <X size={16} />
                 </button>
@@ -247,7 +259,8 @@ export default function AdminPostForm() {
           id="password"
           name="password"
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
+          disabled={isSubmitting}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition disabled:bg-gray-50 disabled:cursor-not-allowed"
           placeholder="Enter admin password"
         />
         <p className="text-sm text-gray-500 mt-1">
@@ -270,7 +283,7 @@ export default function AdminPostForm() {
       <button
         type="submit"
         disabled={isSubmitting || selectedImages.length === 0}
-        className="w-full bg-green-500 text-white px-8 py-4 rounded-lg hover:bg-green-600 transition font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-green-500 text-white px-8 py-4 rounded-lg hover:bg-green-600 transition font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-green-500"
       >
         {isSubmitting ? (
           <>
