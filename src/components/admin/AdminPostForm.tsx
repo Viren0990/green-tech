@@ -54,7 +54,9 @@ export default function AdminPostForm() {
   }
 
   // Upload images to Cloudinary and then create post
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault(); // Prevent default form submission
+    
     if (selectedImages.length === 0) {
       setMessage({ type: 'error', text: 'Please select at least one image.' });
       return;
@@ -62,6 +64,9 @@ export default function AdminPostForm() {
 
     setIsSubmitting(true);
     setMessage(null);
+
+    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget; // Store reference before async
 
     try {
       // Step 1: Upload all images to Cloudinary
@@ -104,8 +109,8 @@ export default function AdminPostForm() {
         // Cleanup: Revoke all preview URLs
         selectedImages.forEach(img => URL.revokeObjectURL(img.preview));
         
-        // Reset form
-        (document.getElementById('admin-post-form') as HTMLFormElement)?.reset();
+        // Reset form using stored reference
+        form.reset();
         setSelectedImages([]);
       } else {
         setMessage({ type: 'error', text: result.error || 'Failed to create post.' });
@@ -122,7 +127,7 @@ export default function AdminPostForm() {
   }
 
   return (
-    <form id="admin-post-form" action={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       {/* Title */}
       <div>
         <label htmlFor="title" className="block text-sm font-semibold text-gray-700 mb-2">

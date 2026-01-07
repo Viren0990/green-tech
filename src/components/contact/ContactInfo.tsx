@@ -1,9 +1,17 @@
+import { Bodoni_Moda } from 'next/font/google';
+
+const bodoni = Bodoni_Moda({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+});
+
 export default function ContactInfo() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className={`${bodoni.className} text-3xl font-bold text-gray-900 mb-4`}>
             Why Choose DMD Green Tech?
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -16,7 +24,7 @@ export default function ContactInfo() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <span className="text-3xl">🚚</span>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+            <h3 className={`${bodoni.className} text-xl font-bold text-gray-900 mb-3`}>
               Free Pickup Service
             </h3>
             <p className="text-gray-600 text-sm">
@@ -28,7 +36,7 @@ export default function ContactInfo() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <span className="text-3xl">🔒</span>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+            <h3 className={`${bodoni.className} text-xl font-bold text-gray-900 mb-3`}>
               Data Security Guaranteed
             </h3>
             <p className="text-gray-600 text-sm">
@@ -40,7 +48,7 @@ export default function ContactInfo() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <span className="text-3xl">📜</span>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+            <h3 className={`${bodoni.className} text-xl font-bold text-gray-900 mb-3`}>
               Green Certificate
             </h3>
             <p className="text-gray-600 text-sm">

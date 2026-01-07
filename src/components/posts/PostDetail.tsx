@@ -20,7 +20,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-br from-green-50 to-white">
+      <section className="pt-24 pb-12 bg-linear-to-br from-green-50 to-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button */}
           <Link 
@@ -67,6 +67,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
                   src={post.images[0]}
                   alt={post.title}
                   fill
+                  style={{objectFit: "contain"}}
                   className="object-cover"
                   priority
                 />
@@ -97,6 +98,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
                       src={image}
                       alt={`${post.title} - Image ${index + 2}`}
                       fill
+                      style={{objectFit: "contain"}}
                       className="object-cover"
                     />
                   </div>
@@ -107,7 +109,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
 
           {/* Share/CTA Section */}
           <div className="border-t border-gray-200 pt-8">
-            <div className="bg-gradient-to-br from-green-50 to-gray-50 rounded-2xl p-8 text-center">
+            <div className="bg-linear-to-br from-green-50 to-gray-50 rounded-2xl p-8 text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Inspired by our work?
               </h3>

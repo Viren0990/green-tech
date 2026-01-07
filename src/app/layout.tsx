@@ -80,8 +80,8 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'DMD Green Tech Revive',
     alternateName: 'DMD Green Tech',
-    url: 'https://dmdgreentech.in',
-    logo: 'https://dmdgreentech.in/logo.png',
+    url: 'https://dmdgreentechrevive.com',
+    logo: 'https://dmdgreentechrevive.com/logo.png',
     description: 'India\'s premier certified e-waste recycling and refurbishment service',
     address: {
       '@type': 'PostalAddress',

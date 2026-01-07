@@ -3,22 +3,33 @@
 import { submitContactForm } from '@/src/actions/contact';
 import { useState } from 'react';
 import { Send, Loader2 } from 'lucide-react';
+import { Bodoni_Moda } from 'next/font/google';
+
+const bodoni = Bodoni_Moda({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+});
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    
     setIsSubmitting(true);
     setMessage(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(e.currentTarget);
 
     try {
       const result = await submitContactForm(formData);
       
       if (result.success) {
         setMessage({ type: 'success', text: 'Thank you! We will get back to you soon.' });
-        // Reset form
-        (document.getElementById('contact-form') as HTMLFormElement)?.reset();
+        form.reset();
       } else {
         setMessage({ type: 'error', text: result.error || 'Failed to submit form. Please try again.' });
       }
@@ -39,7 +50,7 @@ export default function ContactForm() {
               CONTACT US
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className={`${bodoni.className} text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight`}>
               Get in Touch
             </h1>
             
@@ -54,7 +65,7 @@ export default function ContactForm() {
                   <span className="text-green-600 text-xl">📍</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Visit Us</h3>
+                  <h3 className={`${bodoni.className} font-semibold text-gray-900 mb-1`}>Visit Us</h3>
                   <p className="text-gray-600 text-sm">
                     Wagholi, Pune<br />
                     Pune, Maharashtra, India
@@ -67,7 +78,7 @@ export default function ContactForm() {
                   <span className="text-green-600 text-xl">📞</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
+                  <h3 className={`${bodoni.className} font-semibold text-gray-900 mb-1`}>Call Us</h3>
                   <p className="text-gray-600 text-sm">
                     +91 9075010115
                   </p>
@@ -79,7 +90,7 @@ export default function ContactForm() {
                   <span className="text-green-600 text-xl">✉️</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
+                  <h3 className={`${bodoni.className} font-semibold text-gray-900 mb-1`}>Email Us</h3>
                   <p className="text-gray-600 text-sm">
                     info@dmdgreentechrevive.com<br />
                     We'll respond within 24 hours
@@ -91,11 +102,11 @@ export default function ContactForm() {
 
           {/* Right - Form */}
           <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className={`${bodoni.className} text-2xl font-bold text-gray-900 mb-6`}>
               Send us a Message
             </h2>
 
-            <form id="contact-form" action={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                   Full Name *

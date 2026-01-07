@@ -1,4 +1,11 @@
 import { Truck, Shield, Recycle, Smartphone } from 'lucide-react';
+import { Bodoni_Moda } from 'next/font/google';
+
+const bodoni = Bodoni_Moda({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+});
 
 export default function CoreServices() {
   const services = [
@@ -28,7 +35,7 @@ export default function CoreServices() {
     <section id="core-services" className="py-20 bg-white mt-10 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className={`${bodoni.className} text-5xl font-bold text-gray-900 mb-4`}>
             Our Core Services
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
@@ -43,18 +50,17 @@ export default function CoreServices() {
             return (
               <div 
                 key={index}
-                className="bg-white border border-green-400 border-2 p-8 rounded-2xl hover:shadow-xl hover:border-green-500 transition-all group"
+                className="bg-white border-2 border-green-400 p-8 rounded-2xl hover:shadow-xl hover:border-green-500 transition-all group"
               >
-                <div className="w-14 h-14  rounded-xl flex items-center justify-center mb-6 bg-green-500 ">
-                  <Icon className="text-green-600 text-white transition-colors" size={28} />
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-green-500">
+                  <Icon className="text-white transition-colors" size={28} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className={`${bodoni.className} text-xl font-bold text-gray-900 mb-3`}>
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-                
               </div>
             );
           })}

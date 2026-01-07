@@ -46,13 +46,16 @@ export default function PostsGrid({ posts }: Readonly<PostsGridProps>) {
             >
               <article className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl hover:border-green-500 transition-all duration-300">
                 {/* Featured Image */}
-                <div className="relative aspect-video overflow-hidden bg-gray-100">
+                <div className="relative w-full aspect-video overflow-hidden bg-gray-100">
+
                   {post.images.length > 0 ? (
                     <Image
                       src={post.images[0]}
                       alt={post.title}
                       fill
+                      style={{objectFit: "contain"}}
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      priority={false}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">
