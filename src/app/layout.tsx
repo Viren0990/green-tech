@@ -70,11 +70,18 @@ export const metadata: Metadata = {
   },
 };
 
+const bodoni = Bodoni_Moda({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-bodoni',
+});
+import { Bodoni_Moda } from 'next/font/google';
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>){
+}>) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -106,7 +113,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={bodoni.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

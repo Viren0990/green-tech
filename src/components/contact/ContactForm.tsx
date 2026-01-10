@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Send, Loader2 } from 'lucide-react';
 import { Bodoni_Moda } from 'next/font/google';
 
-const bodoni = Bodoni_Moda({ 
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
@@ -17,7 +17,7 @@ export default function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    
+
     setIsSubmitting(true);
     setMessage(null);
 
@@ -26,7 +26,7 @@ export default function ContactForm() {
 
     try {
       const result = await submitContactForm(formData);
-      
+
       if (result.success) {
         setMessage({ type: 'success', text: 'Thank you! We will get back to you soon.' });
         form.reset();
@@ -49,13 +49,13 @@ export default function ContactForm() {
             <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               CONTACT US
             </div>
-            
+
             <h1 className={`${bodoni.className} text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight`}>
-              Get in Touch
+              Schedule a Pickup
             </h1>
-            
+
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Have questions about our e-waste recycling services? Want to schedule a pickup? 
+              Have questions about our e-waste recycling services? Want to schedule a pickup?
               We're here to help make your electronics disposal process seamless and sustainable.
             </p>
 
@@ -167,11 +167,10 @@ export default function ContactForm() {
               </div>
 
               {message && (
-                <div className={`p-4 rounded-lg ${
-                  message.type === 'success' 
-                    ? 'bg-green-50 text-green-700 border border-green-200' 
+                <div className={`p-4 rounded-lg ${message.type === 'success'
+                    ? 'bg-green-50 text-green-700 border border-green-200'
                     : 'bg-red-50 text-red-700 border border-red-200'
-                }`}>
+                  }`}>
                   {message.text}
                 </div>
               )}
