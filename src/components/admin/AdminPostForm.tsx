@@ -25,8 +25,8 @@ export default function AdminPostForm() {
     if (!files || files.length === 0) return;
 
     // Limit to 5 images total
-    if (selectedImages.length + files.length > 5) {
-      setMessage({ type: 'error', text: 'Maximum 5 images allowed per post.' });
+    if (selectedImages.length + files.length > 15) {
+      setMessage({ type: 'error', text: 'Maximum 15 images allowed per post.' });
       return;
     }
 
@@ -179,7 +179,7 @@ export default function AdminPostForm() {
       {/* Image Selection */}
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-2">
-          Select Images (Max 5) *
+          Select Images (Max 15) *
         </label>
         
         {/* Select Button */}

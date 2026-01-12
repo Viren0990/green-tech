@@ -12,13 +12,13 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-16 h-14 rounded-lg flex items-center justify-center">
+            <div className="w-16 h-14 rounded-lg items-center justify-center">
               <Image src={logo} alt="dd" />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">DMD <span className="text-green-600 font-bold">GREEN</span> TECH REVIVE</span>
+            <span className="font-semibold text-gray-900 text-lg">DMD <span className="text-green-600 font-bold">Greentech</span> Revive</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -29,8 +29,8 @@ export default function Navbar() {
             <Link href="/what-we-do" className="text-gray-700 hover:text-green-500 transition">
               What We Do
             </Link>
-            <Link href="/story" className="text-gray-700 hover:text-green-500 transition">
-              Our Story
+            <Link href="/about-us" className="text-gray-700 hover:text-green-500 transition">
+              About us
             </Link>
             <Link href="/posts" className="text-gray-700 hover:text-green-500 transition">
               Gallery
@@ -38,8 +38,8 @@ export default function Navbar() {
             <Link href="/contact" className="text-gray-700 hover:text-green-500 transition">
               Contact Us
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition"
             >
               Schedule Pickup
@@ -47,7 +47,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="lg:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -73,8 +73,8 @@ export default function Navbar() {
             <Link href="/contact" className="block text-gray-700 hover:text-green-500 transition py-2">
               Contact Us
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition text-center"
             >
               Schedule Pickup

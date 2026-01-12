@@ -4,12 +4,12 @@ import { prisma } from '@/src/lib/prisma';
 
 export async function submitContactForm(formData: FormData) {
   const name = formData.get('name') as string;
-  const email = formData.get('email') as string;
+  const address = formData.get('address') as string;
   const phone = formData.get('phone') as string | null;
   const message = formData.get('message') as string;
 
   // Basic validation
-  if (!name || !email || !message) {
+  if (!name || !address || !message) {
     return { success: false, error: 'Please fill in all required fields.' };
   }
 
@@ -17,8 +17,8 @@ export async function submitContactForm(formData: FormData) {
     await prisma.contactForm.create({
       data: {
         name: name.trim(),
-        email: email.trim(),
-        phone: phone?.trim() || null,
+        phone: phone?.trim(),
+        address: address.trim(),
         message: message.trim()
       }
     });

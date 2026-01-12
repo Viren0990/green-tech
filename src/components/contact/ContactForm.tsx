@@ -67,8 +67,7 @@ export default function ContactForm() {
                 <div>
                   <h3 className={`${bodoni.className} font-semibold text-gray-900 mb-1`}>Visit Us</h3>
                   <p className="text-gray-600 text-sm">
-                    Wagholi, Pune<br />
-                    Pune, Maharashtra, India
+                    Office No-03, Amaryllis Domkhel Rd, Wagholi, Pune, Maharashtra 412207
                   </p>
                 </div>
               </div>
@@ -80,7 +79,7 @@ export default function ContactForm() {
                 <div>
                   <h3 className={`${bodoni.className} font-semibold text-gray-900 mb-1`}>Call Us</h3>
                   <p className="text-gray-600 text-sm">
-                    +91 9075010115
+                    +91 9763123699
                   </p>
                 </div>
               </div>
@@ -122,20 +121,7 @@ export default function ContactForm() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition disabled:bg-gray-50 disabled:cursor-not-allowed"
-                  placeholder="john@example.com"
-                />
-              </div>
+
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -147,7 +133,22 @@ export default function ContactForm() {
                   name="phone"
                   disabled={isSubmitting}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition disabled:bg-gray-50 disabled:cursor-not-allowed"
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 9763123699"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="address" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Address *
+                </label>
+                <textarea
+                  id="address"
+                  name="address"
+                  required
+                  rows={3}
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition resize-none disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  placeholder="123 Green Street, Pune"
                 />
               </div>
 
@@ -168,8 +169,8 @@ export default function ContactForm() {
 
               {message && (
                 <div className={`p-4 rounded-lg ${message.type === 'success'
-                    ? 'bg-green-50 text-green-700 border border-green-200'
-                    : 'bg-red-50 text-red-700 border border-red-200'
+                  ? 'bg-green-50 text-green-700 border border-green-200'
+                  : 'bg-red-50 text-red-700 border border-red-200'
                   }`}>
                   {message.text}
                 </div>

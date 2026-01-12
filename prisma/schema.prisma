@@ -10,8 +10,8 @@ datasource db {
 model ContactForm {
   id        String   @id @default(cuid())
   name      String
-  email     String
-  phone     String?
+  phone     String
+  address    String
   message   String
   createdAt DateTime @default(now())
 }

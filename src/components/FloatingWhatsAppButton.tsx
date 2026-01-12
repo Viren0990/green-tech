@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function FloatingWhatsAppButton() {
   return (
     <Link
-      href="https://wa.me/919075010115?text=Hi%20DMD%20Green%20Tech%2C%20I%20want%20to%20recycle%20my%20e-waste"
+      href="https://wa.me/919763123699?text=Hi%20DMD%20Green%20Tech%2C%20I%20want%20to%20recycle%20my%20e-waste"
       aria-label="Chat with us on WhatsApp"
       target="_blank"
       rel="noopener noreferrer"

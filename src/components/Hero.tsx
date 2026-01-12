@@ -9,11 +9,11 @@ export default function Hero() {
       {/* --- BACKGROUND ELEMENTS --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Mesh Gradient Base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-green-50 to-emerald-50" />
+        <div className="absolute inset-0 bg-linear-to-br from-green-50 via-green-50 to-emerald-50" />
 
         {/* Organic Blobs */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-green-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-x-1/3 -translate-y-1/4 animate-blob" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-green-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-x-1/2 translate-y-1/4 animate-blob animation-delay-2000" />
+        <div className="absolute top-0 right-0 w-200 h-200 bg-green-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-x-1/3 -translate-y-1/4 animate-blob" />
+        <div className="absolute bottom-0 left-0 w-150 h-150 bg-green-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-x-1/2 translate-y-1/4 animate-blob animation-delay-2000" />
 
         {/* Subtle Circuit Board Pattern Overlay */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
@@ -35,13 +35,13 @@ export default function Hero() {
             {/* Badge */}
             <div className="font-sans inline-flex items-center gap-2 bg-green-100/80 backdrop-blur-sm px-4 py-2 rounded-full border border-green-200 text-green-700 text-sm font-medium shadow-sm">
               <ShieldCheck size={16} />
-              <span>AUTHORIZED E-WASTE RECYCLER</span>
+              <span>AUTHORIZED E-WASTE REFURBISHER</span>
             </div>
 
             {/* Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-gray-900">
               Reviving Tech, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-green-600 to-teal-500">
                 Restoring Nature
               </span>
             </h1>
@@ -98,7 +98,7 @@ export default function Hero() {
               <img
                 src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800"
                 alt="Plant growing from e-waste"
-                className="w-full h-[450px] object-cover"
+                className="w-full h-112.5 object-cover"
               />
 
               {/* Bottom Card: Green Impact */}
@@ -109,22 +109,13 @@ export default function Hero() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">Green Impact</p>
-                    <p className="text-3xl font-bold text-gray-900">12,500+ <span className="text-lg font-normal text-gray-600">Trees Saved</span></p>
+                    <p className="text-3xl font-bold text-gray-900">2,500+ <span className="text-lg font-normal text-gray-600">Trees Planted</span></p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Floating Badge: ISO Certified (Top Right) */}
-            <div className="absolute top-8 -right-4 md:-right-8 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce-slow border border-gray-100">
-              <div className="bg-green-100 p-2 rounded-full">
-                <Award className="text-green-600 w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-xs text-gray-500 font-semibold">CERTIFIED</p>
-                <p className="text-sm font-bold text-gray-900">ISO 14001</p>
-              </div>
-            </div>
+            
 
             {/* Floating Decorative Leaf (Bottom Right) */}
             <div className="absolute -bottom-6 -right-6 text-green-500 opacity-20 transform rotate-45">

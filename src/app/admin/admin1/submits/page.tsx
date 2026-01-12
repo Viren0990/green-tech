@@ -49,7 +49,7 @@ export default async function Page() {
                                 <tr>
                                     <th scope="col" className="px-6 py-4 font-semibold">Date</th>
                                     <th scope="col" className="px-6 py-4 font-semibold">Name</th>
-                                    <th scope="col" className="px-6 py-4 font-semibold">Email</th>
+                                    <th scope="col" className="px-6 py-4 font-semibold">Address</th>
                                     <th scope="col" className="px-6 py-4 font-semibold">Phone</th>
                                     <th scope="col" className="px-6 py-4 font-semibold">Message</th>
                                 </tr>
@@ -67,9 +67,7 @@ export default async function Page() {
                                             {submit.name}
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4">
-                                            <a href={`mailto:${submit.email}`} className="text-green-600 hover:underline">
-                                                {submit.email}
-                                            </a>
+                                            {submit.address}
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4">
                                             {submit.phone ? (

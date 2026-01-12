@@ -34,7 +34,7 @@ export default function Footer() {
             <h3 className="font-bold text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li><Link href="/" className="hover:text-green-600 transition">Home</Link></li>
-              <li><Link href="/what-we-do" className="hover:text-green-600 transition">About Us</Link></li>
+              <li><Link href="/about-us" className="hover:text-green-600 transition">About Us</Link></li>
               <li><Link href="/what-we-do#core-services" className="hover:text-green-600 transition">Services</Link></li>
               <li><Link href="/posts" className="hover:text-green-600 transition">CSR Impact</Link></li>
             </ul>
@@ -61,13 +61,13 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-600">📞</span>
-                <a href="tel:+919876543210" className="hover:text-green-600 transition">
-                  +91 98765 43210
+                <a href="tel:+919763123699" className="hover:text-green-600 transition">
+                  +91 9763123699
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-600 mt-1">📍</span>
-                <span>Sector 62, Noida, Uttar Pradesh, India</span>
+                <span>Office No-03, Amaryllis Domkhel Rd, Wagholi, Pune, Maharashtra 412207</span>
               </li>
             </ul>
           </div>
