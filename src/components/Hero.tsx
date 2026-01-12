@@ -3,7 +3,7 @@ import { Leaf, Award, ShieldCheck, Check, CheckCircle } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="hero-font-reset relative min-h-screen overflow-hidden bg-green-50 pt-28 pb-12 flex items-center">
+    <section className="hero-font-reset relative min-h-screen overflow-hidden bg-green-50 pt-26 pb-12 flex items-center">
 
       {/* --- BACKGROUND ELEMENTS --- */}
       {/* ... (Background elements remain the same) ... */}
