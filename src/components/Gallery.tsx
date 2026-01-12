@@ -26,9 +26,7 @@ export default function Gallery() {
           <div className="absolute bottom-6 left-6 bg-green-500 text-white px-4 py-1 rounded-full text-sm">
             WORKSHOP
           </div>
-          <div className="absolute bottom-6 left-6 right-6 mt-12">
-            <h3 className="text-white font-semibold text-lg">Laptop Motherboard Repair</h3>
-          </div>
+          
         </div>
 
         {/* Top right image */}
