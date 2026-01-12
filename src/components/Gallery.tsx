@@ -16,7 +16,7 @@ export default function Gallery() {
 
       <div className="grid md:grid-cols-3 gap-4">
         {/* Large featured image - left */}
-        <div className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden h-[500px] relative group">
+        <div className="md:col-span-2 md:row-span-2 bg-linear-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden h-125 relative group">
           <div className="absolute inset-0 flex items-center justify-center text-white">
             <div className="text-center">
               <div className="text-6xl mb-4">🔧</div>
@@ -30,7 +30,7 @@ export default function Gallery() {
         </div>
 
         {/* Top right image */}
-        <div className="bg-gradient-to-br from-green-700 to-green-900 rounded-2xl overflow-hidden h-[242px] flex items-center justify-center">
+        <div className="bg-linear-to-br from-green-700 to-green-900 rounded-2xl overflow-hidden h-60.5 flex items-center justify-center">
           <div className="text-white text-center">
             <div className="text-5xl mb-3">💻</div>
             <p className="text-xs">Circuit boards stacked</p>
@@ -38,7 +38,7 @@ export default function Gallery() {
         </div>
 
         {/* Bottom right image */}
-        <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl overflow-hidden h-[242px] flex items-center justify-center">
+        <div className="bg-linear-to-br from-blue-700 to-blue-900 rounded-2xl overflow-hidden h-60.5 flex items-center justify-center">
           <div className="text-white text-center">
             <div className="text-5xl mb-3">📱</div>
             <p className="text-xs">Refurbished devices</p>

@@ -76,6 +76,7 @@ const bodoni = Bodoni_Moda({
   variable: '--font-bodoni',
 });
 import { Bodoni_Moda } from 'next/font/google';
+import FloatingWhatsAppButton from '../components/FloatingWhatsAppButton';
 
 export default function RootLayout({
   children,
@@ -123,7 +124,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+         <FloatingWhatsAppButton />
+      </body>
     </html>
   );
 }
