@@ -1,19 +1,19 @@
 export default function Team() {
   const team = [
     {
-      name: 'Rajesh Kumar',
+      name: 'Dhanaji Mahadev Dabade',
       role: 'Founder & CEO',
       description: 'A mechanical engineer with 15+ years of experience in waste management systems.',
       image: '👨‍💼'
     },
     {
-      name: 'Anita Desai',
+      name: 'Thrinag',
       role: 'Chief Operations Officer',
       description: 'Operations expert ensuring our facilities are implemented across facilities.',
       image: '👩‍💼'
     },
     {
-      name: 'Vikram Singh',
+      name: 'Vikas Jadhav',
       role: 'Head of Refurbishment',
       description: 'Tech enthusiast who leads our team and ensures dead tech comes back to life.',
       image: '👨‍🔧'

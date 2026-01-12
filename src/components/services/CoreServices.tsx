@@ -1,7 +1,7 @@
 import { Truck, Shield, Recycle, Smartphone } from 'lucide-react';
 import { Bodoni_Moda } from 'next/font/google';
 
-const bodoni = Bodoni_Moda({ 
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
@@ -11,23 +11,24 @@ export default function CoreServices() {
   const services = [
     {
       icon: Truck,
-      title: 'Logistics & Collection',
-      description: 'Seamless door-to-door pickup service across multiple cities. We handle the heavy lifting for bulk corporate e-waste with secure, tracked logistics.'
+      title: 'E-Waste Collection',
+      // Added details about convenience and professional handling
+      description: 'Seamless door-to-door pickup service tailored to your schedule. We professionally handle the heavy lifting and transportation for bulk corporate e-waste with secure, fully tracked logistics.'
     },
     {
       icon: Shield,
-      title: 'Secure Data Destruction',
-      description: 'Protect your sensitive data against unauthorized access. We use certified degaussing and physical destruction methods to ensure sensitive corporate data is irretrievable.'
-    },
-    {
-      icon: Recycle,
-      title: 'Eco-Friendly Recycling',
-      description: 'Zero-landfill policy. We dismantle devices to extract valuable metals like gold, silver, and copper, sending hazardous materials to specialized treatment facilities.'
+      title: 'Data Sanitization',
+      description: 'Protect your sensitive data against unauthorized access. We use certified data wiping and degaussing methods to ensure all corporate information is permanently irretrievable.'
     },
     {
       icon: Smartphone,
-      title: 'Device Restoration',
-      description: 'Extending product lifecycles. Viable devices like laptops and tablets are tested, refurbished, and restored for a second life, supporting the circular economy and digital inclusion.'
+      title: 'Refurbishment',
+      description: 'Extending product lifecycles. Viable devices like laptops and tablets are tested, repaired, and restored for a second life, supporting the circular economy and digital inclusion.'
+    },
+    {
+      icon: Recycle,
+      title: 'Recycling',
+      description: 'Zero-landfill policy. We responsibly dismantle end-of-life devices to extract valuable metals like gold, silver, and copper, sending hazardous materials to specialized treatment.'
     }
   ];
 
@@ -39,7 +40,7 @@ export default function CoreServices() {
             Our Core Services
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            We offer end-to-end solutions tailored for corporate entities, educational 
+            We offer end-to-end solutions tailored for corporate entities, educational
             institutions, and individuals looking to responsibly dispose of electronic assets.
           </p>
         </div>
@@ -48,7 +49,7 @@ export default function CoreServices() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="bg-white border-2 border-green-400 p-8 rounded-2xl hover:shadow-xl hover:border-green-500 transition-all group"
               >

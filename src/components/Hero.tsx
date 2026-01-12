@@ -1,21 +1,16 @@
-
 import Link from 'next/link';
-import { Leaf, Award, ShieldCheck, Check } from 'lucide-react';
+import { Leaf, Award, ShieldCheck, Check, CheckCircle } from 'lucide-react';
 
 export default function Hero() {
   return (
     <section className="hero-font-reset relative min-h-screen overflow-hidden bg-green-50 pt-28 pb-12 flex items-center">
 
       {/* --- BACKGROUND ELEMENTS --- */}
+      {/* ... (Background elements remain the same) ... */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Mesh Gradient Base */}
         <div className="absolute inset-0 bg-linear-to-br from-green-50 via-green-50 to-emerald-50" />
-
-        {/* Organic Blobs */}
         <div className="absolute top-0 right-0 w-200 h-200 bg-green-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-x-1/3 -translate-y-1/4 animate-blob" />
         <div className="absolute bottom-0 left-0 w-150 h-150 bg-green-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-x-1/2 translate-y-1/4 animate-blob animation-delay-2000" />
-
-        {/* Subtle Circuit Board Pattern Overlay */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
           <pattern id="circuit-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
             <path d="M10 10h10v10h-10z M30 30h40v10h-40z M50 50h10v40h-10z" fill="currentColor" />
@@ -27,33 +22,28 @@ export default function Hero() {
         </svg>
       </div>
 
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* --- LEFT CONTENT --- */}
+          {/* ... (Left content remains the same) ... */}
           <div className="space-y-8">
-            {/* Badge */}
             <div className="font-sans inline-flex items-center gap-2 bg-green-100/80 backdrop-blur-sm px-4 py-2 rounded-full border border-green-200 text-green-700 text-sm font-medium shadow-sm">
               <ShieldCheck size={16} />
               <span>AUTHORIZED E-WASTE REFURBISHER</span>
             </div>
-
-            {/* Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-gray-900">
               Reviving Tech, <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-green-600 to-teal-500">
                 Restoring Nature
               </span>
             </h1>
-
-            {/* Description */}
             <p className="text-gray-600 text-lg md:text-xl max-w-xl leading-relaxed">
               India's premier certified e-waste recycling and restoration service.
               We turn your obsolete electronics into resources, bridging the gap
               between technology and sustainability.
             </p>
-
-            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
@@ -69,8 +59,6 @@ export default function Hero() {
                 Learn More
               </Link>
             </div>
-
-            {/* --- NEW SECTION: Key Benefits --- */}
             <div className="hidden md:block pt-8 mt-4 border-t border-gray-200/60">
               <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-gray-600">
                 <span className="flex items-center gap-2">
@@ -87,7 +75,6 @@ export default function Hero() {
                 </span>
               </div>
             </div>
-
           </div>
 
           {/* --- RIGHT IMAGE CARD --- */}
@@ -100,6 +87,16 @@ export default function Hero() {
                 alt="Plant growing from e-waste"
                 className="w-full h-112.5 object-cover"
               />
+
+              {/* Top Right: MPCB Verified Badge (Redesigned) */}
+              <div className="absolute top-4 right-4 z-20">
+                <div className="inline-flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/40 shadow-sm">
+                  <CheckCircle className="text-green-600" size={18} />
+                  <span className="text-sm font-bold text-green-800 leading-none">
+                    MPCB Verified
+                  </span>
+                </div>
+              </div>
 
               {/* Bottom Card: Green Impact */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-green-50">
@@ -115,10 +112,8 @@ export default function Hero() {
               </div>
             </div>
 
-            
-
             {/* Floating Decorative Leaf (Bottom Right) */}
-            <div className="absolute -bottom-6 -right-6 text-green-500 opacity-20 transform rotate-45">
+            <div className="absolute -bottom-6 -right-6 text-green-500 opacity-20 transform rotate-45 pointer-events-none">
               <Leaf size={120} />
             </div>
 
