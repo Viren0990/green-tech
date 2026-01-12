@@ -1,9 +1,10 @@
+
 import Link from 'next/link';
 import { Leaf, Award, ShieldCheck, Check } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-green-50 pt-28 pb-12 flex items-center">
+    <section className="hero-font-reset relative min-h-screen overflow-hidden bg-green-50 pt-28 pb-12 flex items-center">
 
       {/* --- BACKGROUND ELEMENTS --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -32,7 +33,7 @@ export default function Hero() {
           {/* --- LEFT CONTENT --- */}
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-green-100/80 backdrop-blur-sm px-4 py-2 rounded-full border border-green-200 text-green-700 text-sm font-medium shadow-sm">
+            <div className="font-sans inline-flex items-center gap-2 bg-green-100/80 backdrop-blur-sm px-4 py-2 rounded-full border border-green-200 text-green-700 text-sm font-medium shadow-sm">
               <ShieldCheck size={16} />
               <span>AUTHORIZED E-WASTE RECYCLER</span>
             </div>

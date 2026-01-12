@@ -7,3 +7,16 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-bodoni), serif;
 }
+
+/* Hero-specific font reset - high specificity overrides Bodoni */
+.hero-font-reset,
+.hero-font-reset *,
+.hero-font-reset h1,
+.hero-font-reset h2,
+.hero-font-reset p,
+.hero-font-reset span,
+.hero-font-reset button,
+.hero-font-reset a {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+               'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+}
