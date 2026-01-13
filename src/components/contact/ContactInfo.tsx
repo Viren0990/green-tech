@@ -1,6 +1,6 @@
 import { Bodoni_Moda } from 'next/font/google';
 
-const bodoni = Bodoni_Moda({ 
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
@@ -49,10 +49,10 @@ export default function ContactInfo() {
               <span className="text-3xl">📜</span>
             </div>
             <h3 className={`${bodoni.className} text-xl font-bold text-gray-900 mb-3`}>
-              Green Certificate
+              Strong Compliances
             </h3>
             <p className="text-gray-600 text-sm">
-              Receive an official certificate confirming your contribution to sustainability.
+              We adhere to strict compliance standards to ensure safe and responsible e-waste management.
             </p>
           </div>
         </div>
