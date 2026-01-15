@@ -41,16 +41,17 @@ export default function MissionVision() {
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed mb-8">
-                                To revolutionize e-waste management in India by providing secure, transparent, and eco-friendly
-                                disposal and recycling solutions. We aim to bridge the gap between technology consumption and
-                                sustainable disposal, ensuring zero landfill waste while extracting maximum value from retired IT assets.
+                                To protect the environment through the application of technology and efficient resource management.
+                                We provide an ethical, socially responsible framework for hazardous recycling, offering affordable
+                                services to encourage responsible habits. We ensure all materials are processed by state-approved
+                                vendors within India—never shipped overseas.
                             </p>
 
                             <ul className="space-y-4">
                                 {[
-                                    { icon: Leaf, text: "Zero landfill commitment" },
-                                    { icon: Recycle, text: "Responsible recycling practices" },
-                                    { icon: Globe, text: "Global environmental standards" }
+                                    { icon: Leaf, text: "Ethical & socially responsible framework" },
+                                    { icon: Recycle, text: "Develop Multi Metal Extraction Technology" },
+                                    { icon: Globe, text: "Metals Refining Development" }
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center gap-3 text-gray-700">
                                         <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0">
@@ -79,16 +80,17 @@ export default function MissionVision() {
                             </h3>
 
                             <p className="text-gray-300 leading-relaxed mb-8">
-                                To become India's most trusted partner in the circular economy ecosystem, creating a sustainable
-                                future where electronic waste is viewed not as trash, but as a valuable resource. We envision
-                                a cleaner India driven by technological innovation and environmental consciousness.
+                                To trigger significant industrial and economic development across India and the globe by
+                                synergizing with organizations to overcome recycling challenges. We prioritize waste prevention,
+                                preparation for reuse, and resource utilization to drastically minimize the extraction of
+                                raw materials from the earth.
                             </p>
 
                             <ul className="space-y-4">
                                 {[
-                                    { icon: Lightbulb, text: "Innovation in recycling tech" },
-                                    { icon: Globe, text: "Pan-India sustainable impact" },
-                                    { icon: Leaf, text: "Circular economy leadership" }
+                                    { icon: Globe, text: "Pan-India & Global influence" },
+                                    { icon: Lightbulb, text: "Precious Metal recovery with low carbon emission for sustainable future" },
+                                    { icon: Leaf, text: "Prioritizing prevention & reuse" }
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center gap-3 text-gray-200">
                                         <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center shrink-0">

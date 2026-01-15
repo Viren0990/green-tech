@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import hero2 from '@/src/images/hero2.webp';
+import Image from 'next/image';
 
 export default function Story() {
   return (
@@ -8,9 +10,9 @@ export default function Story() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" 
-              alt="Team working on electronics"
+            <Image
+              src={hero2}
+              alt="From nature to technology - The DMD Story"
               className="w-full h-[500px] object-cover"
             />
           </div>
@@ -18,31 +20,33 @@ export default function Story() {
           {/* Content */}
           <div className="space-y-6">
             <h2 className="text-4xl font-bold text-gray-900">Our Story</h2>
-            
+
             <p className="text-gray-600 leading-relaxed">
-              Bridging the gap between technology and sustainability in India.
+              <strong>Forged in resilience, driven by nature.</strong>
             </p>
-            
+
             <p className="text-gray-600 leading-relaxed">
-              Founded in 2018, DMD Green Tech Revive started with a simple mission: to 
-              turn e-waste into an opportunity. We realized that millions of devices are 
-              discarded annually, leading to toxic waste and lost resources.
+              Our roots are deeply embedded in the drought-stricken soils of rural Maharashtra.
+              Witnessing the fragility of agrarian life taught us a harsh but vital lesson:
+              resources are finite, and the Earth demands respect. This ethos traveled with us
+              to the mineral-rich valleys of Uttarakhand, where we immersed ourselves in the
+              precision of gemology and the study of Earth's natural treasures.
             </p>
-            
+
             <p className="text-gray-600 leading-relaxed">
-              Today, we operate a state-of-the-art facility in Bangalore, processing 
-              thousands of devices monthly. From responsible recycling to refurbishing 
-              and reselling electronics, we reduce the demand for new manufacturing, 
-              directly contributing to a circular economy.
+              There, amidst the reverence for precious minerals, we recognized a devastating paradox.
+              While humanity mined the earth for gold, it was simultaneously burying value back into
+              the ground in the form of toxic e-waste. We realized that true environmental stewardship
+              meant mining the "urban mine"—recovering value from what society discards.
             </p>
-            
-            <Link 
-              href="/story"
-              className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-4 transition-all"
-            >
-              Read full story
-              <ArrowRight size={20} />
-            </Link>
+
+            <p className="text-gray-600 leading-relaxed">
+              DMD Green Tech Revive was born from this intersection of nature and necessity.
+              We are not just a recycling facility; we are a response to an environmental crisis,
+              applying the precision of gemology to the chaos of waste management to heal the planet.
+            </p>
+
+
           </div>
         </div>
       </div>

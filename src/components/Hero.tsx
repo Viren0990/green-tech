@@ -3,7 +3,7 @@ import { Leaf, Award, ShieldCheck, Check, CheckCircle } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="hero-font-reset relative min-h-screen overflow-hidden bg-green-50 pt-26 pb-12 flex items-center">
+    <section className="hero-font-reset relative min-h-screen overflow-hidden bg-green-50 pt-26  pb-12 flex items-center">
 
       {/* --- BACKGROUND ELEMENTS --- */}
       {/* ... (Background elements remain the same) ... */}
@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="space-y-8">
             <div className="font-sans inline-flex items-center gap-2 bg-green-100/80 backdrop-blur-sm px-4 py-2 rounded-full border border-green-200 text-green-700 text-sm font-medium shadow-sm">
               <ShieldCheck size={16} />
-              <span>AUTHORIZED E-WASTE REFURBISHER</span>
+              <span>AUTHORIZED E-WASTE REFURBISHER AND RECYCLER</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-gray-900">
               Reviving Tech, <br />

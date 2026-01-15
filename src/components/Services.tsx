@@ -1,17 +1,18 @@
-import { Trash2, Shield, Package, Truck } from 'lucide-react';
+import { Trash2, Shield, Package, Truck, ArrowRight } from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
       icon: Trash2,
       title: 'E-Waste Collection',
-      description: 'We collect all types of electronic waste from your old electronics, ensuring they don\'t end up in landfills.'
+      description: 'We provide MPCB & CPCB-compliant e-waste collection with safe handling, secure transportation and environmentally responsible disposal.'
     },
     {
       icon: Shield,
-      title: 'Data Destruction',
-      description: 'Certified data wiping and secure destruction services to protect your privacy and maintain security.'
+      title: 'Data Sanitization',
+      description: 'Secure, certified data sanitization to permanently remove sensitive information and keep your devices compliant and breach-free.'
     },
+
     {
       icon: Package,
       title: 'Refurbished Sales',
@@ -25,15 +26,15 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Sustainable Solutions for Your E-Waste
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+            Sustainable Solutions for Your <span className="text-green-600">E-Waste</span>
           </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            We provide end-to-end electronic waste management services tailored for 
-            businesses and individuals.
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            We provide end-to-end electronic waste management services tailored for
+            businesses and individuals, ensuring a greener future.
           </p>
         </div>
 
@@ -41,19 +42,25 @@ export default function Services() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div 
+              <div
                 key={index}
-                className="bg-white p-8 rounded-2xl hover:shadow-xl transition-shadow"
+                className="group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="text-green-600" size={24} />
+                {/* Decorative circle */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500 ease-out"></div>
+
+                <div className="w-14 h-14  bg-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-50 transition-colors duration-300 relative z-10">
+                  <Icon className=" text-white group-hover:text-green-600 transition-colors duration-300" size={28} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+
+                <h3 className="text-xl font-bold text-gray-900 mb-3 relative z-10">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+
+                <p className="text-gray-500 text-sm leading-relaxed mb-6 relative z-10">
                   {service.description}
                 </p>
+
               </div>
             );
           })}

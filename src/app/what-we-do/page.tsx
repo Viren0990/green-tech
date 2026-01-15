@@ -32,10 +32,10 @@ export default function WhatWeDoPage() {
     <>
       <Navbar />
       <main>
-    
+
         <CoreServices />
         <ProcessSection />
-        
+
       </main>
       <Footer />
     </>

@@ -14,11 +14,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-3">
             <div className="w-16 h-14 rounded-lg items-center justify-center">
               <Image src={logo} alt="dd" />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">DMD <span className="text-green-600 font-bold">Greentech</span> Revive</span>
+            <span className="font-semibold text-gray-900 text-xl">DMD <span className="text-green-600 font-bold">Greentech</span> Revive</span>
           </Link>
 
           {/* Desktop Navigation */}

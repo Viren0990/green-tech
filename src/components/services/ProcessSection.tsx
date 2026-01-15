@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 // Updated imports for the new workflow steps
 import { ClipboardCheck, Truck, Wrench, ShieldCheck, Recycle, Award } from 'lucide-react';
+import processImage from '@/src/images/service1.webp';
 
 const steps = [
   {
@@ -13,23 +14,23 @@ const steps = [
   },
   {
     id: 2,
-    title: "2. Logistic Support",
-    description: "Optimizing the movement and tracking of e-waste from collection points to processing facilities is crucial for an efficient and sustainable recycling operation.",
-    icon: Truck,
-    variant: "middle"
-  },
-  {
-    id: 3,
-    title: "3. Segregation, Dismantling & Refurbishment",
+    title: "2. Segregation, Dismantling & Refurbishment",
     description: "Effective e-waste management involves meticulous segregation and dismantling to recover valuable materials, enabling refurbishment for a renewed life.",
     icon: Wrench,
     variant: "middle"
   },
   {
-    id: 4,
-    title: "4. Data Sanitization",
+    id: 3,
+    title: "3. Data Sanitization",
     description: "Securely erasing all sensitive information from a device before its disposal is the crucial final step in the data sanitization process.",
     icon: ShieldCheck,
+    variant: "middle"
+  },
+  {
+    id: 4,
+    title: "4. Logistic Support",
+    description: "Optimizing the movement and tracking of e-waste from collection points to processing facilities is crucial for an efficient and sustainable recycling operation.",
+    icon: Truck,
     variant: "middle"
   },
   {
@@ -70,9 +71,12 @@ export default function ProcessSection() {
 
             <div className="relative rounded-xl overflow-hidden shadow-lg h-48 md:h-80 w-full bg-slate-100">
               {/* If you want to use the image you uploaded, import it and place it here */}
-              <div className="bg-green-800 h-full w-full flex items-center justify-center">
-                <span className="text-white/50 font-bold">Process Image</span>
-              </div>
+              <Image
+                src={processImage}
+                alt="Process Image"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
