@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 
 export async function createPost(formData: FormData) {
   const password = formData.get('password') as string;
-  
+
   // Verify password
   if (password !== process.env.ADMIN_PASSWORD) {
     return { success: false, error: 'Invalid password. Access denied.' };
@@ -27,6 +27,10 @@ export async function createPost(formData: FormData) {
     if (!Array.isArray(images) || images.length === 0) {
       return { success: false, error: 'Please upload at least one image.' };
     }
+
+    if (images.length > 15) {
+      return { success: false, error: 'Maximum 15 images allowed per post.' };
+    }
   } catch (error) {
     return { success: false, error: 'Invalid image data.' };
   }
@@ -43,7 +47,7 @@ export async function createPost(formData: FormData) {
 
     // Revalidate posts page to show new post
     revalidatePath('/posts');
-    
+
     return { success: true, post };
   } catch (error) {
     console.error('Create post error:', error);

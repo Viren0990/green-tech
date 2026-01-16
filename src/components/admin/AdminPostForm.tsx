@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { createPost } from '@/src/actions/posts';
 import { Upload, X, Image as ImageIcon, Loader2 } from 'lucide-react';
+import imageCompression from 'browser-image-compression';
 
 interface SelectedImage {
   file: File;
@@ -24,7 +25,7 @@ export default function AdminPostForm() {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
-    // Limit to 5 images total
+    // Limit to 15 images total
     if (selectedImages.length + files.length > 15) {
       setMessage({ type: 'error', text: 'Maximum 15 images allowed per post.' });
       return;
@@ -39,7 +40,7 @@ export default function AdminPostForm() {
     }));
 
     setSelectedImages([...selectedImages, ...newImages]);
-    
+
     // Clear input so same file can be selected again
     e.target.value = '';
   }
@@ -56,7 +57,7 @@ export default function AdminPostForm() {
   // Upload images to Cloudinary and then create post
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault(); // Prevent default form submission
-    
+
     if (selectedImages.length === 0) {
       setMessage({ type: 'error', text: 'Please select at least one image.' });
       return;
@@ -72,7 +73,27 @@ export default function AdminPostForm() {
       // Step 1: Upload all images to Cloudinary
       const uploadPromises = selectedImages.map(async (selectedImage) => {
         const imageFormData = new FormData();
-        imageFormData.append('file', selectedImage.file);
+
+        let fileToUpload = selectedImage.file;
+
+        // Check file size (2MB = 2 * 1024 * 1024 bytes)
+        if (fileToUpload.size > 2 * 1024 * 1024) {
+          console.log(`Compressing image: ${fileToUpload.name} (${(fileToUpload.size / 1024 / 1024).toFixed(2)} MB)`);
+          try {
+            const options = {
+              maxSizeMB: 1,
+              maxWidthOrHeight: 1920,
+              useWebWorker: true,
+            };
+            fileToUpload = await imageCompression(fileToUpload, options);
+            console.log(`Compressed size: ${(fileToUpload.size / 1024 / 1024).toFixed(2)} MB`);
+          } catch (error) {
+            console.error('Compression failed:', error);
+            // Continue with original file if compression fails
+          }
+        }
+
+        imageFormData.append('file', fileToUpload);
         imageFormData.append('upload_preset', process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!);
 
         const response = await fetch(
@@ -105,10 +126,10 @@ export default function AdminPostForm() {
 
       if (result.success) {
         setMessage({ type: 'success', text: 'Post created successfully!' });
-        
+
         // Cleanup: Revoke all preview URLs
         selectedImages.forEach(img => URL.revokeObjectURL(img.preview));
-        
+
         // Reset form using stored reference
         form.reset();
         setSelectedImages([]);
@@ -117,9 +138,9 @@ export default function AdminPostForm() {
       }
     } catch (error) {
       console.error('Error:', error);
-      setMessage({ 
-        type: 'error', 
-        text: 'Failed to upload images or create post. Please try again.' 
+      setMessage({
+        type: 'error',
+        text: 'Failed to upload images or create post. Please try again.'
       });
     } finally {
       setIsSubmitting(false);
@@ -181,16 +202,15 @@ export default function AdminPostForm() {
         <label className="block text-sm font-semibold text-gray-700 mb-2">
           Select Images (Max 15) *
         </label>
-        
+
         {/* Select Button */}
         <div className="mb-4">
-          <label 
+          <label
             htmlFor="image-select"
-            className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-gray-300 rounded-lg transition ${
-              selectedImages.length >= 5 || isSubmitting
-                ? 'opacity-50 cursor-not-allowed' 
-                : 'hover:border-green-500 cursor-pointer'
-            }`}
+            className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-gray-300 rounded-lg transition ${selectedImages.length >= 15 || isSubmitting
+              ? 'opacity-50 cursor-not-allowed'
+              : 'hover:border-green-500 cursor-pointer'
+              }`}
           >
             <ImageIcon size={20} />
             <span>Choose Images</span>
@@ -201,15 +221,15 @@ export default function AdminPostForm() {
             accept="image/*"
             multiple
             onChange={handleImageSelect}
-            disabled={selectedImages.length >= 5 || isSubmitting}
+            disabled={selectedImages.length >= 15 || isSubmitting}
             className="hidden"
           />
           <p className="text-sm text-gray-500 mt-2">
-            {selectedImages.length}/5 images selected
+            {selectedImages.length}/15 images selected
           </p>
           <p className="text-xs text-gray-400 mt-1">
-            {isSubmitting 
-              ? 'Uploading images...' 
+            {isSubmitting
+              ? 'Uploading images...'
               : 'Images will be uploaded when you click "Publish Post"'
             }
           </p>
@@ -275,11 +295,10 @@ export default function AdminPostForm() {
 
       {/* Messages */}
       {message && (
-        <div className={`p-4 rounded-lg ${
-          message.type === 'success' 
-            ? 'bg-green-50 text-green-700 border border-green-200' 
-            : 'bg-red-50 text-red-700 border border-red-200'
-        }`}>
+        <div className={`p-4 rounded-lg ${message.type === 'success'
+          ? 'bg-green-50 text-green-700 border border-green-200'
+          : 'bg-red-50 text-red-700 border border-red-200'
+          }`}>
           {message.text}
         </div>
       )}
