@@ -9,7 +9,7 @@ export default function Story() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
+          <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
             <Image
               src={hero2}
               alt="From nature to technology - The DMD Story"
@@ -18,35 +18,29 @@ export default function Story() {
           </div>
 
           {/* Content */}
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-gray-900">Our Story</h2>
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-bold text-gray-900">Our Story</h2>
+              <div className="w-20 h-1.5 bg-green-600 rounded-full"></div>
+            </div>
 
-            <p className="text-gray-600 leading-relaxed">
-              <strong>Forged in resilience, driven by nature.</strong>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              It started with a simple act of hope—planting 50 coconut saplings during a severe drought. That moment sparked a lifelong realization: nature gives back only when we protect it.
             </p>
 
-            <p className="text-gray-600 leading-relaxed">
-              Our roots are deeply embedded in the drought-stricken soils of rural Maharashtra.
-              Witnessing the fragility of agrarian life taught us a harsh but vital lesson:
-              resources are finite, and the Earth demands respect. This ethos traveled with us
-              to the mineral-rich valleys of Uttarakhand, where we immersed ourselves in the
-              precision of gemology and the study of Earth's natural treasures.
+            <p className="text-gray-600 leading-relaxed text-lg">
+              From the mineral-rich landscapes of India to witnessing the global impact of waste, our founder's journey bridged the gap between precious resources and neglected e-waste. DMD Greentech Revive was born from the conviction that waste is not an end, but the beginning of a circular economy. We apply precision and care to revive value, protecting our planet for future generations.
             </p>
 
-            <p className="text-gray-600 leading-relaxed">
-              There, amidst the reverence for precious minerals, we recognized a devastating paradox.
-              While humanity mined the earth for gold, it was simultaneously burying value back into
-              the ground in the form of toxic e-waste. We realized that true environmental stewardship
-              meant mining the "urban mine"—recovering value from what society discards.
-            </p>
-
-            <p className="text-gray-600 leading-relaxed">
-              DMD Green Tech Revive was born from this intersection of nature and necessity.
-              We are not just a recycling facility; we are a response to an environmental crisis,
-              applying the precision of gemology to the chaos of waste management to heal the planet.
-            </p>
-
-
+            <div className="pt-4">
+              <Link
+                href="/about-us"
+                className="inline-flex items-center space-x-2 text-green-600 font-bold hover:text-green-700 transition-colors group"
+              >
+                <span className="text-lg">Read Our Full Journey</span>
+                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

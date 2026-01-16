@@ -1,6 +1,7 @@
 import Navbar from '@/src/components//Navbar';
 import Footer from '@/src/components/Footer';
 import StoryHero from '@/src/components/about/StoryHero';
+import FullStory from '@/src/components/about/FullStory';
 import Timeline from '@/src/components/about/Timeline';
 import Team from '@/src/components/about/Team';
 import MissionVision from '@/src/components/about/MissionVision';
@@ -33,6 +34,7 @@ export default function StoryPage() {
       <Navbar />
       <main>
         <StoryHero />
+        <FullStory />
         <MissionVision />
 
 
