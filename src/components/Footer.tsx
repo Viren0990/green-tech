@@ -10,11 +10,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 bg-white p-4 rounded-lg">
               <div className="w-8 h-8  rounded-lg flex items-center justify-center">
                 <Image src={logo} alt="dmd logo" />
               </div>
-              <span className="font-semibold text-white">DMD Green Tech</span>
+              <span className="font-semibold text-green-800">DMD Green Tech</span>
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Empowering circular economy through responsible e-waste recycling and refurbishment.
@@ -48,10 +48,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="hover:text-green-500 transition">Data Destruction</Link></li>
-              <li><Link href="#" className="hover:text-green-500 transition">E-Waste Disposal</Link></li>
-              <li><Link href="#" className="hover:text-green-500 transition">IT Asset Recovery</Link></li>
-              <li><Link href="#" className="hover:text-green-500 transition">Refurbished Sales</Link></li>
+              <li><Link href="#" className="hover:text-green-500 transition">E-Waste Collection</Link></li>
+              <li><Link href="#" className="hover:text-green-500 transition">Data Sanitization</Link></li>
+              <li><Link href="#" className="hover:text-green-500 transition">Refurbishment</Link></li>
+              <li><Link href="#" className="hover:text-green-500 transition">Recycling</Link></li>
             </ul>
           </div>
 

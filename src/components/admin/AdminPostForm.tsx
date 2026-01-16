@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { createPost } from '@/src/actions/posts';
-import { Upload, X, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { Upload, X, Image as ImageIcon, Loader2, Eye, EyeOff } from 'lucide-react';
 import imageCompression from 'browser-image-compression';
 
 interface SelectedImage {
@@ -19,6 +19,7 @@ export default function AdminPostForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mainImage, setMainImage] = useState<SelectedImage | null>(null);
   const [selectedImages, setSelectedImages] = useState<SelectedImage[]>([]);
+  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   // Handle main image selection
@@ -359,15 +360,24 @@ export default function AdminPostForm() {
         <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
           Admin Password *
         </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          required
-          disabled={isSubmitting}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition disabled:bg-gray-50 disabled:cursor-not-allowed"
-          placeholder="Enter admin password"
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            required
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition disabled:bg-gray-50 disabled:cursor-not-allowed pr-12"
+            placeholder="Enter admin password"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 hover:text-green-600 transition"
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
+        </div>
         <p className="text-sm text-gray-500 mt-1">
           Required for verification
         </p>

@@ -14,9 +14,9 @@ const steps = [
   },
   {
     id: 2,
-    title: "2. Segregation, Dismantling & Refurbishment",
-    description: "Effective e-waste management involves meticulous segregation and dismantling to recover valuable materials, enabling refurbishment for a renewed life.",
-    icon: Wrench,
+    title: "2. Logistic Support",
+    description: "Optimizing the movement and tracking of e-waste from collection points to processing facilities is crucial for an efficient and sustainable recycling operation.",
+    icon: Truck,
     variant: "middle"
   },
   {
@@ -28,10 +28,10 @@ const steps = [
   },
   {
     id: 4,
-    title: "4. Logistic Support",
-    description: "Optimizing the movement and tracking of e-waste from collection points to processing facilities is crucial for an efficient and sustainable recycling operation.",
-    icon: Truck,
-    variant: "middle"
+    title: "4. Segregation, Dismantling & Refurbishment",
+    description: "Effective e-waste management involves meticulous segregation and dismantling to recover valuable materials, enabling refurbishment for a renewed life.",
+    icon: Wrench,
+    variant: "middle",
   },
   {
     id: 5,
