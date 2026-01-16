@@ -15,13 +15,13 @@ export default function Services() {
 
     {
       icon: Package,
-      title: 'Refurbished Sales',
-      description: 'High-quality refurbished laptops available at affordable prices, extending the lifecycle of tech devices.'
+      title: 'Refurbishment',
+      description: 'We provide structured IT asset refurbishment services to restore usability and value. All refurbishment activities are carried out in strict compliance with MPCB and CPCB rules and regulations, enabling responsible reuse and converting end-of-life assets into circular Economy.'
     },
     {
       icon: Truck,
       title: 'Corporate Pickup',
-      description: 'Comprehensive pickup solutions for enterprises with compliance reporting and certificate issuance.'
+      description: 'We offer comprehensive pickup solutions for enterprises with compliance reporting and certificate issuance.'
     }
   ];
 
