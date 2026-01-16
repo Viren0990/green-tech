@@ -34,12 +34,12 @@ export default function StoryPage() {
       <Navbar />
       <main>
         <StoryHero />
+        <Team />
         <FullStory />
         <MissionVision />
 
 
         <Timeline />
-        <Team />
 
       </main>
       <Footer />
