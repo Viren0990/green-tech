@@ -4,7 +4,7 @@ import timelineImage from '@/src/images/w5.jpg';
 
 const milestones = [
   {
-    year: '2017',
+    year: '2018',
     subtitle: 'Research & Framework',
     description: "The journey began with intensive study and the conceptualization of a Common Facility Center. We focused on the intellectual groundwork, securing copyrights for our research books and signing critical MOUs and MOAs to establish a legal framework for the circular economy.",
     icon: BookOpen,

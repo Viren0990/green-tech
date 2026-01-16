@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function FullStory() {
     return (
-        <section className="py-16 bg-white" id="full-story">
+        <section className="py-10 bg-white" id="full-story">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="prose prose-lg mx-auto text-gray-600">
                     <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -48,6 +48,7 @@ export default function FullStory() {
                     </p>
                 </div>
             </div>
+            <div className='h-0.5 bg-gray-200 w-full'></div>
         </section>
     );
 }
