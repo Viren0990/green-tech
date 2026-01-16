@@ -10,11 +10,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4 bg-white p-4 rounded-lg">
-              <div className="w-8 h-8  rounded-lg flex items-center justify-center">
+            <div className="flex items-center gap-2 mb-4 p-4 rounded-lg">
+              <div className="w-12 h-12  rounded-lg flex items-center justify-center">
                 <Image src={logo} alt="dmd logo" />
               </div>
-              <span className="font-semibold text-green-800">DMD Green Tech</span>
+              <span className="font-semibold text-white">DMD Green Tech</span>
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Empowering circular economy through responsible e-waste recycling and refurbishment.
