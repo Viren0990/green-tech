@@ -20,8 +20,8 @@ export default function Services() {
     },
     {
       icon: Truck,
-      title: 'Corporate Pickup',
-      description: 'We offer comprehensive pickup solutions for enterprises with compliance reporting and certificate issuance.'
+      title: 'Recycling',
+      description: 'End-to-end e-waste recycling through authorized facilities, ensuring environmentally sound processing. We issue complete post-recycling compliance documentation, enabling organizations to meet audit, legal, and environmental compliance obligations.'
     }
   ];
 
