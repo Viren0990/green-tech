@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import galleryImage from '@/src/images/gal5.webp';
+import galleryImage from '@/src/images/w2.jpg';
 import galleryImage2 from '@/src/images/qq.webp';
 import galleryImage3 from '@/src/images/ppp.webp';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 // Updated imports for the new workflow steps
 import { ClipboardCheck, Truck, Wrench, ShieldCheck, Recycle, Award } from 'lucide-react';
-import processImage from '@/src/images/service1.webp';
+import processImage from '@/src/images/w3.jpg';
 
 const steps = [
   {

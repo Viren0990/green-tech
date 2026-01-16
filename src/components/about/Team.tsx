@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import teamImage2 from '@/src/images/2.webp';
+import teamImage2 from '@/src/images/pp.jpg';
 
 export default function Team() {
   const founder = {

@@ -1,6 +1,6 @@
 import { BookOpen, Building2, Sprout, Truck, Megaphone, Handshake } from 'lucide-react';
 import Image from 'next/image';
-import timelineImage from '@/src/images/hero4.webp';
+import timelineImage from '@/src/images/w5.jpg';
 
 const milestones = [
   {
