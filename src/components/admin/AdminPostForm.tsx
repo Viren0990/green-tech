@@ -17,17 +17,43 @@ interface UploadedImage {
 
 export default function AdminPostForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mainImage, setMainImage] = useState<SelectedImage | null>(null);
   const [selectedImages, setSelectedImages] = useState<SelectedImage[]>([]);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
-  // Handle image selection (just preview, don't upload yet)
+  // Handle main image selection
+  async function handleMainImageSelect(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 20 * 1024 * 1024) { // 20MB limit hard stop before compression attempt
+      setMessage({ type: 'error', text: 'Main image is too large (max 20MB).' });
+      return;
+    }
+
+    setMainImage({
+      file,
+      preview: URL.createObjectURL(file)
+    });
+    setMessage(null);
+    e.target.value = '';
+  }
+
+  function removeMainImage() {
+    if (mainImage) {
+      URL.revokeObjectURL(mainImage.preview);
+      setMainImage(null);
+    }
+  }
+
+  // Handle gallery image selection
   function handleImageSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
     // Limit to 15 images total
     if (selectedImages.length + files.length > 15) {
-      setMessage({ type: 'error', text: 'Maximum 15 images allowed per post.' });
+      setMessage({ type: 'error', text: 'Maximum 15 gallery images allowed per post.' });
       return;
     }
 
@@ -54,12 +80,37 @@ export default function AdminPostForm() {
     setMessage(null);
   }
 
+  async function compressIfNeeded(file: File): Promise<File> {
+    if (file.size > 2 * 1024 * 1024) {
+      console.log(`Compressing image: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`);
+      try {
+        const options = {
+          maxSizeMB: 1,
+          maxWidthOrHeight: 1920,
+          useWebWorker: true,
+        };
+        const compressed = await imageCompression(file, options);
+        console.log(`Compressed size: ${(compressed.size / 1024 / 1024).toFixed(2)} MB`);
+        return compressed;
+      } catch (error) {
+        console.error('Compression failed:', error);
+        return file;
+      }
+    }
+    return file;
+  }
+
   // Upload images to Cloudinary and then create post
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault(); // Prevent default form submission
 
+    if (!mainImage) {
+      setMessage({ type: 'error', text: 'Please select a main image.' });
+      return;
+    }
+
     if (selectedImages.length === 0) {
-      setMessage({ type: 'error', text: 'Please select at least one image.' });
+      setMessage({ type: 'error', text: 'Please select at least one gallery image.' });
       return;
     }
 
@@ -70,56 +121,32 @@ export default function AdminPostForm() {
     const form = e.currentTarget; // Store reference before async
 
     try {
-      // Step 1: Upload all images to Cloudinary
-      const uploadPromises = selectedImages.map(async (selectedImage) => {
+      // Helper to upload a single file
+      const uploadFile = async (file: File) => {
+        const compressedFile = await compressIfNeeded(file);
         const imageFormData = new FormData();
-
-        let fileToUpload = selectedImage.file;
-
-        // Check file size (2MB = 2 * 1024 * 1024 bytes)
-        if (fileToUpload.size > 2 * 1024 * 1024) {
-          console.log(`Compressing image: ${fileToUpload.name} (${(fileToUpload.size / 1024 / 1024).toFixed(2)} MB)`);
-          try {
-            const options = {
-              maxSizeMB: 1,
-              maxWidthOrHeight: 1920,
-              useWebWorker: true,
-            };
-            fileToUpload = await imageCompression(fileToUpload, options);
-            console.log(`Compressed size: ${(fileToUpload.size / 1024 / 1024).toFixed(2)} MB`);
-          } catch (error) {
-            console.error('Compression failed:', error);
-            // Continue with original file if compression fails
-          }
-        }
-
-        imageFormData.append('file', fileToUpload);
+        imageFormData.append('file', compressedFile);
         imageFormData.append('upload_preset', process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!);
 
         const response = await fetch(
           `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
-          {
-            method: 'POST',
-            body: imageFormData
-          }
+          { method: 'POST', body: imageFormData }
         );
 
-        if (!response.ok) {
-          throw new Error('Failed to upload image to Cloudinary');
-        }
+        if (!response.ok) throw new Error('Failed to upload image to Cloudinary');
+        return await response.json();
+      };
 
-        const data = await response.json();
-        return {
-          url: data.secure_url,
-          publicId: data.public_id
-        };
-      });
+      // Step 1: Upload Main Image
+      const mainImageData = await uploadFile(mainImage!.file);
+      formData.append('mainImage', mainImageData.secure_url);
 
-      const uploadedImages: UploadedImage[] = await Promise.all(uploadPromises);
+      // Step 2: Upload Gallery Images
+      const galleryUploadPromises = selectedImages.map(img => uploadFile(img.file));
+      const galleryUploadedData = await Promise.all(galleryUploadPromises);
 
-      // Step 2: Add uploaded image URLs to form data
-      const imageUrls = uploadedImages.map(img => img.url);
-      formData.append('images', JSON.stringify(imageUrls));
+      const galleryUrls = galleryUploadedData.map(data => data.secure_url);
+      formData.append('images', JSON.stringify(galleryUrls));
 
       // Step 3: Create post with server action
       const result = await createPost(formData);
@@ -127,11 +154,13 @@ export default function AdminPostForm() {
       if (result.success) {
         setMessage({ type: 'success', text: 'Post created successfully!' });
 
-        // Cleanup: Revoke all preview URLs
+        // Cleanup
+        if (mainImage) URL.revokeObjectURL(mainImage.preview);
         selectedImages.forEach(img => URL.revokeObjectURL(img.preview));
 
-        // Reset form using stored reference
+        // Reset
         form.reset();
+        setMainImage(null);
         setSelectedImages([]);
       } else {
         setMessage({ type: 'error', text: result.error || 'Failed to create post.' });
@@ -197,10 +226,61 @@ export default function AdminPostForm() {
         />
       </div>
 
-      {/* Image Selection */}
+      {/* Main Image Selection */}
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-2">
-          Select Images (Max 15) *
+          Main Image *
+        </label>
+
+        {!mainImage ? (
+          <div className="mb-4">
+            <label
+              htmlFor="main-image-select"
+              className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-gray-300 rounded-lg transition ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:border-green-500 cursor-pointer'
+                }`}
+            >
+              <ImageIcon size={20} />
+              <span>Choose Main Image</span>
+            </label>
+            <input
+              type="file"
+              id="main-image-select"
+              accept="image/*"
+              onChange={handleMainImageSelect}
+              disabled={isSubmitting}
+              className="hidden"
+            />
+          </div>
+        ) : (
+          <div className="relative group w-fit">
+            <div className="w-48 aspect-video rounded-lg overflow-hidden bg-gray-100 border-2 border-gray-200">
+              <img
+                src={mainImage.preview}
+                alt="Main Preview"
+                className="w-full h-full object-cover"
+              />
+              {isSubmitting && (
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <Loader2 className="animate-spin text-white" size={24} />
+                </div>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={removeMainImage}
+              disabled={isSubmitting}
+              className="absolute top-2 right-2 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <X size={16} />
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Gallery Image Selection */}
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Gallery Images (Max 15) *
         </label>
 
         {/* Select Button */}
@@ -306,7 +386,7 @@ export default function AdminPostForm() {
       {/* Submit Button */}
       <button
         type="submit"
-        disabled={isSubmitting || selectedImages.length === 0}
+        disabled={isSubmitting || !mainImage || selectedImages.length === 0}
         className="w-full bg-green-500 text-white px-8 py-4 rounded-lg hover:bg-green-600 transition font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-green-500"
       >
         {isSubmitting ? (

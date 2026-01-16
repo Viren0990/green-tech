@@ -6,6 +6,7 @@ interface Post {
   id: string;
   title: string;
   content: string;
+  mainImage: string;
   images: string[];
   author: string;
   createdAt: Date;
@@ -39,34 +40,27 @@ export default function PostsGrid({ posts }: Readonly<PostsGridProps>) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <Link 
-              key={post.id} 
+            <Link
+              key={post.id}
               href={`/posts/${post.id}`}
               className="group"
             >
               <article className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl hover:border-green-500 transition-all duration-300">
                 {/* Featured Image */}
                 <div className="relative w-full aspect-video overflow-hidden bg-gray-100">
+                  <Image
+                    src={post.mainImage}
+                    alt={post.title}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    priority={false}
+                  />
 
-                  {post.images.length > 0 ? (
-                    <Image
-                      src={post.images[0]}
-                      alt={post.title}
-                      fill
-                      style={{objectFit: "contain"}}
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      priority={false}
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400">
-                      <span className="text-6xl">🖼️</span>
-                    </div>
-                  )}
-                  
-                  {/* Image count badge */}
-                  {post.images.length > 1 && (
+                  {/* Image count badge (for gallery) */}
+                  {post.images.length > 0 && (
                     <div className="absolute top-3 right-3 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      📷 {post.images.length}
+                      + {post.images.length}
                     </div>
                   )}
                 </div>
@@ -76,7 +70,7 @@ export default function PostsGrid({ posts }: Readonly<PostsGridProps>) {
                   <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors line-clamp-2">
                     {post.title}
                   </h2>
-                  
+
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
                     {post.content}
                   </p>

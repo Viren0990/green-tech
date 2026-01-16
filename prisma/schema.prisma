@@ -20,7 +20,8 @@ model Post {
   id        String   @id @default(cuid())
   title     String
   content   String
-  images    String[] // Array of Cloudinary URLs
+  mainImage String   // Primary image for the post
+  images    String[] // Array of additional gallery images
   author    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

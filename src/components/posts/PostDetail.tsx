@@ -6,6 +6,7 @@ interface Post {
   id: string;
   title: string;
   content: string;
+  mainImage: string;
   images: string[];
   author: string;
   createdAt: Date;
@@ -23,7 +24,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
       <section className="pt-24 pb-12 bg-linear-to-br from-green-50 to-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button */}
-          <Link 
+          <Link
             href="/posts"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-green-600 mb-8 transition"
           >
@@ -60,20 +61,18 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
       <section className="py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main/Featured Image */}
-          {post.images.length > 0 && (
-            <div className="mb-12">
-              <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-100 shadow-xl">
-                <Image
-                  src={post.images[0]}
-                  alt={post.title}
-                  fill
-                  style={{objectFit: "contain"}}
-                  className="object-cover"
-                  priority
-                />
-              </div>
+          <div className="mb-12">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-100 shadow-xl">
+              <Image
+                src={post.mainImage}
+                alt={post.title}
+                fill
+                style={{ objectFit: "contain" }}
+                className="object-cover"
+                priority
+              />
             </div>
-          )}
+          </div>
 
           {/* Post Content */}
           <div className="prose prose-lg max-w-none mb-12">
@@ -83,22 +82,22 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
           </div>
 
           {/* Additional Images Gallery */}
-          {post.images.length > 1 && (
+          {post.images.length > 0 && (
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Project Gallery
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                {post.images.slice(1).map((image, index) => (
-                  <div 
+                {post.images.map((image, index) => (
+                  <div
                     key={index}
                     className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 shadow-lg hover:shadow-xl transition-shadow"
                   >
                     <Image
                       src={image}
-                      alt={`${post.title} - Image ${index + 2}`}
+                      alt={`${post.title} - Gallery Image ${index + 1}`}
                       fill
-                      style={{objectFit: "contain"}}
+                      style={{ objectFit: "contain" }}
                       className="object-cover"
                     />
                   </div>
@@ -117,13 +116,13 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
                 Join us in making a difference. Schedule a pickup for your e-waste or explore our refurbished products.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
+                <Link
                   href="/contact"
                   className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 transition font-semibold"
                 >
                   Schedule Pickup
                 </Link>
-                <Link 
+                <Link
                   href="/posts"
                   className="bg-white border-2 border-gray-300 px-8 py-3 rounded-lg hover:border-green-500 hover:text-green-500 transition font-semibold"
                 >

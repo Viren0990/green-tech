@@ -14,10 +14,11 @@ export async function createPost(formData: FormData) {
   const title = formData.get('title') as string;
   const content = formData.get('content') as string;
   const author = formData.get('author') as string;
+  const mainImage = formData.get('mainImage') as string;
   const imagesJson = formData.get('images') as string;
 
   // Validation
-  if (!title || !content || !author || !imagesJson) {
+  if (!title || !content || !author || !mainImage || !imagesJson) {
     return { success: false, error: 'Please fill in all required fields.' };
   }
 
@@ -25,11 +26,11 @@ export async function createPost(formData: FormData) {
   try {
     images = JSON.parse(imagesJson);
     if (!Array.isArray(images) || images.length === 0) {
-      return { success: false, error: 'Please upload at least one image.' };
+      return { success: false, error: 'Please upload at least one gallery image.' };
     }
 
     if (images.length > 15) {
-      return { success: false, error: 'Maximum 15 images allowed per post.' };
+      return { success: false, error: 'Maximum 15 gallery images allowed per post.' };
     }
   } catch (error) {
     return { success: false, error: 'Invalid image data.' };
@@ -40,6 +41,7 @@ export async function createPost(formData: FormData) {
       data: {
         title: title.trim(),
         content: content.trim(),
+        mainImage: mainImage,
         images: images,
         author: author.trim()
       }
