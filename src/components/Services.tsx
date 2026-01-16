@@ -10,7 +10,7 @@ export default function Services() {
     {
       icon: Shield,
       title: 'Data Sanitization',
-      description: 'Secure, certified data sanitization to permanently remove sensitive information and keep your devices compliant and breach-free.'
+      description: 'We provide certified data sanitization services to ensure complete and permanent removal of sensitive information from end-of-life IT assets. Our secure processes protect organizational data, maintain confidentiality, and reduce the risk of data leakage.'
     },
 
     {
