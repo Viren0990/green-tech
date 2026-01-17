@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import hero2 from '@/src/images/w.jpg';
+import hero2 from '@/src/images/w33.webp';
 import Image from 'next/image';
 
 export default function Story() {
