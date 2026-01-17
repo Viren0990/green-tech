@@ -9,23 +9,18 @@ export default function CTASection() {
             Ready to clear your clutter responsibly?
           </h2>
           <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
-            Join thousands of responsible citizens and companies in India. Schedule a 
+            Join thousands of responsible citizens and companies in India. Schedule a
             pickup today and get a certificate of recycling.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
+            <Link
               href="/contact"
               className="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-600 transition"
             >
               Schedule Free Pickup
             </Link>
-            <Link 
-              href="/contact"
-              className="border border-white px-8 py-3 rounded-full hover:bg-white hover:text-gray-900 transition"
-            >
-              Contact Sales
-            </Link>
+
           </div>
         </div>
       </div>
