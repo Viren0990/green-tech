@@ -53,7 +53,7 @@ export default function Hero() {
                 Schedule Pickup
               </Link>
               <Link
-                href="/story"
+                href="/what-we-do"
                 className="group border border-gray-300 bg-white/50 backdrop-blur-sm px-8 py-4 rounded-full hover:border-green-500 hover:text-green-600 transition-all text-center font-medium"
               >
                 Learn More
