@@ -18,7 +18,11 @@ export default function Navbar() {
             <div className="w-16 h-14 rounded-lg items-center justify-center">
               <Image src={logo} alt="dd" />
             </div>
-            <span className="font-semibold text-gray-900 text-xl">DMD <span className="text-green-600 font-bold">Greentech</span> Revive</span>
+            <div className="flex flex-col">
+              <span className="font-semibold text-gray-900 text-xl">DMD <span className="text-green-600 font-bold">Greentech</span> Revive</span>
+              <p className="text-sm text-gray-600">Unit Of DMD Gold Prosperity</p>
+            </div>
+
           </Link>
 
           {/* Desktop Navigation */}

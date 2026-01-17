@@ -65,7 +65,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={18} className="text-green-500 flex-shrink-0 mt-1" />
-                <span>Office No-03, Amaryllis Domkhel Rd, Wagholi, Pune, Maharashtra 412207</span>
+                <span>Office No-01, Amaryllis Domkhel Rd, Wagholi, Pune, Maharashtra 412207</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={18} className="text-green-500" />

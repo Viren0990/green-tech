@@ -67,7 +67,7 @@ export default function ContactForm() {
                 <div>
                   <h3 className={`${bodoni.className} font-semibold text-gray-900 mb-1`}>Visit Us</h3>
                   <p className="text-gray-600 text-sm">
-                    Office No-03, Amaryllis Domkhel Rd, Wagholi, Pune, Maharashtra 412207
+                    Office No-01, Amaryllis Domkhel Rd, Wagholi, Pune, Maharashtra 412207
                   </p>
                 </div>
               </div>
