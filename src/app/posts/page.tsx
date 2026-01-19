@@ -5,7 +5,7 @@ import { prisma } from '@/src/lib/prisma';
 import { Metadata } from 'next';
 import { Bodoni_Moda } from 'next/font/google';
 
-const bodoni = Bodoni_Moda({ 
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
@@ -37,7 +37,7 @@ async function getPosts() {
   try {
     const posts = await prisma.post.findMany({
       orderBy: {
-        createdAt: 'desc'
+        createdAt: 'asc'
       }
     });
     return posts;
@@ -60,13 +60,13 @@ export default async function PostsPage() {
             <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               TRANSFORMATION GALLERY
             </div>
-            
+
             <h1 className={`${bodoni.className} text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight`}>
               Our E-Waste Projects
             </h1>
-            
+
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Explore our latest e-waste recycling and refurbishment projects. 
+              Explore our latest e-waste recycling and refurbishment projects.
               See how we're giving technology a second life and contributing to a greener future.
             </p>
 

@@ -52,9 +52,9 @@ export default function AdminPostForm() {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
-    // Limit to 15 images total
-    if (selectedImages.length + files.length > 15) {
-      setMessage({ type: 'error', text: 'Maximum 15 gallery images allowed per post.' });
+    // Limit to 25 images total
+    if (selectedImages.length + files.length > 25) {
+      setMessage({ type: 'error', text: 'Maximum 25 gallery images allowed per post.' });
       return;
     }
 
@@ -281,14 +281,14 @@ export default function AdminPostForm() {
       {/* Gallery Image Selection */}
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-2">
-          Gallery Images (Max 15) *
+          Gallery Images (Max 25) *
         </label>
 
         {/* Select Button */}
         <div className="mb-4">
           <label
             htmlFor="image-select"
-            className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-gray-300 rounded-lg transition ${selectedImages.length >= 15 || isSubmitting
+            className={`inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-gray-300 rounded-lg transition ${selectedImages.length >= 25 || isSubmitting
               ? 'opacity-50 cursor-not-allowed'
               : 'hover:border-green-500 cursor-pointer'
               }`}
@@ -302,11 +302,11 @@ export default function AdminPostForm() {
             accept="image/*"
             multiple
             onChange={handleImageSelect}
-            disabled={selectedImages.length >= 15 || isSubmitting}
+            disabled={selectedImages.length >= 25 || isSubmitting}
             className="hidden"
           />
           <p className="text-sm text-gray-500 mt-2">
-            {selectedImages.length}/15 images selected
+            {selectedImages.length}/25 images selected
           </p>
           <p className="text-xs text-gray-400 mt-1">
             {isSubmitting
