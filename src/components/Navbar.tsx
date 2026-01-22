@@ -68,8 +68,8 @@ export default function Navbar() {
             <Link href="/what-we-do" className="block text-gray-700 hover:text-green-500 transition py-2">
               What We Do
             </Link>
-            <Link href="/story" className="block text-gray-700 hover:text-green-500 transition py-2">
-              Our Story
+            <Link href="/about-us" className="block text-gray-700 hover:text-green-500 transition py-2">
+              About us
             </Link>
             <Link href="/posts" className="block text-gray-700 hover:text-green-500 transition py-2">
               Gallery
