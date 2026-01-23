@@ -6,10 +6,10 @@ import { Analytics } from "@vercel/analytics/next"
 export const metadata: Metadata = {
   metadataBase: new URL('https://dmdgreentechrevive.com'), // Replace with your actual domain
   title: {
-    default: 'DMD Green Tech Revive - E-Waste Recycling & Refurbishment India',
-    template: '%s | DMD Green Tech Revive'
+    default: 'DMD Green Tech Revive - E-Waste Recycling & Refurbishment',
+    template: 'DMD Green Tech Revive'
   },
-  description: 'India\'s premier certified e-waste recycling and refurbishment service, serving Pune. We provide secure data destruction, responsible recycling, and device restoration across India. Join DMD Green Tech in building a sustainable circular economy.',
+  description: 'E-waste recycling and refurbishment service, serving Pune. We provide secure data destruction, responsible recycling, and device restoration across India. Join DMD Green Tech in building a sustainable circular economy.',
   keywords: [
     'DMD Green Tech',
     'DMD',
