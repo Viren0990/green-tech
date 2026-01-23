@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://dmdgreentechrevive.com',
-    title: 'DMD Green Tech Revive - E-Waste Recycling India',
+    title: 'DMD Green Tech Revive - E-Waste Recycling & Refurbishment',
     description: 'Certified e-waste recycling and refurbishment services across India. Secure data destruction, responsible recycling, device restoration.',
     siteName: 'DMD Green Tech Revive',
     images: [
