@@ -5,7 +5,7 @@ import ContactInfo from '@/src/components/contact/ContactInfo';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Schedule E-Waste Pickup Bangalore',
+  title: 'Contact Us - Schedule E-Waste Pickup Pune',
   description: 'Contact DMD Green Tech Revive for e-waste pickup in Pune and across India.',
   keywords: [
     'e-waste pickup Pune',
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Contact Us - DMD Green Tech Revive',
-    description: 'Schedule your e-waste pickup today. Free collection for bulk quantities across India.',
+    description: 'Schedule your e-waste pickup today. Free collection for bulk quantities in Pune and across India.',
   },
   alternates: {
-    canonical: 'https://dmdgreentechrevive.com/story',
+    canonical: 'https://dmdgreentechrevive.com/contact',
   },
 };
 

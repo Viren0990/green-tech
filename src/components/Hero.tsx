@@ -40,7 +40,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-gray-600 text-lg md:text-xl max-w-xl leading-relaxed">
-              India's premier certified e-waste recycling and restoration service.
+              India's premier certified e-waste recycling and restoration service in Pune.
               We turn your obsolete electronics into resources, bridging the gap
               between technology and sustainability.
             </p>

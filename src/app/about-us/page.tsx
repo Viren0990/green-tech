@@ -11,10 +11,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us - Leading E-Waste Recycling Since 2018',
-  description: 'Founded in 2018 in Bangalore, DMD Green Tech Revive has recycled 120+ tons of e-waste and refurbished 50,000+ devices. Learn about our journey in sustainable technology management and circular economy goals.',
+  description: 'Founded in 2018 in Pune, DMD Green Tech Revive has recycled 120+ tons of e-waste and refurbished 50,000+ devices. Learn about our journey in sustainable technology management and circular economy goals.',
   keywords: [
     'DMD Green Tech history',
-    'e-waste recycling Bangalore',
+    'e-waste recycling Pune',
     'sustainable tech India',
     'circular economy',
     'green technology India',

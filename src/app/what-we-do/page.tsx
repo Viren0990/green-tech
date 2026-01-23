@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   keywords: [
     'DMD green tech revive',
     'e-waste collection India',
+    'e-waste collection Pune',
     'data destruction services',
     'corporate e-waste pickup',
     'device refurbishment',

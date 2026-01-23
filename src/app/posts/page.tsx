@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     'refurbishment work',
     'laptop repair projects',
     'electronics restoration',
-    'DMD Green Tech projects'
+    'DMD Green Tech projects',
+    'e-waste projects Pune'
   ],
   openGraph: {
     title: 'E-Waste Projects Gallery - DMD Green Tech Revive',

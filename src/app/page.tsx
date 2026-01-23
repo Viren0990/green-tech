@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Home - E-Waste Recycling & Refurbishment Services India',
-  description: 'DMD Green Tech Revive is India\'s premier certified e-waste recycling service in Bangalore. We offer secure data destruction, responsible recycling, corporate pickup, and refurbished electronics. Join 500+ companies in sustainable e-waste management.',
+  title: 'E-Waste Recycling & Refurbishment Services India | Pune',
+  description: 'DMD Green Tech Revive is India\'s premier certified e-waste recycling service in Pune. We offer secure data destruction, responsible recycling, corporate pickup, and refurbished electronics. Join 500+ companies in sustainable e-waste management.',
   keywords: [
-    'e-waste recycling Bangalore',
+    'e-waste recycling Pune',
     'electronic waste India',
     'DMD Green Tech',
     'certified e-waste recycler',
     'laptop refurbishment',
-    'data destruction Bangalore',
+    'data destruction Pune',
     'corporate e-waste pickup',
     'sustainable tech India'
   ],
@@ -40,7 +40,7 @@ export default function Home() {
     <main className="flex flex-col w-full">
       <Navbar />
       <Hero />
-        <div className="bg-gray-200 w-full h-0.5"></div>
+      <div className="bg-gray-200 w-full h-0.5"></div>
 
       <Services />
       <div className="bg-gray-200 w-full h-0.5"></div>
