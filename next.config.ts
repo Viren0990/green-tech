@@ -44,12 +44,12 @@ const nextConfig: NextConfig = {
       // Redirecting them to your main /services page so they don't 404
       {
         source: '/data-sanitization',
-        destination: '/services',
+        destination: '/what-we-do',
         permanent: true,
       },
       {
         source: '/refurbishment',
-        destination: '/services',
+        destination: '/what-we-do',
         permanent: true,
       },
 
