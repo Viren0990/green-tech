@@ -5,7 +5,7 @@ export default function Team() {
   const founder = {
     name: 'Dhanaji Machhindra Dabade',
     role: 'Founder & CEO',
-    description: '15+ years of experience and study in gemology and e-waste.',
+    description: 'Over 10 years of experience and study in e-waste management and environmental sustainability.',
     image: teamImage2
   };
 
