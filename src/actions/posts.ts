@@ -56,3 +56,27 @@ export async function createPost(formData: FormData) {
     return { success: false, error: 'Failed to create post. Please try again.' };
   }
 }
+
+export async function deletePost(id: string, password?: string) {
+  // Verify password
+  if (password !== process.env.ADMIN_PASSWORD) {
+    return { success: false, error: 'Invalid password. Access denied.' };
+  }
+
+  try {
+    await prisma.post.delete({
+      where: {
+        id: id
+      }
+    });
+
+    // Revalidate paths to reflect deletion
+    revalidatePath('/posts');
+    revalidatePath('/admin/admin1/deletes');
+
+    return { success: true };
+  } catch (error) {
+    console.error('Delete post error:', error);
+    return { success: false, error: 'Failed to delete post. Please try again.' };
+  }
+}
