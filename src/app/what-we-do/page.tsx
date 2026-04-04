@@ -3,6 +3,7 @@ import Footer from '@/src/components/Footer';
 import type { Metadata } from 'next';
 import CoreServices from '@/src/components/services/CoreServices';
 import ProcessSection from '@/src/components/services/ProcessSection';
+import ServicesHero from '@/src/components/services/ServicesHero';
 
 export const metadata: Metadata = {
   title: 'Our Services - E-Waste Management & Recycling Solutions',
@@ -33,7 +34,7 @@ export default function WhatWeDoPage() {
     <>
       <Navbar />
       <main>
-
+        
         <CoreServices />
         <ProcessSection />
 

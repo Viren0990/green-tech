@@ -44,7 +44,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition"
+              className="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition"
             >
               Schedule Pickup
             </Link>
@@ -79,7 +79,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition text-center"
+              className="block bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition text-center"
             >
               Schedule Pickup
             </Link>

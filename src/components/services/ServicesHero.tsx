@@ -4,11 +4,15 @@ import heroImage from '@/src/images/service1.webp';
 
 export default function ServicesHero() {
   return (
-    <section className="pt-32 pb-16 min-h-screen bg-gray-100 flex flex-col justify-center">
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="pt-32 pb-16 min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 flex flex-col justify-center relative overflow-hidden">
+      {/* Decorative background blobs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Main Card Container */}
-        <div className="relative rounded-[2.5rem] overflow-hidden min-h-[550px] flex flex-col justify-center items-center text-center shadow-2xl">
+        <div className="relative rounded-[2.5rem] overflow-hidden min-h-[550px] flex flex-col justify-center items-center text-center shadow-2xl ring-1 ring-white/20">
 
           {/* --- BACKGROUND IMAGE & OVERLAY --- */}
           <div className="absolute inset-0 z-0">
@@ -43,13 +47,13 @@ export default function ServicesHero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#core-services"
-                className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 transition text-center font-semibold shadow-lg"
+                className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 transition text-center font-semibold shadow-lg shadow-green-500/30"
               >
                 Explore Services
               </Link>
               <Link
                 href="#our-impact"
-                className="border-2 border-white/70 text-white px-8 py-3 rounded-lg hover:bg-white/10 transition text-center font-semibold"
+                className="border-2 border-white/70 text-white px-8 py-3 rounded-lg hover:bg-white/10 transition text-center font-semibold backdrop-blur-sm"
               >
                 Learn About Our Impact
               </Link>

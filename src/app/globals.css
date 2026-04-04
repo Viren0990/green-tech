@@ -20,3 +20,15 @@ h1, h2, h3, h4, h5, h6 {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
                'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
 }
+
+@keyframes subtle-shake {
+  0%   { transform: translateY(-0.5rem) rotate(0deg); }
+  25%  { transform: translateY(-0.5rem) rotate(1deg); }
+  50%  { transform: translateY(-0.5rem) rotate(0deg); }
+  75%  { transform: translateY(-0.5rem) rotate(-1deg); }
+  100% { transform: translateY(-0.5rem) rotate(0deg); }
+}
+
+.hover-shake-y:hover {
+  animation: subtle-shake 0.4s ease-in-out infinite;
+}
