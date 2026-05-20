@@ -44,14 +44,11 @@ export default function Navbar() {
             <Link href="/" className="text-gray-700 hover:text-green-500 transition">
               Home
             </Link>
+            <Link href="/about-us" className="text-gray-700 hover:text-green-500 transition">
+              About Us
+            </Link>
             <Link href="/what-we-do" className="text-gray-700 hover:text-green-500 transition">
               What We Do
-            </Link>
-            <Link href="/about-us" className="text-gray-700 hover:text-green-500 transition">
-              About us
-            </Link>
-            <Link href="/posts" className="text-gray-700 hover:text-green-500 transition">
-              Gallery
             </Link>
 
             {/* Partners Dropdown */}
@@ -84,6 +81,9 @@ export default function Navbar() {
               )}
             </div>
 
+            <Link href="/posts" className="text-gray-700 hover:text-green-500 transition">
+              Gallery
+            </Link>
             <Link href="/contact" className="text-gray-700 hover:text-green-500 transition">
               Contact Us
             </Link>
@@ -110,14 +110,11 @@ export default function Navbar() {
             <Link href="/" className="block text-gray-700 hover:text-green-500 transition py-2">
               Home
             </Link>
+            <Link href="/about-us" className="block text-gray-700 hover:text-green-500 transition py-2">
+              About Us
+            </Link>
             <Link href="/what-we-do" className="block text-gray-700 hover:text-green-500 transition py-2">
               What We Do
-            </Link>
-            <Link href="/about-us" className="block text-gray-700 hover:text-green-500 transition py-2">
-              About us
-            </Link>
-            <Link href="/posts" className="block text-gray-700 hover:text-green-500 transition py-2">
-              Gallery
             </Link>
 
             {/* Mobile Partners Accordion */}
@@ -141,6 +138,9 @@ export default function Navbar() {
               )}
             </div>
 
+            <Link href="/posts" className="block text-gray-700 hover:text-green-500 transition py-2">
+              Gallery
+            </Link>
             <Link href="/contact" className="block text-gray-700 hover:text-green-500 transition py-2">
               Contact Us
             </Link>
