@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { ClipboardCheck, Truck, Wrench, ShieldCheck, Recycle, Award } from 'lucide-react';
-import processImage from '@/src/images/qq.webp';
+import processImage from '@/src/images/w22.webp';
 
 const steps = [
   {
