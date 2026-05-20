@@ -1,13 +1,27 @@
 'use client'
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from "@/src/images/logo.png"
 import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [partnersOpen, setPartnersOpen] = useState(false);
+  const [mobilePartnersOpen, setMobilePartnersOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setPartnersOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
@@ -39,6 +53,37 @@ export default function Navbar() {
             <Link href="/posts" className="text-gray-700 hover:text-green-500 transition">
               Gallery
             </Link>
+
+            {/* Partners Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setPartnersOpen(!partnersOpen)}
+                className="flex items-center gap-1 text-gray-700 hover:text-green-500 transition"
+              >
+                Partners
+                <ChevronDown size={16} className={`transition-transform duration-200 ${partnersOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {partnersOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white rounded-xl shadow-lg border border-gray-100 py-2 overflow-hidden">
+                  <Link
+                    href="/our-partners"
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition"
+                    onClick={() => setPartnersOpen(false)}
+                  >
+                    Our Partners
+                  </Link>
+                  <Link
+                    href="/community-partners"
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition"
+                    onClick={() => setPartnersOpen(false)}
+                  >
+                    Community Partners
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link href="/contact" className="text-gray-700 hover:text-green-500 transition">
               Contact Us
             </Link>
@@ -74,6 +119,28 @@ export default function Navbar() {
             <Link href="/posts" className="block text-gray-700 hover:text-green-500 transition py-2">
               Gallery
             </Link>
+
+            {/* Mobile Partners Accordion */}
+            <div>
+              <button
+                onClick={() => setMobilePartnersOpen(!mobilePartnersOpen)}
+                className="flex items-center justify-between w-full text-gray-700 hover:text-green-500 transition py-2"
+              >
+                Partners
+                <ChevronDown size={16} className={`transition-transform duration-200 ${mobilePartnersOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobilePartnersOpen && (
+                <div className="pl-4 space-y-1">
+                  <Link href="/our-partners" className="block text-gray-600 hover:text-green-500 transition py-1.5 text-sm">
+                    Our Partners
+                  </Link>
+                  <Link href="/community-partners" className="block text-gray-600 hover:text-green-500 transition py-1.5 text-sm">
+                    Community Partners
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link href="/contact" className="block text-gray-700 hover:text-green-500 transition py-2">
               Contact Us
             </Link>
