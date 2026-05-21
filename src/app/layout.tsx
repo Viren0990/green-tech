@@ -98,10 +98,10 @@ export default function RootLayout({
     description: 'India\'s premier certified e-waste recycling and refurbishment service',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Survey 157, Varthur Hobli, Electronic City',
+      streetAddress: 'Office No-03, Amaryllis Apartment, Domkhel Rd, Wagholi',
       addressLocality: 'Pune',
       addressRegion: 'Maharashtra',
-      postalCode: '411057',
+      postalCode: '412207',
       addressCountry: 'IN',
     },
     contactPoint: {
@@ -129,16 +129,16 @@ export default function RootLayout({
     email: 'info@dmdgreentechrevive.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Survey 157, Varthur Hobli, Electronic City',
+      streetAddress: 'Office No-03, Amaryllis Apartment, Domkhel Rd, Wagholi',
       addressLocality: 'Pune',
       addressRegion: 'Maharashtra',
-      postalCode: '411057',
+      postalCode: '412207',
       addressCountry: 'IN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 18.5204,
-      longitude: 73.8567,
+      latitude: 18.5876,
+      longitude: 73.9726,
     },
     areaServed: [
       { '@type': 'City', name: 'Pune' },
@@ -155,9 +155,9 @@ export default function RootLayout({
     priceRange: '₹₹',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '09:00',
-      closes: '18:00',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '23:59',
     },
   };
 
