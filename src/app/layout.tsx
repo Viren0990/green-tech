@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://dmdgreentechrevive.com'), // Replace with your actual domain
   title: {
     default: 'DMD Green Tech Revive - E-Waste Recycling & Refurbishment',
-    template: 'DMD Green Tech Revive'
+    template: '%s | DMD Green Tech Revive'
   },
   description: 'E-waste recycling and refurbishment service, serving Pune. We provide secure data destruction, responsible recycling, and device restoration across India. Join DMD Green Tech in building a sustainable circular economy.',
   keywords: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: 'DMD Green Tech Revive',
     images: [
       {
-        url: '/og-image.jpg', // You'll need to add this image
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'DMD Green Tech Revive - E-Waste Recycling India',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DMD Green Tech Revive - E-Waste Recycling India',
     description: 'Certified e-waste recycling and refurbishment services across India.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.png'],
   },
   verification: {
     google: 'your-google-verification-code', // Add when you get it from Google Search Console
@@ -118,6 +118,49 @@ export default function RootLayout({
     ],
   };
 
+  const localBusinessJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': 'https://dmdgreentechrevive.com/#business',
+    name: 'DMD Green Tech Revive',
+    image: 'https://dmdgreentechrevive.com/og-image.png',
+    url: 'https://dmdgreentechrevive.com',
+    telephone: '+91-91-2067-6799',
+    email: 'info@dmdgreentechrevive.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Survey 157, Varthur Hobli, Electronic City',
+      addressLocality: 'Pune',
+      addressRegion: 'Maharashtra',
+      postalCode: '411057',
+      addressCountry: 'IN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 18.5204,
+      longitude: 73.8567,
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Pune' },
+      { '@type': 'State', name: 'Maharashtra' },
+      { '@type': 'Country', name: 'India' },
+    ],
+    serviceType: [
+      'E-Waste Recycling',
+      'E-Waste Collection',
+      'Data Destruction',
+      'Laptop Refurbishment',
+      'IT Asset Disposal',
+    ],
+    priceRange: '₹₹',
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+  };
+
   return (
     <html lang="en" className={bodoni.variable}>
       <head>
@@ -127,6 +170,11 @@ export default function RootLayout({
           id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
       <body>

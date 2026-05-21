@@ -47,7 +47,7 @@ export default function PartnerShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Intro */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             Who We Work With
           </h2>
           <p className="text-gray-500 text-lg leading-relaxed">
@@ -81,7 +81,7 @@ export default function PartnerShowcase() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                       {partner.name}
                     </h3>
                     <p className="flex items-center gap-1.5 text-sm text-gray-500 mt-1">
