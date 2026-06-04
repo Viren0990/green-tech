@@ -10,19 +10,23 @@ import type { Metadata } from 'next';
 
 
 export const metadata: Metadata = {
-  title: 'About Us - Leading E-Waste Recycling Since 2018',
-  description: 'Founded in 2018 in Pune, DMD Green Tech Revive has recycled 120+ tons of e-waste and refurbished 50,000+ devices. Learn about our journey in sustainable technology management and circular economy goals.',
+  title: "About DMD Green Tech Revive — Pune's Leading E-Waste Recycling Company",
+  description: 'Founded in 2018 in Pune, DMD Green Tech Revive has recycled 120+ tons of e-waste and refurbished 50,000+ devices. MPCB certified environmental company committed to zero-landfill e-waste management and circular economy.',
   keywords: [
     'DMD Green Tech history',
     'e-waste recycling Pune',
     'sustainable tech India',
     'circular economy',
     'green technology India',
-    'e-waste management company'
+    'e-waste management company',
+    'environmental company Pune',
+    'environmental company near me',
+    'e waste recycling company India',
+    'certified e-waste recycler Pune'
   ],
   openGraph: {
-    title: 'About Us - DMD Green Tech Revive',
-
+    title: "About DMD Green Tech Revive — Pune's E-Waste Recycling Leader",
+    description: "MPCB certified. 120+ tons recycled. 50,000+ devices refurbished. Learn about Pune's leading environmental company.",
   },
   alternates: {
     canonical: 'https://dmdgreentechrevive.com/about-us',

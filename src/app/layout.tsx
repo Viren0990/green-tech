@@ -6,10 +6,10 @@ import { Analytics } from "@vercel/analytics/next"
 export const metadata: Metadata = {
   metadataBase: new URL('https://dmdgreentechrevive.com'), // Replace with your actual domain
   title: {
-    default: 'DMD Green Tech Revive - E-Waste Recycling & Refurbishment',
+    default: 'DMD Green Tech Revive — Recycle Old Electronics & E-Waste in Pune',
     template: '%s | DMD Green Tech Revive'
   },
-  description: 'E-waste recycling and refurbishment service, serving Pune. We provide secure data destruction, responsible recycling, and device restoration across India. Join DMD Green Tech in building a sustainable circular economy.',
+  description: 'Recycle old electronics & e-waste responsibly with DMD Green Tech Revive in Pune. Free pickup, secure data destruction, certified recycling & device refurbishment. MPCB authorized. Join us in building a sustainable circular economy.',
   keywords: [
     'DMD Green Tech',
     'DMD',
@@ -27,9 +27,17 @@ export const metadata: Metadata = {
     'IT asset disposal',
     'green certificate India',
     'circular economy India',
-    'circular economy India',
     'sustainable tech India',
-    'refurbished laptops India'
+    'refurbished laptops India',
+    'recycle old electronics',
+    'recycle device',
+    'where to recycle old electronics',
+    'e waste disposal',
+    'e waste collection near me',
+    'environmental company near me',
+    'recycle old laptop Pune',
+    'landfill alternative',
+    'recycling near me'
   ],
   authors: [{ name: 'DMD Green Tech Revive' }],
   creator: 'DMD Green Tech Revive',
@@ -49,8 +57,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://dmdgreentechrevive.com',
-    title: 'DMD Green Tech Revive - E-Waste Recycling & Refurbishment',
-    description: 'Certified e-waste recycling and refurbishment services across India. Secure data destruction, responsible recycling, device restoration.',
+    title: 'DMD Green Tech Revive — Recycle Old Electronics & E-Waste in Pune',
+    description: 'Free e-waste pickup in Pune. Recycle old electronics, laptops & devices responsibly. MPCB certified recycler with zero-landfill policy.',
     siteName: 'DMD Green Tech Revive',
     images: [
       {

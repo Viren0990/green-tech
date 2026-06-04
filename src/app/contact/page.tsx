@@ -5,19 +5,23 @@ import ContactInfo from '@/src/components/contact/ContactInfo';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Schedule E-Waste Pickup Pune',
-  description: 'Contact DMD Green Tech Revive for e-waste pickup in Pune and across India.',
+  title: 'Contact Us — Free E-Waste Pickup in Pune | Schedule Collection Today',
+  description: 'Schedule free e-waste pickup in Pune today! DMD Green Tech collects old electronics, laptops, phones & IT equipment from your doorstep. Call +91-91-2067-6799 or fill our form for same-day response.',
   keywords: [
     'e-waste pickup Pune',
     'schedule e-waste collection',
     'contact DMD Green Tech',
     'e-waste recycling contact',
     'corporate pickup India',
-    'free e-waste pickup'
+    'free e-waste pickup',
+    'e waste collection near me',
+    'environmental company near me',
+    'recycle old electronics Pune',
+    'e waste pickup near me'
   ],
   openGraph: {
-    title: 'Contact Us - DMD Green Tech Revive',
-    description: 'Schedule your e-waste pickup today. Free collection for bulk quantities in Pune and across India.',
+    title: 'Contact Us — Schedule Free E-Waste Pickup | DMD Green Tech',
+    description: 'Free doorstep e-waste collection in Pune. Schedule pickup for old electronics, laptops & IT equipment. Same-day response.',
   },
   alternates: {
     canonical: 'https://dmdgreentechrevive.com/contact',

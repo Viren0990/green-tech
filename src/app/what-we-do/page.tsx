@@ -6,8 +6,8 @@ import ProcessSection from '@/src/components/services/ProcessSection';
 import ServicesHero from '@/src/components/services/ServicesHero';
 
 export const metadata: Metadata = {
-  title: 'Our Services - E-Waste Management & Recycling Solutions',
-  description: 'Comprehensive e-waste management services: logistics & collection, secure data destruction, eco-friendly recycling, device restoration. Corporate pickup available across India. DoD-standard data wiping, certified recycling processes.',
+  title: 'Recycle Your Device — E-Waste Collection, Disposal & Recycling Services Pune',
+  description: 'Recycle old laptops, phones & electronics with free pickup in Pune. DMD Green Tech offers e-waste collection, secure data destruction, device refurbishment & certified recycling. Zero-landfill guarantee.',
   keywords: [
     'DMD green tech revive',
     'e-waste collection India',
@@ -18,11 +18,19 @@ export const metadata: Metadata = {
     'laptop recycling',
     'IT asset disposal',
     'secure data wiping',
-    'green certificate India'
+    'green certificate India',
+    'recycle device',
+    'recycle old laptop',
+    'e waste disposal Pune',
+    'e waste collection near me',
+    'where to recycle old electronics',
+    'electronic waste disposal',
+    'disposal of old electronics',
+    'recycling services near me'
   ],
   openGraph: {
-    title: 'E-Waste Management Services - DMD Green Tech Revive',
-    description: 'End-to-end e-waste solutions for businesses and individuals. Certified recycling, secure data destruction, device restoration.',
+    title: 'Recycle Your Device — E-Waste Collection & Disposal Services | DMD Green Tech',
+    description: 'Free e-waste pickup in Pune. Recycle old laptops, phones & devices. Certified data destruction, zero-landfill recycling.',
   },
   alternates: {
     canonical: 'https://dmdgreentechrevive.com/what-we-do',
