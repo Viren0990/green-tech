@@ -1,7 +1,7 @@
-import { Truck, Shield, Recycle, Smartphone } from 'lucide-react';
-import { Bodoni_Moda } from 'next/font/google';
+import Image from 'next/image';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 
-const bodoni = Bodoni_Moda({
+const headingFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
@@ -10,40 +10,28 @@ const bodoni = Bodoni_Moda({
 export default function CoreServices() {
   const services = [
     {
-      icon: Truck,
+      image: '/images/services/ewaste-collection.png',
       title: 'E-Waste Collection',
       description: 'Seamless door-to-door pickup service tailored to your schedule. We professionally handle the heavy lifting and transportation for bulk corporate e-waste with secure, fully tracked logistics.',
       accent: 'from-emerald-500 to-emerald-600',
-      iconBg: 'bg-gradient-to-br from-emerald-500 to-emerald-700',
-      borderColor: 'border-gray-200',
-      glowColor: 'shadow-emerald-100/40',
     },
     {
-      icon: Shield,
+      image: '/images/services/data-sanitization.png',
       title: 'Data Sanitization',
       description: 'Protect your sensitive data against unauthorized access. We use certified data wiping and degaussing methods to ensure all corporate information is permanently irretrievable.',
       accent: 'from-green-600 to-emerald-600',
-      iconBg: 'bg-gradient-to-br from-green-600 to-emerald-700',
-      borderColor: 'border-gray-200',
-      glowColor: 'shadow-green-100/40',
     },
     {
-      icon: Smartphone,
+      image: '/images/services/refurbishment.png',
       title: 'Refurbishment',
       description: 'Extending product lifecycles. Viable devices like laptops and tablets are tested, repaired, and restored for a second life, supporting the circular economy and digital inclusion.',
       accent: 'from-emerald-600 to-green-700',
-      iconBg: 'bg-gradient-to-br from-emerald-600 to-green-700',
-      borderColor: 'border-gray-200',
-      glowColor: 'shadow-emerald-100/40',
     },
     {
-      icon: Recycle,
+      image: '/images/services/recycling.png',
       title: 'Recycling',
       description: 'Zero-landfill policy. We responsibly dismantle end-of-life devices to extract valuable metals like gold, silver, and copper, sending hazardous materials to specialized treatment.',
       accent: 'from-green-500 to-green-600',
-      iconBg: 'bg-gradient-to-br from-green-500 to-green-700',
-      borderColor: 'border-gray-200',
-      glowColor: 'shadow-green-100/40',
     }
   ];
 
@@ -74,7 +62,7 @@ export default function CoreServices() {
           <span className="inline-block text-sm font-bold uppercase tracking-[0.2em] text-emerald-600 mb-4 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
             Our Expertise
           </span>
-          <h2 className={`${bodoni.className} text-5xl font-bold text-gray-900 mb-6`}>
+          <h2 className={`${headingFont.className} text-5xl font-bold text-gray-900 mb-6`}>
             Our Core Services
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -84,37 +72,40 @@ export default function CoreServices() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={index}
-                className={`relative bg-white/80 backdrop-blur-sm border-2 p-8 rounded-2xl shadow-xl ${service.borderColor} transition-all duration-500 group -translate-y-2 hover-shake-y`}
-              >
-                {/* Top gradient accent line */}
-                <div className={`absolute top-0 left-6 right-6 h-1 bg-gradient-to-r ${service.accent} rounded-b-full opacity-100 transition-opacity duration-500`} />
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="relative bg-white/80 backdrop-blur-sm border-2 border-gray-200 p-5 pb-8 rounded-2xl shadow-xl transition-all duration-500 group -translate-y-2 hover-shake-y"
+            >
+              {/* Top gradient accent line */}
+              <div className={`absolute top-0 left-6 right-6 h-1 bg-gradient-to-r ${service.accent} rounded-b-full`} />
 
-                {/* Icon Container */}
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${service.iconBg} shadow-lg ${service.glowColor} scale-110 rotate-3 transition-all duration-500`}>
-                  <Icon className="text-white" size={28} />
-                </div>
-
-                <h3 className={`${bodoni.className} text-xl font-bold text-emerald-800 mb-3 transition-colors duration-300`}>
-                  {service.title}
-                </h3>
-
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Bottom decorative dot */}
-                <div className="mt-6 flex gap-1">
-                  <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${service.accent} opacity-100 transition-all duration-500`} />
-                  <div className="w-1 h-1 rounded-full bg-emerald-400 transition-colors duration-500" />
-                </div>
+              {/* Image header */}
+              <div className="w-full aspect-[4/3] mb-5 rounded-xl overflow-hidden bg-gradient-to-br from-emerald-50/60 via-green-50/40 to-white border border-emerald-100/50">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
-            );
-          })}
+
+              <h3 className={`${headingFont.className} text-xl font-bold text-emerald-800 mb-3 transition-colors duration-300`}>
+                {service.title}
+              </h3>
+
+              <p className="text-gray-500 text-sm leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Bottom decorative dot */}
+              <div className="mt-6 flex gap-1">
+                <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${service.accent} transition-all duration-500`} />
+                <div className="w-1 h-1 rounded-full bg-emerald-400 transition-colors duration-500" />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

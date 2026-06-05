@@ -83,12 +83,12 @@ export const metadata: Metadata = {
   },
 };
 
-const bodoni = Bodoni_Moda({
+import { Plus_Jakarta_Sans } from 'next/font/google';
+const headingFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-bodoni',
+  variable: '--font-heading',
 });
-import { Bodoni_Moda } from 'next/font/google';
 import FloatingWhatsAppButton from '../components/FloatingWhatsAppButton';
 
 export default function RootLayout({
@@ -170,7 +170,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={bodoni.variable}>
+    <html lang="en" className={headingFont.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

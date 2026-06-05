@@ -3,10 +3,10 @@ import Footer from '@/src/components/Footer';
 import PostsGrid from '@/src/components/posts/PostsGrid';
 import { prisma } from '@/src/lib/prisma';
 import { Metadata } from 'next';
-import { Bodoni_Moda } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import DeletePost from '@/src/components/posts/DeletePost';
 
-const bodoni = Bodoni_Moda({
+const headingFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
@@ -63,7 +63,7 @@ export default async function PostsPage() {
               TRANSFORMATION GALLERY
             </div>
 
-            <h1 className={`${bodoni.className} text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight`}>
+            <h1 className={`${headingFont.className} text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight`}>
               Our E-Waste Projects
             </h1>
 

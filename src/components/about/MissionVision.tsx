@@ -1,7 +1,7 @@
-import { Bodoni_Moda } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import { Target, Eye, Leaf, Globe, Recycle, Lightbulb } from 'lucide-react';
 
-const bodoni = Bodoni_Moda({
+const headingFont = Plus_Jakarta_Sans({
     subsets: ['latin'],
     weight: ['400', '500', '600', '700', '800'],
     display: 'swap',
@@ -15,7 +15,7 @@ export default function MissionVision() {
                     <span className="text-green-600 font-semibold tracking-wider text-sm uppercase mb-3 block">
                         Core Values
                     </span>
-                    <h2 className={`${bodoni.className} text-4xl md:text-5xl font-bold text-gray-900 mb-6`}>
+                    <h2 className={`${headingFont.className} text-4xl md:text-5xl font-bold text-gray-900 mb-6`}>
                         Our Purpose & Path
                     </h2>
                     <p className="text-gray-600 text-lg leading-relaxed">
@@ -36,7 +36,7 @@ export default function MissionVision() {
                                 <Target className="text-green-600 w-7 h-7 group-hover:text-white transition duration-300" />
                             </div>
 
-                            <h3 className={`${bodoni.className} text-3xl font-bold text-gray-900 mb-4`}>
+                            <h3 className={`${headingFont.className} text-3xl font-bold text-gray-900 mb-4`}>
                                 Our Mission
                             </h3>
 
@@ -75,7 +75,7 @@ export default function MissionVision() {
                                 <Eye className="text-green-400 w-7 h-7 group-hover:text-white transition duration-300" />
                             </div>
 
-                            <h3 className={`${bodoni.className} text-3xl font-bold mb-4`}>
+                            <h3 className={`${headingFont.className} text-3xl font-bold mb-4`}>
                                 Our Vision
                             </h3>
 

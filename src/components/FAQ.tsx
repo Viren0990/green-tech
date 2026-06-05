@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import Script from 'next/script';
-import { Bodoni_Moda } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 
-const bodoni = Bodoni_Moda({
+const headingFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
@@ -156,7 +156,7 @@ export default function FAQ() {
             FAQ
           </span>
           <h2
-            className={`${bodoni.className} text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4`}
+            className={`${headingFont.className} text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4`}
           >
             Frequently Asked Questions
           </h2>
