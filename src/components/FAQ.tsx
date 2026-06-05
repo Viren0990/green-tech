@@ -15,7 +15,7 @@ const faqData = [
   {
     question: 'Where can I dispose old electronics in Pune?',
     answer:
-      'DMD Green Tech Revive offers free door-to-door e-waste pickup across Pune. Simply schedule a pickup through our contact page or call us at +91-91-2067-6799. We accept laptops, desktops, mobile phones, printers, servers, and all types of electronic waste.',
+      'DMD Green Tech Revive offers free door-to-door e-waste pickup across Pune. Simply schedule a pickup through our contact page or call us at +91 9763123699. We accept laptops, desktops, mobile phones, printers, servers, and all types of electronic waste.',
   },
   {
     question: 'What types of e-waste do you collect?',
@@ -191,10 +191,10 @@ export default function FAQ() {
             </a>{' '}
             or call{' '}
             <a
-              href="tel:+919120676799"
+              href="tel:+919763123699"
               className="text-emerald-600 font-semibold hover:text-emerald-700 underline underline-offset-2 transition-colors"
             >
-              +91-91-2067-6799
+              +91 9763123699
             </a>
           </p>
         </div>
