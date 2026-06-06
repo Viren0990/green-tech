@@ -30,11 +30,18 @@ export default async function PostPage({ params }: Readonly<PageProps>) {
     notFound();
   }
 
+  // Serialize Date objects for client component
+  const serializedPost = {
+    ...post,
+    createdAt: post.createdAt.toISOString(),
+    updatedAt: post.updatedAt.toISOString(),
+  };
+
   return (
     <>
       <Navbar />
       <main>
-        <PostDetail post={post} />
+        <PostDetail post={serializedPost} />
       </main>
       <Footer />
     </>
