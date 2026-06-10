@@ -2,11 +2,16 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { generateInvoicePDF, type InvoiceData } from '@/src/utils/generateInvoicePDF';
-import { Download, Loader2, FileText, Edit } from 'lucide-react';
+import { deleteInvoice } from '@/src/actions/invoices';
+import { Download, Loader2, FileText, Edit, Trash2, X, AlertTriangle } from 'lucide-react';
 
 export default function InvoiceTableClient({ invoices }: { invoices: any[] }) {
+  const router = useRouter();
   const [generatingId, setGeneratingId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [invoiceToDelete, setInvoiceToDelete] = useState<{ id: string, invoiceNo: string } | null>(null);
 
   const handleDownload = async (invoice: any) => {
     setGeneratingId(invoice.id);
@@ -47,6 +52,26 @@ export default function InvoiceTableClient({ invoices }: { invoices: any[] }) {
     }
   };
 
+  const confirmDelete = async () => {
+    if (!invoiceToDelete) return;
+    
+    setDeletingId(invoiceToDelete.id);
+    try {
+      const res = await deleteInvoice(invoiceToDelete.id);
+      if (res.success) {
+        setInvoiceToDelete(null);
+        router.refresh(); // Refresh the server component to get new list
+      } else {
+        alert('Failed to delete invoice: ' + res.error);
+      }
+    } catch (err) {
+      console.error('Delete error:', err);
+      alert('An error occurred while deleting.');
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   if (!invoices || invoices.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] p-8 text-gray-500 mt-12">
@@ -60,7 +85,54 @@ export default function InvoiceTableClient({ invoices }: { invoices: any[] }) {
   const fmt = (n: number) => n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="max-w-6xl mx-auto p-6 mt-16">
+    <div className="max-w-6xl mx-auto p-6 mt-16 relative">
+      {/* ── Delete Confirmation Modal ── */}
+      {invoiceToDelete && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900/60 backdrop-blur-sm px-4">
+          <div className="bg-white rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button 
+              onClick={() => !deletingId && setInvoiceToDelete(null)}
+              disabled={deletingId !== null}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+            >
+              <X size={20} />
+            </button>
+            
+            <div className="flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                <AlertTriangle size={24} className="text-red-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Delete Invoice?</h3>
+              <p className="text-gray-500 text-sm mb-6">
+                Are you sure you want to permanently delete invoice <span className="font-semibold text-gray-700">{invoiceToDelete.invoiceNo}</span>? This action cannot be undone and it will be removed from your database forever.
+              </p>
+              
+              <div className="flex w-full gap-3">
+                <button
+                  onClick={() => setInvoiceToDelete(null)}
+                  disabled={deletingId !== null}
+                  className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmDelete}
+                  disabled={deletingId !== null}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-red-600 text-white font-medium hover:bg-red-700 transition disabled:opacity-50"
+                >
+                  {deletingId !== null ? (
+                    <Loader2 size={18} className="animate-spin" />
+                  ) : (
+                    <Trash2 size={18} />
+                  )}
+                  {deletingId !== null ? 'Deleting...' : 'Delete'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Invoices Archive</h1>
@@ -128,6 +200,19 @@ export default function InvoiceTableClient({ invoices }: { invoices: any[] }) {
                             <Download className="w-4 h-4 text-gray-400 group-hover:text-emerald-500" />
                             <span>Download</span>
                           </>
+                        )}
+                      </button>
+
+                      <button
+                        onClick={() => setInvoiceToDelete({ id: invoice.id, invoiceNo: invoice.invoiceNo })}
+                        disabled={deletingId === invoice.id || generatingId === invoice.id}
+                        className="inline-flex items-center justify-center p-1.5 rounded-lg bg-white text-gray-400 hover:bg-red-50 hover:text-red-600 border border-transparent hover:border-red-200 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed group-hover:border-gray-200"
+                        title="Delete Invoice"
+                      >
+                        {deletingId === invoice.id ? (
+                          <Loader2 className="w-4 h-4 animate-spin text-red-500" />
+                        ) : (
+                          <Trash2 className="w-4 h-4" />
                         )}
                       </button>
                     </div>

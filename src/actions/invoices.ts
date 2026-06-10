@@ -122,3 +122,16 @@ export async function getInvoiceById(id: string) {
     return { success: false, error: 'Failed to fetch invoice' };
   }
 }
+
+export async function deleteInvoice(id: string) {
+  try {
+    await prisma.invoice.delete({
+      where: { id }
+    });
+    revalidatePath('/admin/admin1/invoices');
+    return { success: true };
+  } catch (error) {
+    console.error('Error deleting invoice:', error);
+    return { success: false, error: 'Failed to delete invoice' };
+  }
+}

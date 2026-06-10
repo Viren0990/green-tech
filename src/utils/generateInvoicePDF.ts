@@ -39,7 +39,7 @@ export interface InvoiceData {
 const COMPANY = {
   name: 'DMD GREENTECH REVIVE',
   subtext: 'Its unit of (DMD GOLD PROSPERITY PVT LTD)',
-  address: 'Shop No-01, Amaryllis Society, Maruti Nagar, Wagholi, Pune, 412207',
+  address: 'Office No-01, Amaryllis, Maruti Nagar, Wagholi, Pune, 412207',
   cin: 'CIN :U27205PN2022PTC210032',
   gstin: '127AAJCD1867E1ZL',
   pan: 'AAJCD1867E',
