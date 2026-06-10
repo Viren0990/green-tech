@@ -27,3 +27,36 @@ model Post {
   updatedAt DateTime @updatedAt
 }
 
+model Invoice {
+  id             String   @id @default(cuid())
+  invoiceNo      String   @unique
+  date           String
+  clientName     String
+  clientAddress  String
+  clientGstin    String
+  placeOfSupply  String
+  
+  subTotal       Float
+  cgstAmount     Float
+  sgstAmount     Float
+  igstAmount     Float
+  roundOff       Float
+  finalTotal     Float
+  
+  taxMode        String
+  cgstPercent    Float
+  sgstPercent    Float
+  igstPercent    Float
+  
+  items          Json
+  
+  termsAndConditions String
+  amountInWords  String
+  bankName       String
+  bankAccountNo  String
+  bankIfsc       String
+  bankBranch     String
+  
+  createdAt      DateTime @default(now())
+}
+
