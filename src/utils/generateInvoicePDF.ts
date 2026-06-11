@@ -5,7 +5,9 @@ export interface InvoiceLineItem {
   srNo: number;
   description: string;
   hsn: string;
+  unit: string;
   quantity: string;
+  unitPrice: number | string;
   amount: number | string;
 }
 
@@ -67,11 +69,13 @@ const I_C1 = 80;
 const I_C2 = 140;
 
 // Table column right edges
-const TC1 = 30;    // SR NO
-const TC2 = 110;   // DESCRIPTION
-const TC3 = 140;   // HSN
-const TC4 = 165;   // QUANTITY
-// TC5 = R (200)   // AMOUNT
+const TC1 = 24;    // SR NO
+const TC2 = 85;    // DESCRIPTION
+const TC3 = 110;   // EQUIPMENT CODE
+const TC4 = 128;   // QUANTITY
+const TC5 = 143;   // UNIT
+const TC6 = 170;   // UNIT PRICE
+// TC7 = R (200)   // AMOUNT
 
 // Summary dividers
 const S_LD = 130;  // left divider (terms vs totals)
@@ -257,14 +261,22 @@ export async function generateInvoicePDF(data: InvoiceData): Promise<void> {
   doc.line(TC2, T_HT, TC2, T_HB);
   doc.line(TC3, T_HT, TC3, T_HB);
   doc.line(TC4, T_HT, TC4, T_HB);
+  doc.line(TC5, T_HT, TC5, T_HB);
+  doc.line(TC6, T_HT, TC6, T_HB);
 
-  doc.setFontSize(9);
+  doc.setFontSize(8);
   doc.setFont('helvetica', 'bold');
   centerText(doc, 'SR NO', L, TC1, T_HT + 5.5);
   centerText(doc, 'DESCRIPTION', TC1, TC2, T_HT + 5.5);
-  centerText(doc, 'EQUIPMENT CODE', TC2, TC3, T_HT + 5.5);
+  // Stack EQUIPMENT / CODE on two lines
+  centerText(doc, 'EQUIPMENT', TC2, TC3, T_HT + 3.5);
+  centerText(doc, 'CODE', TC2, TC3, T_HT + 7);
   centerText(doc, 'QUANTITY', TC3, TC4, T_HT + 5.5);
-  centerText(doc, 'AMOUNT', TC4, R, T_HT + 5.5);
+  centerText(doc, 'UNIT', TC4, TC5, T_HT + 5.5);
+  // Stack UNIT PRICE / (Rs) on two lines
+  centerText(doc, 'UNIT PRICE', TC5, TC6, T_HT + 3.5);
+  centerText(doc, '(Rs)', TC5, TC6, T_HT + 7);
+  centerText(doc, 'AMOUNT', TC6, R, T_HT + 5.5);
 
   // ═══════════════════════════════════════════════════════════════════════
   // SECTION 5: ITEMS TABLE BODY
@@ -300,8 +312,15 @@ export async function generateInvoicePDF(data: InvoiceData): Promise<void> {
     // QUANTITY (centered)
     centerText(doc, item.quantity, TC3, TC4, y);
 
-    // AMOUNT (centered without Rs.)
-    centerText(doc, fmt(Number(item.amount) || 0), TC4, R, y);
+    // UNIT (centered)
+    centerText(doc, item.unit || '', TC4, TC5, y);
+
+    // UNIT PRICE (centered)
+    centerText(doc, fmt(Number(item.unitPrice) || 0), TC5, TC6, y);
+
+    // AMOUNT (centered) = qty * unitPrice
+    const computedAmount = (Number(item.quantity) || 0) * (Number(item.unitPrice) || 0);
+    centerText(doc, fmt(computedAmount), TC6, R, y);
   }
 
   // Column dividers (drawn AFTER fills so lines show on top)
@@ -309,6 +328,8 @@ export async function generateInvoicePDF(data: InvoiceData): Promise<void> {
   doc.line(TC2, T_BT, TC2, T_BB);
   doc.line(TC3, T_BT, TC3, T_BB);
   doc.line(TC4, T_BT, TC4, T_BB);
+  doc.line(TC5, T_BT, TC5, T_BB);
+  doc.line(TC6, T_BT, TC6, T_BB);
 
   // ═══════════════════════════════════════════════════════════════════════
   // SECTION 6: SUMMARY (Terms, Totals)

@@ -13,7 +13,7 @@ import {
 
 // ── Empty line item factory ────────────────────────────────────────────────
 function createEmptyItem(srNo: number): InvoiceLineItem {
-  return { srNo, description: '', hsn: '', quantity: '', amount: '' };
+  return { srNo, description: '', hsn: '', unit: '', quantity: '', unitPrice: '', amount: '' };
 }
 
 // ── Main Component ─────────────────────────────────────────────────────────
@@ -61,7 +61,11 @@ export default function InvoiceForm() {
   const [generateError, setGenerateError] = useState('');
 
   // ── Calculations ──────────────────────────────────────────────────────
-  const subTotal = items.reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
+  const subTotal = items.reduce((sum, item) => {
+    const qty = Number(item.quantity) || 0;
+    const price = Number(item.unitPrice) || 0;
+    return sum + (qty * price);
+  }, 0);
 
   const cgstAmount = taxMode === 'cgst_sgst' ? (subTotal * cgstPercent) / 100 : 0;
   const sgstAmount = taxMode === 'cgst_sgst' ? (subTotal * sgstPercent) / 100 : 0;
@@ -532,11 +536,13 @@ export default function InvoiceForm() {
           </div>
 
           {/* Table header */}
-          <div className="hidden md:grid grid-cols-[50px_1fr_100px_90px_120px_40px] gap-2 mb-2 px-1">
+          <div className="hidden md:grid grid-cols-[40px_1fr_90px_70px_70px_90px_90px_36px] gap-2 mb-2 px-1">
             <span className="text-xs font-medium text-gray-500">SR</span>
             <span className="text-xs font-medium text-gray-500">Description</span>
-            <span className="text-xs font-medium text-gray-500">Equipment code</span>
+            <span className="text-xs font-medium text-gray-500">Equipment Code</span>
             <span className="text-xs font-medium text-gray-500">Qty</span>
+            <span className="text-xs font-medium text-gray-500">Unit</span>
+            <span className="text-xs font-medium text-gray-500">Unit Price</span>
             <span className="text-xs font-medium text-gray-500">Amount (₹)</span>
             <span />
           </div>
@@ -546,7 +552,7 @@ export default function InvoiceForm() {
             {items.map((item, idx) => (
               <div
                 key={idx}
-                className="grid grid-cols-1 md:grid-cols-[50px_1fr_100px_90px_120px_40px] gap-2 bg-gray-800/30 rounded-xl p-3 md:p-2 border border-gray-800/50"
+                className="grid grid-cols-1 md:grid-cols-[40px_1fr_90px_70px_70px_90px_90px_36px] gap-2 bg-gray-800/30 rounded-xl p-3 md:p-2 border border-gray-800/50"
               >
                 {/* SR NO */}
                 <div className="flex items-center">
@@ -568,12 +574,12 @@ export default function InvoiceForm() {
 
                 {/* Equipment code */}
                 <div>
-                  <label className="text-xs text-gray-500 md:hidden mb-1 block">Equipment code</label>
+                  <label className="text-xs text-gray-500 md:hidden mb-1 block">Equipment Code</label>
                   <input
                     type="text"
                     value={item.hsn}
                     onChange={e => updateItem(idx, 'hsn', e.target.value)}
-                    placeholder="Equipment code"
+                    placeholder="Code"
                     className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-2.5 py-2 text-white text-sm placeholder-gray-600 focus:ring-1 focus:ring-emerald-500/50 focus:border-emerald-500 outline-none transition"
                   />
                 </div>
@@ -590,18 +596,38 @@ export default function InvoiceForm() {
                   />
                 </div>
 
-                {/* Amount */}
+                {/* Unit */}
                 <div>
-                  <label className="text-xs text-gray-500 md:hidden mb-1 block">Amount (₹)</label>
+                  <label className="text-xs text-gray-500 md:hidden mb-1 block">Unit</label>
+                  <input
+                    type="text"
+                    value={item.unit}
+                    onChange={e => updateItem(idx, 'unit', e.target.value)}
+                    placeholder="Kg/Pcs"
+                    className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-2.5 py-2 text-white text-sm placeholder-gray-600 focus:ring-1 focus:ring-emerald-500/50 focus:border-emerald-500 outline-none transition"
+                  />
+                </div>
+
+                {/* Unit Price */}
+                <div>
+                  <label className="text-xs text-gray-500 md:hidden mb-1 block">Unit Price (₹)</label>
                   <input
                     type="number"
-                    value={item.amount}
-                    onChange={e => updateItem(idx, 'amount', e.target.value)}
+                    value={item.unitPrice}
+                    onChange={e => updateItem(idx, 'unitPrice', e.target.value)}
                     placeholder="0.00"
                     step="0.01"
                     min="0"
-                    className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 outline-none transition"
+                    className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-2.5 py-2 text-white text-sm placeholder-gray-600 focus:ring-1 focus:ring-emerald-500/50 focus:border-emerald-500 outline-none transition"
                   />
+                </div>
+
+                {/* Amount (auto-calculated, read-only) */}
+                <div>
+                  <label className="text-xs text-gray-500 md:hidden mb-1 block">Amount (₹)</label>
+                  <div className="w-full bg-gray-800/30 border border-gray-700/50 rounded-lg px-2.5 py-2 text-emerald-400 text-sm font-medium">
+                    {((Number(item.quantity) || 0) * (Number(item.unitPrice) || 0)).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </div>
                 </div>
 
                 {/* Remove */}
