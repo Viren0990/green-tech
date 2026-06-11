@@ -49,7 +49,8 @@ export default function InvoiceForm() {
   const [igstPercent, setIgstPercent] = useState(18);
 
   // Additional
-  const [termsAndConditions, setTermsAndConditions] = useState('');
+  const DEFAULT_TERMS = `1. Quantity and weight have been checked and accepted by the buyer at the time of delivery/pickup.\n2. Ownership and risk of the material transfer to the buyer upon delivery and/or receipt of full payment.\n3. This invoice serves as a record of sale and transfer of the e-waste material described herein.`;
+  const [termsAndConditions, setTermsAndConditions] = useState(DEFAULT_TERMS);
   const [amountInWords, setAmountInWords] = useState('');
   const [bankName, setBankName] = useState('Bank of Baroda');
   const [bankAccountNo, setBankAccountNo] = useState('29040200013947');
@@ -271,7 +272,7 @@ export default function InvoiceForm() {
       setClientGstin('');
       setPlaceOfSupply('');
       setItems([createEmptyItem(1)]);
-      setTermsAndConditions('');
+      setTermsAndConditions(DEFAULT_TERMS);
       setAmountInWords('');
       setRoundOffValue('');
       setRoundOffSign(1);

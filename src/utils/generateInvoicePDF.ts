@@ -43,7 +43,7 @@ const COMPANY = {
   subtext: 'Its unit of (DMD GOLD PROSPERITY PVT LTD)',
   address: 'Office No-01, Amaryllis, Maruti Nagar, Wagholi, Pune, 412207',
   cin: 'CIN :U27205PN2022PTC210032',
-  gstin: '127AAJCD1867E1ZL',
+  gstin: '27AAJCD1867E1ZL',
   pan: 'AAJCD1867E',
   contact: '9763123699',
   email: 'info@dmdgreentechrevive.com',
