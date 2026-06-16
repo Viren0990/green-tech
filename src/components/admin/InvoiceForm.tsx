@@ -623,7 +623,6 @@ export default function InvoiceForm() {
                   />
                 </div>
 
-                {/* Amount (auto-calculated, read-only) */}
                 <div>
                   <label className="text-xs text-gray-500 md:hidden mb-1 block">Amount (₹)</label>
                   <div className="w-full bg-gray-800/30 border border-gray-700/50 rounded-lg px-2.5 py-2 text-emerald-400 text-sm font-medium">
