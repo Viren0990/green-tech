@@ -51,17 +51,10 @@ export default function Home() {
     <main className="flex flex-col w-full">
       <Navbar />
       <Hero />
-      <div className="bg-gray-200 w-full h-0.5"></div>
-
       <Services />
-      <div className="bg-gray-200 w-full h-0.5"></div>
       <Story />
-      <div className="bg-gray-200 w-full h-0.5"></div>
       <Gallery />
-      <div className="bg-gray-200 w-full h-0.5"></div>
       <FAQ />
-      <div className="bg-gray-200 w-full h-0.5"></div>
-      <Cta />
       <Footer />
     </main>
   );
