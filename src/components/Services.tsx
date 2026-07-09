@@ -65,7 +65,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             Sustainable Solutions for Your{' '}
             <span className="text-green-600">E-Waste</span>
           </h2>

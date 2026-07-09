@@ -76,7 +76,7 @@ export default function Story() {
             </span>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] font-bold text-gray-900 leading-tight">
               From a Drought-Hit Village to{' '}
               <span className="text-emerald-600">India&apos;s Green Revival</span>
             </h2>

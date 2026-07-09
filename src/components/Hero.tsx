@@ -28,14 +28,14 @@ export default function Hero() {
               <span>AUTHORIZED E-WASTE REFURBISHER AND RECYCLER</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
               Reviving Tech, <br />
               <span className="text-emerald-400">
                 Restoring Nature
               </span>
             </h1>
 
-            <p className="text-white text-lg md:text-xl max-w-xl leading-relaxed">
+            <p className="text-white text-base md:text-lg xl:text-xl max-w-xl leading-relaxed">
               India&apos;s premier certified e-waste recycling and restoration service in Pune.
               We turn your obsolete electronics into resources, bridging the gap
               between technology and sustainability.
@@ -44,7 +44,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="group bg-white text-green-900 px-8 py-4 rounded-full transition-all shadow-lg shadow-black/20 hover:shadow-xl hover:bg-green-50 flex items-center justify-center gap-2.5 font-semibold"
+                className="group bg-white text-green-900 px-6 py-3 xl:px-8 xl:py-4 rounded-full transition-all shadow-lg shadow-black/20 hover:shadow-xl hover:bg-green-50 flex items-center justify-center gap-2.5 font-semibold"
               >
                 <Leaf size={20} />
                 Schedule Pickup
@@ -52,7 +52,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/what-we-do"
-                className="group border border-white/30 text-white backdrop-blur-sm px-8 py-4 rounded-full hover:border-white/60 hover:bg-white/10 transition-all text-center font-medium"
+                className="group border border-white/30 text-white backdrop-blur-sm px-6 py-3 xl:px-8 xl:py-4 rounded-full hover:border-white/60 hover:bg-white/10 transition-all text-center font-medium"
               >
                 Learn More
               </Link>
