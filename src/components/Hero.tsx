@@ -76,43 +76,46 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* --- RIGHT STAT CARDS (2 cols) --- */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          {/* --- RIGHT STAT CARDS --- */}
+          <div className="lg:col-span-2 flex flex-col gap-3 lg:pl-10">
             {/* MPCB Badge Card */}
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-5 border border-white/20 transition-all hover:bg-black/50 shadow-lg shadow-black/10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-emerald-500/25 rounded-xl flex items-center justify-center shrink-0">
-                  <CheckCircle className="text-emerald-400" size={24} />
+            <div className="group relative overflow-hidden bg-black/30 backdrop-blur-lg rounded-2xl p-4 border border-white/10 hover:border-white/30 transition-all shadow-2xl shadow-black/40">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative flex items-center gap-4">
+                <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="text-emerald-400" size={20} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white/80 uppercase tracking-wide">Certification</p>
-                  <p className="text-lg font-bold text-white">MPCB Verified Recycler</p>
+                  <p className="text-xs font-semibold text-white/60 uppercase tracking-widest mb-0.5">Certification</p>
+                  <p className="text-base font-medium text-white">MPCB Verified Recycler</p>
                 </div>
               </div>
             </div>
 
             {/* Green Impact Card */}
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-5 border border-white/20 transition-all hover:bg-black/50 shadow-lg shadow-black/10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-emerald-500/25 rounded-xl flex items-center justify-center shrink-0">
-                  <Leaf className="text-emerald-400" size={24} />
+            <div className="group relative overflow-hidden bg-black/30 backdrop-blur-lg rounded-2xl p-4 border border-white/10 hover:border-white/30 transition-all shadow-2xl shadow-black/40">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative flex items-center gap-4">
+                <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Leaf className="text-emerald-400" size={20} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white/80 uppercase tracking-wide">Green Impact</p>
-                  <p className="text-lg font-bold text-white">2,500+ <span className="text-base font-normal text-white/80">Trees Planted</span></p>
+                  <p className="text-xs font-semibold text-white/60 uppercase tracking-widest mb-0.5">Green Impact</p>
+                  <p className="text-base font-medium text-white">2,500+ <span className="text-sm text-white/70">Trees Planted</span></p>
                 </div>
               </div>
             </div>
 
             {/* Devices Recycled Card */}
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-5 border border-white/20 transition-all hover:bg-black/50 shadow-lg shadow-black/10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-emerald-500/25 rounded-xl flex items-center justify-center shrink-0">
-                  <ShieldCheck className="text-emerald-400" size={24} />
+            <div className="group relative overflow-hidden bg-black/30 backdrop-blur-lg rounded-2xl p-4 border border-white/10 hover:border-white/30 transition-all shadow-2xl shadow-black/40">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative flex items-center gap-4">
+                <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <ShieldCheck className="text-emerald-400" size={20} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white/80 uppercase tracking-wide">Devices Processed</p>
-                  <p className="text-lg font-bold text-white">10,000+ <span className="text-base font-normal text-white/80">&amp; Counting</span></p>
+                  <p className="text-xs font-semibold text-white/60 uppercase tracking-widest mb-0.5">Devices Processed</p>
+                  <p className="text-base font-medium text-white">10,000+ <span className="text-sm text-white/70">&amp; Counting</span></p>
                 </div>
               </div>
             </div>
