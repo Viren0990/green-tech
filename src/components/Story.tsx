@@ -68,7 +68,7 @@ export default function Story() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
-            className="space-y-6"
+            className="space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             {/* Tag */}
             <span className="inline-block text-sm font-bold uppercase tracking-[0.2em] text-emerald-600 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
@@ -82,7 +82,7 @@ export default function Story() {
             </h2>
 
             {/* Lead paragraph */}
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="text-gray-600 leading-relaxed text-lg mx-auto lg:mx-0 max-w-2xl">
               It started with a simple act of hope — planting 50 coconut saplings during a
               severe drought. That moment sparked a lifelong realization:{' '}
               <span className="font-semibold text-gray-800">
@@ -91,7 +91,7 @@ export default function Story() {
             </p>
 
             {/* Second paragraph */}
-            <p className="text-gray-500 leading-relaxed">
+            <p className="text-gray-500 leading-relaxed mx-auto lg:mx-0 max-w-2xl">
               From the mineral-rich landscapes of India to witnessing the global impact of
               waste, our founder&apos;s journey bridged the gap between precious resources and
               neglected e-waste. DMD Greentech Revive was born from the conviction that waste
@@ -99,19 +99,19 @@ export default function Story() {
             </p>
 
             {/* Highlight stats — clean, typography-driven design */}
-            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+            <div className="flex flex-row justify-center lg:justify-start gap-2 sm:gap-6 pt-4 w-full flex-wrap sm:flex-nowrap">
               {highlights.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${item.bg}`}>
-                      <Icon className={`w-6 h-6 ${item.color}`} />
+                  <div key={i} className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-4 text-center sm:text-left">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 ${item.bg}`}>
+                      <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${item.color}`} />
                     </div>
                     <div>
-                      <p className="text-2xl font-extrabold text-gray-900 leading-none tracking-tight">
+                      <p className="text-sm sm:text-2xl font-extrabold text-gray-900 leading-none tracking-tight">
                         {item.value}
                       </p>
-                      <p className="text-sm text-gray-500 font-medium mt-1">{item.label}</p>
+                      <p className="text-[10px] sm:text-sm text-gray-500 font-medium mt-1 leading-tight">{item.label}</p>
                     </div>
                   </div>
                 );
@@ -122,7 +122,7 @@ export default function Story() {
             <div className="pt-6">
               <Link
                 href="/about-us"
-                className="inline-flex items-center gap-2 text-emerald-600 font-bold text-lg hover:text-emerald-700 transition-colors group"
+                className="inline-flex items-center gap-2 text-emerald-600 font-bold text-lg hover:text-emerald-700 transition-colors group justify-center lg:justify-start w-full lg:w-auto"
               >
                 Read Our Full Journey
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -13,7 +13,7 @@ export default function Hero() {
       />
 
       {/* --- DARK OVERLAY (strong enough so text doesn't blend) --- */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1f0a]/40 via-[#0d2b0d]/60 to-[#0a1f0a]/40 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1f0a]/70 via-[#0d2b0d]/60 to-[#0a1f0a]/70 z-[1]" />
       {/* Subtle vignette for depth */}
       <div className="absolute inset-0 z-[1]" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(5,15,5,0.4) 100%)' }} />
 
@@ -22,26 +22,26 @@ export default function Hero() {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-end lg:items-center">
 
           {/* --- LEFT CONTENT (3 cols) --- */}
-          <div className="lg:col-span-3 space-y-7">
-            <div className="font-sans inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white text-sm font-medium shadow-sm">
+          <div className="lg:col-span-3 space-y-7 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="font-sans hidden md:inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white text-sm font-medium shadow-sm">
               <ShieldCheck size={16} />
               <span>AUTHORIZED E-WASTE REFURBISHER AND RECYCLER</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
+            <h1 className="pt-12 md:pt-0 text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white w-full" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
               Reviving Tech, <br />
               <span className="text-emerald-400">
                 Restoring Nature
               </span>
             </h1>
 
-            <p className="text-white text-base md:text-lg xl:text-xl max-w-xl leading-relaxed">
+            <p className="text-white text-lg md:text-lg xl:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed">
               India&apos;s premier certified e-waste recycling and restoration service in Pune.
               We turn your obsolete electronics into resources, bridging the gap
               between technology and sustainability.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start">
               <Link
                 href="/contact"
                 className="group bg-white text-green-900 px-6 py-3 xl:px-8 xl:py-4 rounded-full transition-all shadow-lg shadow-black/20 hover:shadow-xl hover:bg-green-50 flex items-center justify-center gap-2.5 font-semibold"

@@ -57,20 +57,20 @@ export default function ContactForm() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-8 items-start bg-white rounded-3xl shadow-xl shadow-zinc-200/50 overflow-hidden ring-1 ring-zinc-100">
+        <div className="grid lg:grid-cols-5 flex-col lg:grid gap-0 lg:gap-8 items-start bg-white rounded-3xl shadow-xl shadow-zinc-200/50 overflow-hidden ring-1 ring-zinc-100 flex">
           
           {/* Left - Contact Info Panel */}
-          <div className="lg:col-span-2 bg-emerald-900 p-10 md:p-12 text-white h-full relative overflow-hidden flex flex-col justify-between">
+          <div className="w-full lg:col-span-2 bg-emerald-900 p-6 sm:p-10 md:p-12 text-white h-full relative overflow-hidden flex flex-col justify-between order-2 lg:order-1">
             {/* Background decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-800 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-900/50 rounded-full blur-[100px] translate-y-1/4 -translate-x-1/4" />
             
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">Contact Information</h3>
               
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 bg-emerald-800/50 p-3 rounded-full border border-emerald-700/50 shrink-0">
+                  <div className="mt-1 bg-emerald-800/50 p-2.5 sm:p-3 rounded-full border border-emerald-700/50 shrink-0">
                     <MapPin className="text-emerald-300" size={20} />
                   </div>
                   <div>
@@ -82,7 +82,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 bg-emerald-800/50 p-3 rounded-full border border-emerald-700/50 shrink-0">
+                  <div className="mt-1 bg-emerald-800/50 p-2.5 sm:p-3 rounded-full border border-emerald-700/50 shrink-0">
                     <Phone className="text-emerald-300" size={20} />
                   </div>
                   <div>
@@ -94,7 +94,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 bg-emerald-800/50 p-3 rounded-full border border-emerald-700/50 shrink-0">
+                  <div className="mt-1 bg-emerald-800/50 p-2.5 sm:p-3 rounded-full border border-emerald-700/50 shrink-0">
                     <Mail className="text-emerald-300" size={20} />
                   </div>
                   <div>
@@ -106,7 +106,7 @@ export default function ContactForm() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 bg-emerald-800/50 p-3 rounded-full border border-emerald-700/50 shrink-0">
+                  <div className="mt-1 bg-emerald-800/50 p-2.5 sm:p-3 rounded-full border border-emerald-700/50 shrink-0">
                     <Clock className="text-emerald-300" size={20} />
                   </div>
                   <div>
@@ -121,13 +121,13 @@ export default function ContactForm() {
           </div>
 
           {/* Right - Form */}
-          <div className="lg:col-span-3 p-10 md:p-12">
-            <h2 className="text-2xl font-bold text-zinc-900 mb-8">
+          <div className="w-full lg:col-span-3 p-6 sm:p-10 md:p-12 order-1 lg:order-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-6 sm:mb-8">
               Send us a Message
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-zinc-700 mb-2">
                     Full Name *
@@ -138,7 +138,7 @@ export default function ContactForm() {
                     name="name"
                     required
                     disabled={isSubmitting}
-                    className="w-full px-5 py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                     placeholder="John Doe"
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function ContactForm() {
                     id="phone"
                     name="phone"
                     disabled={isSubmitting}
-                    className="w-full px-5 py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                     placeholder="+91 9763123699"
                   />
                 </div>
@@ -168,7 +168,7 @@ export default function ContactForm() {
                   name="address"
                   required
                   disabled={isSubmitting}
-                  className="w-full px-5 py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                   placeholder="123 Green Street, Pune"
                 />
               </div>
@@ -183,7 +183,7 @@ export default function ContactForm() {
                   required
                   rows={4}
                   disabled={isSubmitting}
-                  className="w-full px-5 py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all resize-none disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all resize-none disabled:opacity-60 disabled:cursor-not-allowed"
                   placeholder="Tell us about your e-waste disposal needs..."
                 />
               </div>
@@ -200,7 +200,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto bg-emerald-800 text-white px-10 py-4 rounded-xl hover:bg-emerald-900 transition-all duration-300 font-semibold flex items-center justify-center gap-3 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto bg-emerald-800 text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl hover:bg-emerald-900 transition-all duration-300 font-semibold flex items-center justify-center gap-3 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
               >
                 {isSubmitting ? (
                   <>
