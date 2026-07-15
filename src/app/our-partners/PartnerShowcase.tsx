@@ -39,6 +39,24 @@ const partners = [
     initial: 'S',
     logo: '/sss-logo.png',
   },
+  {
+    name: 'AutoAlly Services LLP',
+    location: 'India',
+    description:
+      'AutoAlly Services LLP is a dynamic services partner specialising in automotive and allied service solutions. Their operational expertise and commitment to quality service delivery complement our mission to build a robust, sustainable ecosystem for technology lifecycle management.',
+    expertise: [
+      'Automotive Services',
+      'Allied Solutions',
+      'Service Management',
+    ],
+    icon: Wrench,
+    accentColor: 'from-teal-500 to-emerald-600',
+    accentLight: 'bg-teal-50',
+    accentText: 'text-teal-700',
+    accentBorder: 'border-teal-200',
+    initial: 'A',
+    logo: '/AutoAlly.png',
+  },
 ];
 
 export default function PartnerShowcase() {
