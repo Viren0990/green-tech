@@ -31,6 +31,13 @@ const communities = [
       'Sai Galaxy society has joined our community partner programme, actively contributing to a cleaner environment through organised e-waste collection events for their residents.',
     initial: 'SG',
   },
+  {
+    name: 'Sai Tirupati Greens Society',
+    location: 'Pune, Maharashtra',
+    description:
+      'Sai Tirupati Greens Society has partnered with us to drive positive environmental change through responsible e-waste collection and management for all its residents.',
+    initial: 'STG',
+  },
 ];
 
 export default function CommunityShowcase() {

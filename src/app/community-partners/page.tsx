@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Community Partners - Residential Societies We Work With',
   description:
-    'DMD Green Tech Revive works with residential communities including Rohan Abhilasha, Wildwoods, Ivy Estate, and Sai Galaxy for responsible e-waste collection and disposal in Pune.',
+    'DMD Green Tech Revive works with residential communities including Rohan Abhilasha, Wildwoods, Ivy Estate, Sai Galaxy, and Sai Tirupati Greens Society for responsible e-waste collection and disposal in Pune.',
   keywords: [
     'DMD Green Tech community partners',
     'e-waste collection societies Pune',

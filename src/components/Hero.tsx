@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="lg:col-span-3 space-y-7 text-center lg:text-left flex flex-col items-center lg:items-start">
             <div className="font-sans hidden md:inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white text-sm font-medium shadow-sm">
               <ShieldCheck size={16} />
-              <span>AUTHORIZED E-WASTE REFURBISHER AND RECYCLER</span>
+              <span>AUTHORIZED E-WASTE REFURBISHER</span>
             </div>
 
             <h1 className="pt-12 md:pt-0 text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white w-full" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
@@ -87,7 +87,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-white/60 uppercase tracking-widest mb-0.5">Certification</p>
-                  <p className="text-base font-medium text-white">MPCB Verified Recycler</p>
+                  <p className="text-base font-medium text-white">MPCB Verified</p>
                 </div>
               </div>
             </div>
