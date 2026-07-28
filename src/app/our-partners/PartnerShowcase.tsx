@@ -41,7 +41,7 @@ const partners = [
   },
   {
     name: 'AutoAlly Services LLP',
-    location: 'India',
+    location: 'Pune, India',
     description:
       'AutoAlly Services LLP is a dynamic services partner specialising in automotive and allied service solutions. Their operational expertise and commitment to quality service delivery complement our mission to build a robust, sustainable ecosystem for technology lifecycle management.',
     expertise: [
