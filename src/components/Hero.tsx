@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Leaf, ShieldCheck, ArrowRight, Recycle, Award, TreePine, FileCheck, CheckCircle } from 'lucide-react';
 
 export default function Hero() {
@@ -6,10 +7,13 @@ export default function Hero() {
     <section className="hero-font-reset relative min-h-screen overflow-hidden flex flex-col">
 
       {/* --- FULL BLEED BACKGROUND IMAGE --- */}
-      <img
+      <Image
         src="/new_hero.png"
         alt="DMD Green Tech – e-waste recycling and refurbishment facility"
-        className="absolute inset-0 w-full h-full object-cover object-[70%_center] lg:object-center brightness-125"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[70%_center] lg:object-center brightness-125"
       />
 
       {/* --- DARK OVERLAY – strong on left for text, fading to right to show image --- */}
