@@ -40,8 +40,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-16 h-14 rounded-lg items-center justify-center">
-              <Image src={logo} alt="dd" />
+            <div className="w-16 h-14 bg-white rounded-lg flex items-center justify-center p-1">
+              <Image src={logo} alt="dd" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="font-semibold text-white text-xl">DMD <span className="text-emerald-400 font-bold">Greentech</span> Revive</span>
