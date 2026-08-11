@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Leaf, ShieldCheck, ArrowRight, Recycle, Award, TreePine, FileCheck, CheckCircle } from 'lucide-react';
+import { Leaf, ShieldCheck, ArrowRight, Recycle, Award, TreePine, FileCheck, CheckCircle, Download } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -56,13 +56,16 @@ export default function Hero() {
                 <Leaf size={20} />
                 Schedule Pickup
               </Link>
-              <Link
-                href="/what-we-do"
+              <a
+                href="/DMD Greentech Broucher ..pdf"
+                download="DMD Greentech Brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group border border-white/30 text-white px-7 py-3.5 xl:px-8 xl:py-4 rounded-lg hover:border-white/60 hover:bg-white/10 transition-all text-center font-medium flex items-center justify-center gap-2"
               >
-                Learn More
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
+                Download Brochure
+                <Download size={16} className="transition-transform group-hover:translate-y-1" />
+              </a>
             </div>
 
             {/* Feature Icons Row */}

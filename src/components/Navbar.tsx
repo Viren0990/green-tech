@@ -60,6 +60,9 @@ export default function Navbar() {
             <Link href="/what-we-do" className={desktopLinkClass('/what-we-do')}>
               What We Do
             </Link>
+            <Link href="/e-waste-categories" className={desktopLinkClass('/e-waste-categories')}>
+              We Accept
+            </Link>
 
             {/* Partners Dropdown */}
             <div className="relative" ref={dropdownRef}>
@@ -94,12 +97,9 @@ export default function Navbar() {
             <Link href="/posts" className={desktopLinkClass('/posts')}>
               Gallery
             </Link>
-            <Link href="/contact" className={desktopLinkClass('/contact')}>
-              Contact Us
-            </Link>
             <Link
               href="/contact"
-              className="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition"
+              className="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition whitespace-nowrap"
             >
               Schedule Pickup
             </Link>
@@ -126,6 +126,9 @@ export default function Navbar() {
             <Link href="/what-we-do" className={mobileLinkClass('/what-we-do')}>
               What We Do
             </Link>
+            <Link href="/e-waste-categories" className={mobileLinkClass('/e-waste-categories')}>
+              Our Categories
+            </Link>
 
             {/* Mobile Partners Accordion */}
             <div>
@@ -150,9 +153,6 @@ export default function Navbar() {
 
             <Link href="/posts" className={mobileLinkClass('/posts')}>
               Gallery
-            </Link>
-            <Link href="/contact" className={mobileLinkClass('/contact')}>
-              Contact Us
             </Link>
             <Link
               href="/contact"
