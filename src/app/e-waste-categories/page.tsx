@@ -147,39 +147,37 @@ export default function EWasteCategories() {
         </div>
         
         {/* Content Overlay */}
-        <div className="relative z-10 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="max-w-3xl text-left ml-4 md:ml-8 lg:ml-12">
+        <div className="relative z-10 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+          <div className="max-w-3xl mx-auto md:ml-8 lg:ml-12 flex flex-col items-center md:items-start text-center md:text-left">
             
             {/* Title Block */}
-            <div className="relative inline-block z-10">
+            <div className="relative inline-block z-10 max-w-full">
               <div className="absolute inset-0 bg-[#0c2f16] shadow-lg rounded-md transform -skew-x-[8deg]"></div>
-              <h1 className="relative text-2xl md:text-3xl lg:text-[2.6rem] font-extrabold uppercase leading-none tracking-wide text-white text-center px-6 md:px-10 py-3 md:py-4 z-10">
+              <h1 className="relative text-2xl md:text-3xl lg:text-[2.6rem] font-extrabold uppercase leading-tight md:leading-none tracking-wide text-white text-center px-4 md:px-10 py-3 md:py-4 z-10 break-words">
                 E-Waste Categories We Accept
               </h1>
             </div>
             
-            <br />
-
             {/* Subtitle Pill (Overlapping) */}
-            <div className="relative z-20 inline-block -mt-3 ml-2 md:ml-6">
-              <div className="bg-gradient-to-b from-[#7cc633] to-[#3a8014] text-white px-5 md:px-6 py-1.5 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.3)] border border-green-500/50">
-                <p className="text-xs md:text-sm lg:text-[15px] font-bold tracking-wide">
+            <div className="relative z-20 inline-block -mt-2 md:-mt-3 md:ml-6 max-w-full">
+              <div className="bg-gradient-to-b from-[#7cc633] to-[#3a8014] text-white px-4 md:px-6 py-2 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.3)] border border-green-500/50">
+                <p className="text-xs md:text-sm lg:text-[15px] font-bold tracking-wide leading-normal">
                   Categories covered under Schedule I of the E-Waste (Management) Rules, 2022
                 </p>
               </div>
             </div>
             
             {/* Description Text */}
-            <div className="mt-5 text-gray-900 flex flex-col items-center justify-center max-w-[850px] lg:pr-8">
-              <p className="text-[14px] md:text-[16px] lg:text-[18px] font-medium leading-relaxed text-center">
-                We accept a wide range of electrical and electronic equipment covered under <span className="whitespace-nowrap">Schedule I</span>
+            <div className="mt-5 text-gray-900 bg-white/70 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none p-3 md:p-0 rounded-xl flex flex-col items-center md:items-start max-w-[850px] lg:pr-8">
+              <p className="text-[14px] md:text-[16px] lg:text-[18px] font-bold md:font-medium leading-relaxed text-center md:text-left">
+                We accept a wide range of electrical and electronic equipment covered under Schedule I
               </p>
-              <div className="flex items-center justify-center gap-3 mt-1 w-full">
-                <div className="h-[1.5px] w-12 md:w-20 bg-green-800"></div>
-                <p className="text-[14px] md:text-[16px] lg:text-[18px] font-medium leading-relaxed text-center whitespace-nowrap">
+              <div className="flex items-center justify-center md:justify-start gap-2 md:gap-3 mt-1 w-full">
+                <div className="hidden md:block h-[1.5px] w-12 md:w-20 bg-green-800"></div>
+                <p className="text-[14px] md:text-[16px] lg:text-[18px] font-bold md:font-medium leading-relaxed text-center md:text-left">
                   for responsible collection, refurbishment, recovery and recycling.
                 </p>
-                <div className="h-[1.5px] w-12 md:w-20 bg-green-800"></div>
+                <div className="hidden md:block h-[1.5px] w-12 md:w-20 bg-green-800"></div>
               </div>
             </div>
 
@@ -211,12 +209,12 @@ export default function EWasteCategories() {
                   <Image src={category.image} alt={category.title} fill className="object-contain" />
                 </div>
                 
-                <div className="w-full sm:w-[55%]">
-                  <ul className="space-y-1.5">
+                <div className="w-full sm:w-[55%] flex justify-center sm:justify-start">
+                  <ul className="space-y-1.5 w-fit sm:w-full">
                     {category.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5 text-[11px] md:text-[12px] text-gray-900 font-semibold leading-tight">
+                      <li key={idx} className="flex items-start justify-start gap-1.5 text-[11px] md:text-[12px] text-gray-900 font-semibold leading-tight">
                         <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-emerald-600 flex-shrink-0 mt-0.5" strokeWidth={3} />
-                        <span>{item}</span>
+                        <span className="text-left">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -254,12 +252,12 @@ export default function EWasteCategories() {
                   <Image src={category.image} alt={category.title} fill className="object-contain" />
                 </div>
                 
-                <div className="w-full">
-                  <ul className="space-y-1.5">
+                <div className="w-full flex justify-center md:justify-start">
+                  <ul className="space-y-1.5 w-fit md:w-full">
                     {category.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5 text-[10px] md:text-[11px] text-gray-900 font-semibold leading-tight">
+                      <li key={idx} className="flex items-start justify-start gap-1.5 text-[10px] md:text-[11px] text-gray-900 font-semibold leading-tight">
                         <Check className="w-3 h-3 md:w-3.5 md:h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" strokeWidth={3} />
-                        <span>{item}</span>
+                        <span className="text-left">{item}</span>
                       </li>
                     ))}
                   </ul>

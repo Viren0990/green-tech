@@ -29,8 +29,8 @@ export async function createPost(formData: FormData) {
       return { success: false, error: 'Please upload at least one gallery image.' };
     }
 
-    if (images.length > 25) {
-      return { success: false, error: 'Maximum 25 gallery images allowed per post.' };
+    if (images.length > 50) {
+      return { success: false, error: 'Maximum 50 gallery images allowed per post.' };
     }
   } catch (error) {
     return { success: false, error: 'Invalid image data.' };

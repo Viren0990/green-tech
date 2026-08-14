@@ -26,7 +26,7 @@ export default function Navbar() {
   }, []);
 
   const isActive = (path: string) => pathname === path;
-  const isPartnersActive = isActive('/our-partners') || isActive('/community-partners');
+  const isPartnersActive = isActive('/our-partners') || isActive('/community-partners') || isActive('/educational-partners');
 
   const desktopLinkClass = (path: string) => 
     `relative transition ${isActive(path) ? 'text-emerald-400 font-semibold after:absolute after:-bottom-2 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/80 hover:text-emerald-400'}`;
@@ -90,6 +90,13 @@ export default function Navbar() {
                   >
                     Community Partners
                   </Link>
+                  <Link
+                    href="/educational-partners"
+                    className={`block px-4 py-2.5 text-sm transition ${isActive('/educational-partners') ? 'bg-emerald-500/15 text-emerald-400 font-medium' : 'text-white/70 hover:bg-emerald-500/10 hover:text-emerald-400'}`}
+                    onClick={() => setPartnersOpen(false)}
+                  >
+                    Educational Partners
+                  </Link>
                 </div>
               )}
             </div>
@@ -146,6 +153,9 @@ export default function Navbar() {
                   </Link>
                   <Link href="/community-partners" className={`block w-max relative transition py-1.5 text-sm ${isActive('/community-partners') ? 'text-emerald-400 font-semibold after:absolute after:bottom-0 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/60 hover:text-emerald-400'}`}>
                     Community Partners
+                  </Link>
+                  <Link href="/educational-partners" className={`block w-max relative transition py-1.5 text-sm ${isActive('/educational-partners') ? 'text-emerald-400 font-semibold after:absolute after:bottom-0 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/60 hover:text-emerald-400'}`}>
+                    Educational Partners
                   </Link>
                 </div>
               )}
