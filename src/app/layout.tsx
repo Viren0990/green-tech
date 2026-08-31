@@ -172,6 +172,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={headingFont.variable}>
       <head>
+        <link
+          rel="preload"
+          href="/new_hero.webp"
+          as="image"
+          type="image/webp"
+          fetchPriority="high"
+        />
         <Script
           id="organization-schema"
           type="application/ld+json"

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Leaf, ShieldCheck, ArrowRight, Recycle, Award, TreePine, FileCheck, CheckCircle, Download } from 'lucide-react';
+import heroImage from '@/public/new_hero.webp';
 
 export default function Hero() {
   return (
@@ -8,11 +9,12 @@ export default function Hero() {
 
       {/* --- FULL BLEED BACKGROUND IMAGE --- */}
       <Image
-        src="/new_hero.png"
+        src={heroImage}
         alt="DMD Green Tech – e-waste recycling and refurbishment facility"
         fill
         priority
         sizes="100vw"
+        placeholder="blur"
         className="object-cover object-[70%_center] lg:object-center brightness-125"
       />
 

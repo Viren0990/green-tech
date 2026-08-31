@@ -1,4 +1,4 @@
-import hero from "@/src/images/ryan-brayoga-71RkuW0FGtI-unsplash.jpg"
+import hero from "@/src/images/about-hero.webp"
 
 import Image from "next/image";
 
@@ -15,6 +15,7 @@ export default function StoryHero() {
           fill
           className="object-cover object-center"
           priority
+          placeholder="blur"
         />
         {/* Gradient Overlay for Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
