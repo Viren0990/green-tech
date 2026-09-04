@@ -1,14 +1,60 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Leaf, Recycle, Gift, ArrowRight, Users, BarChart2 } from 'lucide-react';
-import { motion } from 'framer-motion';
-import galleryImage from '@/src/images/w2.jpg';
-import galleryImage2 from '@/src/images/w.jpg';
-import galleryImage3 from '@/src/images/ppp.webp';
+import { Leaf, Recycle, Gift, ArrowRight, Users } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import galleryImage from '@/src/images/your-second-image.avif';
+import galleryImage2 from '@/src/images/your-first-image.avif';
+import galleryImage3 from '@/src/images/your-third-image.avif';
+import galleryImage4 from '@/src/images/your-frouth-image.avif';
+
+const campaigns = [
+  {
+    id: 1,
+    image: galleryImage2,
+    icon: Recycle,
+    category: "E-Waste Collection Drive",
+    title: "Community Collection Initiative",
+    description: "Engaging communities to responsibly collect and recycle e-waste for a sustainable future."
+  },
+  {
+    id: 2,
+    image: galleryImage,
+    icon: Gift,
+    category: "Awareness Campaign",
+    title: "Festive Green Initiative",
+    description: "Promoting eco-friendly celebrations with e-waste collection & awareness."
+  },
+  {
+    id: 3,
+    image: galleryImage3,
+    icon: Leaf,
+    category: "Responsible Recycling",
+    title: "E-waste to Eco-resources",
+    description: "We convert your e-waste into resources and reduce environmental impact."
+  },
+  {
+    id: 4,
+    image: galleryImage4,
+    icon: Users,
+    category: "Community Outreach",
+    title: "Green Education Initiative",
+    description: "Our members distributing plants to school staff to promote environmental awareness."
+  }
+];
 
 export default function Gallery() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % campaigns.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="gallery" className="bg-gray-50/50 py-2 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,88 +80,55 @@ export default function Gallery() {
           </Link>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid lg:grid-cols-12 gap-6 mb-6">
-          
-          {/* Left Large Card */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group hover:shadow-md transition-shadow"
-          >
-            <div className="relative h-64 sm:h-80 lg:h-auto lg:flex-1 w-full overflow-hidden min-h-[300px]">
-              <Image src={galleryImage2} alt="Community Collection Initiative" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-5 flex items-center gap-4 shrink-0">
-              <div className="bg-green-50 text-green-600 w-12 h-12 rounded-full flex items-center justify-center shrink-0 self-start mt-1">
-                <Recycle className="w-6 h-6" />
-              </div>
-              <div className="flex-1">
-                <span className="text-green-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1 block">E-Waste Collection Drive</span>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">Community Collection Initiative</h3>
-                <p className="text-gray-500 text-sm line-clamp-2 pr-4">Engaging communities to responsibly collect and recycle e-waste for a sustainable future.</p>
-              </div>
-              <Link href="/posts" className="inline-flex items-center text-green-600 bg-green-50 px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-100 group/link transition-colors shrink-0 self-end mb-1 hidden sm:flex">
-                Learn More <ArrowRight className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </motion.div>
+        {/* Carousel */}
+        <div className="relative w-full mx-auto mb-8 px-4 sm:px-0 group/carousel">
+          <div className="overflow-hidden rounded-3xl relative h-[500px] shadow-sm border border-gray-100 bg-white">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="absolute inset-0 flex flex-col md:flex-row group"
+              >
+                <div className="relative w-full h-64 md:h-full md:w-[70%] overflow-hidden shrink-0">
+                  <Image src={campaigns[currentIndex].image} alt={campaigns[currentIndex].title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center md:w-[30%] shrink-0">
+                  <div className="flex items-center gap-3 mb-4 md:mb-6">
+                    <div className="bg-green-50 text-green-600 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shrink-0">
+                      {(() => {
+                        const Icon = campaigns[currentIndex].icon;
+                        return <Icon className="w-5 h-5 md:w-6 md:h-6" />;
+                      })()}
+                    </div>
+                    <span className="text-green-600 text-xs md:text-sm font-bold uppercase tracking-wider">{campaigns[currentIndex].category}</span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 md:mb-4">{campaigns[currentIndex].title}</h3>
+                  <p className="text-gray-500 text-sm md:text-base lg:text-lg mb-6 md:mb-8 line-clamp-3 md:line-clamp-none">{campaigns[currentIndex].description}</p>
+                  <Link href="/posts" className="inline-flex items-center text-green-600 font-semibold text-base md:text-lg group/link">
+                    Learn More <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-          {/* Right Stacked Cards */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-6"
-          >
-            
-            {/* Top Right Card */}
-            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group flex-1 hover:shadow-md transition-shadow">
-              <div className="relative h-48 lg:h-auto lg:flex-1 w-full overflow-hidden min-h-[160px]">
-                <Image src={galleryImage} alt="Festive Green Initiative" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="p-5 flex items-center gap-4 shrink-0">
-                <div className="bg-green-50 text-green-600 w-12 h-12 rounded-full flex items-center justify-center shrink-0 self-start mt-1">
-                  <Gift className="w-6 h-6" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-green-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1 block">Awareness Campaign</span>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1">Festive Green Initiative</h3>
-                  <p className="text-gray-500 text-sm line-clamp-2">Promoting eco-friendly celebrations with e-waste collection & awareness.</p>
-                </div>
-                <Link href="posts" className="bg-green-50 w-8 h-8 rounded-full flex items-center justify-center text-green-600 hover:bg-green-100 transition-colors shrink-0 self-end mb-1">
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Bottom Right Card */}
-            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group flex-1 hover:shadow-md transition-shadow">
-              <div className="relative h-48 lg:h-auto lg:flex-1 w-full overflow-hidden min-h-[160px]">
-                <Image src={galleryImage3} alt="E-waste to Eco-resources" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="p-5 flex items-center gap-4 shrink-0">
-                <div className="bg-green-50 text-green-600 w-12 h-12 rounded-full flex items-center justify-center shrink-0 self-start mt-1">
-                  <Leaf className="w-6 h-6" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-green-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1 block">Responsible Recycling</span>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1">E-waste to Eco-resources</h3>
-                  <p className="text-gray-500 text-sm line-clamp-2">We convert your e-waste into resources and reduce environmental impact.</p>
-                </div>
-                <Link href="posts" className="bg-green-50 w-8 h-8 rounded-full flex items-center justify-center text-green-600 hover:bg-green-100 transition-colors shrink-0 self-end mb-1">
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </motion.div>
+          {/* Dots */}
+          <div className="flex justify-center mt-6 gap-2">
+            {campaigns.map((_, idx) => (
+              <button 
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-green-600' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        
-      </div>
+      </div>  
     </section>
   );
 }
