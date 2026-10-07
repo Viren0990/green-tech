@@ -220,7 +220,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
           <div className="relative max-w-5xl w-full max-h-[90vh] aspect-video">
             <Image
               src={lightboxImage}
-              alt="Full size preview"
+              alt={`${post.title} – full-size photo`}
               fill
               style={{ objectFit: 'contain' }}
               className="rounded-lg"

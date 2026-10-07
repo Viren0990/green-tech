@@ -2,46 +2,26 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/next"
+import { BUSINESS, SITE_URL } from '@/src/lib/business';
+import JsonLd from '@/src/components/JsonLd';
+
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
+
+const defaultTitle = 'Free E-Waste Pickup in Pune | DMD Green Tech Revive';
+const defaultDescription =
+  'Free e-waste pickup across Pune for offices and homes. Secure data wiping, responsible recycling and a certificate of recycling. Call +91 97631 23699.';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dmdgreentechrevive.com'), // Replace with your actual domain
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'DMD Green Tech Revive — Recycle Old Electronics & E-Waste in Pune',
-    template: '%s | DMD Green Tech Revive'
+    default: defaultTitle,
+    template: `%s | ${BUSINESS.name}`,
   },
-  description: 'Recycle old electronics & e-waste responsibly with DMD Green Tech Revive in Pune. Free pickup, secure data destruction, certified recycling & device refurbishment. MPCB authorized. Join us in building a sustainable circular economy.',
-  keywords: [
-    'DMD Green Tech',
-    'DMD',
-    'e-waste recycling India',
-    'electronic waste management',
-    'e-waste management in pune',
-    'e-waste recycling Pune',
-    'DMD Green Tech Revive Pune',
-    'e-waste disposal India',
-    'laptop refurbishment India',
-    'data destruction services',
-    'certified e-waste recycler',
-    'Pune e-waste',
-    'corporate e-waste pickup',
-    'IT asset disposal',
-    'green certificate India',
-    'circular economy India',
-    'sustainable tech India',
-    'refurbished laptops India',
-    'recycle old electronics',
-    'recycle device',
-    'where to recycle old electronics',
-    'e waste disposal',
-    'e waste collection near me',
-    'environmental company near me',
-    'recycle old laptop Pune',
-    'landfill alternative',
-    'recycling near me'
-  ],
-  authors: [{ name: 'DMD Green Tech Revive' }],
-  creator: 'DMD Green Tech Revive',
-  publisher: 'DMD Green Tech Revive',
+  description: defaultDescription,
+  authors: [{ name: BUSINESS.name }],
+  creator: BUSINESS.name,
+  publisher: BUSINESS.name,
   robots: {
     index: true,
     follow: true,
@@ -56,30 +36,29 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://dmdgreentechrevive.com',
-    title: 'DMD Green Tech Revive — Recycle Old Electronics & E-Waste in Pune',
-    description: 'Free e-waste pickup in Pune. Recycle old electronics, laptops & devices responsibly. MPCB certified recycler with zero-landfill policy.',
-    siteName: 'DMD Green Tech Revive',
+    url: SITE_URL,
+    title: defaultTitle,
+    description: defaultDescription,
+    siteName: BUSINESS.name,
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'DMD Green Tech Revive - E-Waste Recycling India',
+        alt: 'DMD Green Tech Revive — e-waste recycling in Pune',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DMD Green Tech Revive - E-Waste Recycling India',
-    description: 'Certified e-waste recycling and refurbishment services across India.',
+    title: defaultTitle,
+    description: defaultDescription,
     images: ['/og-image.png'],
   },
+  // Verification tags render only when the env vars are set (no placeholders).
   verification: {
-    google: 'your-google-verification-code', // Add when you get it from Google Search Console
-  },
-  alternates: {
-    canonical: 'https://dmdgreentechrevive.com',
+    google: googleVerification || undefined,
+    other: bingVerification ? { 'msvalidate.01': bingVerification } : undefined,
   },
 };
 
@@ -96,99 +75,42 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  // Site-wide business details. Opening hours and geo coordinates are left out
+  // until the owner confirms them (CLAUDE.md section 1).
+  const siteJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'DMD Green Tech Revive',
-    alternateName: 'DMD Green Tech',
-    url: 'https://dmdgreentechrevive.com',
-    logo: 'https://dmdgreentechrevive.com/logo.png',
-    description: 'India\'s premier certified e-waste recycling and refurbishment service',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Office No-03, Amaryllis Apartment, Domkhel Rd, Wagholi',
-      addressLocality: 'Pune',
-      addressRegion: 'Maharashtra',
-      postalCode: '412207',
-      addressCountry: 'IN',
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+91-91-2067-6799',
-      contactType: 'Customer Service',
-      areaServed: ['IN', 'Pune'],
-      availableLanguage: ['English', 'Hindi'],
-    },
-    sameAs: [
-      'https://facebook.com/dmdgreentech',
-      'https://twitter.com/dmdgreentech',
-      'https://linkedin.com/company/dmdgreentech',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: BUSINESS.name,
+        url: SITE_URL,
+        logo: `${SITE_URL}/images/invoice/logo.png`,
+        email: BUSINESS.email,
+        telephone: BUSINESS.phoneE164,
+        sameAs: Object.values(BUSINESS.social),
+      },
+      {
+        '@type': 'RecyclingCenter',
+        '@id': `${SITE_URL}/#business`,
+        name: BUSINESS.name,
+        url: SITE_URL,
+        image: `${SITE_URL}/og-image.png`,
+        logo: `${SITE_URL}/images/invoice/logo.png`,
+        telephone: BUSINESS.phoneE164,
+        email: BUSINESS.email,
+        address: { '@type': 'PostalAddress', ...BUSINESS.address },
+        areaServed: BUSINESS.areaServed.map((name) => ({ '@type': 'City', name })),
+        parentOrganization: { '@id': `${SITE_URL}/#organization` },
+        sameAs: Object.values(BUSINESS.social),
+      },
     ],
-  };
-
-  const localBusinessJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': 'https://dmdgreentechrevive.com/#business',
-    name: 'DMD Green Tech Revive',
-    image: 'https://dmdgreentechrevive.com/og-image.png',
-    url: 'https://dmdgreentechrevive.com',
-    telephone: '+91-91-2067-6799',
-    email: 'info@dmdgreentechrevive.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Office No-03, Amaryllis Apartment, Domkhel Rd, Wagholi',
-      addressLocality: 'Pune',
-      addressRegion: 'Maharashtra',
-      postalCode: '412207',
-      addressCountry: 'IN',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 18.5876,
-      longitude: 73.9726,
-    },
-    areaServed: [
-      { '@type': 'City', name: 'Pune' },
-      { '@type': 'State', name: 'Maharashtra' },
-      { '@type': 'Country', name: 'India' },
-    ],
-    serviceType: [
-      'E-Waste Recycling',
-      'E-Waste Collection',
-      'Data Destruction',
-      'Laptop Refurbishment',
-      'IT Asset Disposal',
-    ],
-    priceRange: '₹₹',
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '00:00',
-      closes: '23:59',
-    },
   };
 
   return (
     <html lang="en" className={headingFont.variable}>
       <head>
-        <link
-          rel="preload"
-          href="/new_hero.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
-        <Script
-          id="organization-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <Script
-          id="local-business-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-        />
+        <JsonLd data={siteJsonLd} />
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)

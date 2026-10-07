@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   // 1. YOUR EXISTING IMAGE CONFIGURATION (Unchanged)
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Cap generated widths at 1920px (default goes up to 3840px, far more than any layout here needs).
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     remotePatterns: [
       {
         protocol: 'https',
@@ -45,12 +47,19 @@ const nextConfig: NextConfig = {
       // Redirecting them to your main /services page so they don't 404
       {
         source: '/data-sanitization',
-        destination: '/what-we-do',
+        destination: '/what-we-do#data-sanitization',
         permanent: true,
       },
       {
         source: '/refurbishment',
-        destination: '/what-we-do',
+        destination: '/what-we-do#refurbishment',
+        permanent: true,
+      },
+
+      // Old brochure filename (spaces, typo) → clean filename
+      {
+        source: '/DMD%20Greentech%20Broucher%20..pdf',
+        destination: '/dmd-green-tech-revive-brochure.pdf',
         permanent: true,
       },
 

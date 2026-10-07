@@ -1,8 +1,9 @@
+import { pageMetadata, breadcrumbJsonLd } from '@/src/lib/seo';
+import JsonLd from '@/src/components/JsonLd';
 import Navbar from '@/src/components/Navbar';
 import Footer from '@/src/components/Footer';
 import PostsGrid from '@/src/components/posts/PostsGrid';
 import { prisma } from '@/src/lib/prisma';
-import { Metadata } from 'next';
 import { Playfair_Display } from 'next/font/google';
 import GalleryHero from './GalleryHero';
 
@@ -13,26 +14,11 @@ const playfair = Playfair_Display({
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export const metadata: Metadata = {
-  title: 'E-Waste Projects Gallery - Recycling & Refurbishment Work',
-  description: 'Explore DMD Green Tech Revive\'s e-waste recycling and refurbishment projects. See how we transform old electronics into resources and extend device lifecycles across India.',
-  keywords: [
-    'e-waste projects India',
-    'recycling gallery',
-    'refurbishment work',
-    'laptop repair projects',
-    'electronics restoration',
-    'DMD Green Tech projects',
-    'e-waste projects Pune'
-  ],
-  openGraph: {
-    title: 'E-Waste Projects Gallery - DMD Green Tech Revive',
-    description: 'Our latest e-waste recycling and refurbishment projects. Transforming technology for a sustainable future.',
-  },
-  alternates: {
-    canonical: 'https://dmdgreentechrevive.com/posts',
-  },
-};
+export const metadata = pageMetadata({
+  title: "E-Waste Collection Drives & Projects",
+  description: "Photos and updates from DMD Green Tech Revive's e-waste collection drives, recycling and refurbishment work with Pune societies, schools and companies.",
+  path: "/posts",
+});
 
 async function getPosts() {
   try {
@@ -54,6 +40,7 @@ export default async function PostsPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={breadcrumbJsonLd('Gallery', '/posts')} />
       <main>
         <GalleryHero postCount={posts.length} />
 

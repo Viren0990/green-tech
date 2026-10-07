@@ -4,6 +4,7 @@ import { submitContactForm } from '@/src/actions/contact';
 import { useState } from 'react';
 import { Send, Loader2, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Inter } from 'next/font/google';
+import { BUSINESS } from '@/src/lib/business';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -87,9 +88,9 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-emerald-50 mb-1">Call Us</h4>
-                    <p className="text-emerald-100/70 text-sm">
-                      +91 9763123699
-                    </p>
+                    <a href={BUSINESS.phoneHref} className="text-emerald-100/70 text-sm hover:text-emerald-200">
+                      {BUSINESS.phoneDisplay}
+                    </a>
                   </div>
                 </div>
 
@@ -153,7 +154,7 @@ export default function ContactForm() {
                     name="phone"
                     disabled={isSubmitting}
                     className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-                    placeholder="+91 9763123699"
+                    placeholder="+91 XXXXX XXXXX"
                   />
                 </div>
               </div>

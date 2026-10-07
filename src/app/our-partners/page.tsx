@@ -1,37 +1,22 @@
+import { pageMetadata, breadcrumbJsonLd } from '@/src/lib/seo';
+import JsonLd from '@/src/components/JsonLd';
 import Navbar from '@/src/components/Navbar';
 import Footer from '@/src/components/Footer';
 import PartnerShowcase from './PartnerShowcase';
 import PartnersHero from './PartnersHero';
 
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Our Partners - Trusted Collaborations Across India',
-  description:
-    'DMD Green Tech Revive partners with leading infrastructure and technology companies in Andhra Pradesh including Reliance Infrastructure Limited and SSS Technologies to drive sustainable e-waste management across India.',
-  keywords: [
-    'DMD Green Tech partners',
-    'Reliance Infrastructure Limited',
-    'SSS Technologies',
-    'e-waste recycling partners India',
-    'Andhra Pradesh technology companies',
-    'green tech collaborations',
-  ],
-  openGraph: {
-    title: 'Our Partners - DMD Green Tech Revive',
-    description:
-      'Collaborating with industry leaders to build a sustainable future. Meet our trusted partners.',
-    url: 'https://dmdgreentechrevive.com/our-partners',
-  },
-  alternates: {
-    canonical: 'https://dmdgreentechrevive.com/our-partners',
-  },
-};
+export const metadata = pageMetadata({
+  title: 'Our Corporate Partners',
+  description: 'Companies working with DMD Green Tech Revive on e-waste management, including Reliance Infrastructure Limited and SSS Technologies.',
+  path: '/our-partners',
+});
 
 export default function PartnersPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={breadcrumbJsonLd('Our Partners', '/our-partners')} />
       <main>
         <PartnersHero />
 

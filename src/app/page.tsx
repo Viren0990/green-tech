@@ -1,40 +1,6 @@
-import type { Metadata } from 'next';
-export const metadata: Metadata = {
-  title: 'Recycle Old Electronics & E-Waste in Pune | Free Pickup — DMD Green Tech',
-  description: 'Recycle your old electronics responsibly! DMD Green Tech offers free e-waste pickup in Pune. Secure data destruction, device recycling & refurbishment. MPCB certified. Schedule pickup today.',
-  keywords: [
-    'e-waste recycling Pune',
-    'electronic waste India',
-    'DMD Green Tech',
-    'certified e-waste recycler',
-    'laptop refurbishment',
-    'data destruction Pune',
-    'corporate e-waste pickup',
-    'sustainable tech India',
-    'recycle old electronics',
-    'recycle device',
-    'e waste disposal',
-    'where to recycle electronics',
-    'e waste collection near me',
-    'environmental company near me',
-    'recycle old laptop',
-    'e waste recycling near me',
-    'electronic waste disposal Pune',
-    'landfill alternative India'
-  ],
-  openGraph: {
-    title: 'Recycle Old Electronics & E-Waste — Free Pickup in Pune | DMD Green Tech',
-    description: 'Free e-waste pickup in Pune. Recycle old electronics, laptops & devices responsibly. MPCB certified recycler. Schedule today!',
-    url: 'https://dmdgreentechrevive.com',
-  },
-  alternates: {
-    canonical: 'https://dmdgreentechrevive.com',
-  },
-};
-
-
-
-
+import { pageMetadata } from '@/src/lib/seo';
+import JsonLd from '@/src/components/JsonLd';
+import { faqJsonLd } from '@/src/lib/faq';
 import Navbar from '@/src/components/Navbar';
 import Hero from '@/src/components/Hero';
 import Services from '@/src/components/Services';
@@ -44,11 +10,17 @@ import Cta from '@/src/components/CTA';
 import FAQ from '@/src/components/FAQ';
 import Footer from '@/src/components/Footer';
 
-
+export const metadata = pageMetadata({
+  title: 'Free E-Waste Pickup in Pune | DMD Green Tech Revive',
+  description: 'Free e-waste pickup across Pune for offices and homes. Secure data wiping, responsible recycling and a certificate of recycling. Call +91 97631 23699.',
+  path: '',
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (
     <main className="flex flex-col w-full">
+      <JsonLd data={faqJsonLd} />
       <Navbar />
       <Hero />
       <Services />

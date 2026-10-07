@@ -41,10 +41,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <div className="w-16 h-14 bg-white rounded-lg flex items-center justify-center p-1">
-              <Image src={logo} alt="dd" className="w-full h-full object-contain" />
+              <Image src={logo} alt="DMD Green Tech Revive logo" className="w-full h-full object-contain" />
             </div>
             <div>
-              <span className="font-semibold text-white text-xl">DMD <span className="text-emerald-400 font-bold">Greentech</span> Revive</span>
+              <span className="font-semibold text-white text-xl">DMD <span className="text-emerald-400 font-bold">Green Tech</span> Revive</span>
               <p className="text-xs text-gray-400">Unit Of DMD Gold Prosperity</p>
             </div>
           </Link>

@@ -1,6 +1,15 @@
 import Navbar from '@/src/components/Navbar';
 import Image from 'next/image';
 import { Check, Recycle, Truck, ShieldCheck, Leaf, Info } from 'lucide-react';
+import JsonLd from '@/src/components/JsonLd';
+import { BUSINESS } from '@/src/lib/business';
+import { pageMetadata, breadcrumbJsonLd } from '@/src/lib/seo';
+
+export const metadata = pageMetadata({
+  title: 'E-Waste Items We Accept in Pune',
+  description: 'Laptops, phones, servers, TVs, appliances and more: see every type of e-waste we collect in Pune, grouped by the E-Waste (Management) Rules, 2022.',
+  path: '/e-waste-categories',
+});
 
 export default function EWasteCategories() {
   const categories = [
@@ -132,6 +141,7 @@ export default function EWasteCategories() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       <Navbar />
+      <JsonLd data={breadcrumbJsonLd('Items We Accept', '/e-waste-categories')} />
       
       {/* Hero Section */}
       <div className="relative pt-[72px] overflow-hidden flex items-center min-h-[200px] md:min-h-[260px]">
@@ -139,8 +149,9 @@ export default function EWasteCategories() {
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/categories/hero.png" 
-            alt="Hero Background" 
+            alt=""
             fill
+            sizes="100vw"
             className="object-cover object-right lg:object-center"
             priority
           />
@@ -347,9 +358,9 @@ export default function EWasteCategories() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
               www.dmdgreentechrevive.com
             </a>
-            <a href="tel:+919763123699" className="hover:text-emerald-400 transition-colors flex items-center gap-2 font-medium">
+            <a href={BUSINESS.phoneHref} className="hover:text-emerald-400 transition-colors flex items-center gap-2 font-medium">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-              +91 9763123699
+              {BUSINESS.phoneDisplay}
             </a>
           </div>
         </div>

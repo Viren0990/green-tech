@@ -93,7 +93,7 @@ export default function ProcessSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-green-900/10 h-48 md:h-80 w-full ring-1 ring-green-200/50">
               <Image
                 src={processImage}
-                alt="Process Image"
+                alt="Illustration of technicians dismantling circuit boards and wiping a laptop for recycling"
                 fill
                 className="object-cover"
               />

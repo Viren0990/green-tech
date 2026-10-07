@@ -59,8 +59,8 @@ export default function Hero() {
                 Schedule Pickup
               </Link>
               <a
-                href="/DMD Greentech Broucher ..pdf"
-                download="DMD Greentech Brochure.pdf"
+                href="/dmd-green-tech-revive-brochure.pdf"
+                download="DMD Green Tech Revive Brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group border border-white/30 text-white px-7 py-3.5 xl:px-8 xl:py-4 rounded-lg hover:border-white/60 hover:bg-white/10 transition-all text-center font-medium flex items-center justify-center gap-2"

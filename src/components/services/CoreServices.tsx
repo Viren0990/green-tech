@@ -11,24 +11,28 @@ export default function CoreServices() {
   const services = [
     {
       image: '/images/services/ewaste-collection.png',
+      id: 'e-waste-collection',
       title: 'E-Waste Collection',
       description: 'Seamless door-to-door pickup service tailored to your schedule. We professionally handle the heavy lifting and transportation for bulk corporate e-waste with secure, fully tracked logistics.',
       accent: 'from-emerald-500 to-emerald-600',
     },
     {
       image: '/images/services/data-sanitization.png',
+      id: 'data-sanitization',
       title: 'Data Sanitization',
       description: 'Protect your sensitive data against unauthorized access. We use certified data wiping and degaussing methods to ensure all corporate information is permanently irretrievable.',
       accent: 'from-green-600 to-emerald-600',
     },
     {
       image: '/images/services/refurbishment.png',
+      id: 'refurbishment',
       title: 'Refurbishment',
       description: 'Extending product lifecycles. Viable devices like laptops and tablets are tested, repaired, and restored for a second life, supporting the circular economy and digital inclusion.',
       accent: 'from-emerald-600 to-green-700',
     },
     {
       image: '/images/services/recycling.png',
+      id: 'recycling',
       title: 'Recycling',
       description: 'Zero-landfill policy. We responsibly dismantle end-of-life devices to extract valuable metals like gold, silver, and copper, sending hazardous materials to specialized treatment.',
       accent: 'from-green-500 to-green-600',
@@ -62,9 +66,9 @@ export default function CoreServices() {
           <span className="inline-block text-sm font-bold uppercase tracking-[0.2em] text-emerald-600 mb-4 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
             Our Expertise
           </span>
-          <h2 className={`${headingFont.className} text-5xl font-bold text-gray-900 mb-6`}>
+          <h1 className={`${headingFont.className} text-5xl font-bold text-gray-900 mb-6`}>
             Our Core Services
-          </h2>
+          </h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
             We offer end-to-end solutions tailored for corporate entities, educational
             institutions, and individuals looking to responsibly dispose of electronic assets.
@@ -75,7 +79,8 @@ export default function CoreServices() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative bg-white/80 backdrop-blur-sm border-2 border-gray-200 p-5 pb-8 rounded-2xl shadow-xl transition-all duration-500 group -translate-y-2 hover-shake-y"
+              id={service.id}
+              className="scroll-mt-28 relative bg-white/80 backdrop-blur-sm border-2 border-gray-200 p-5 pb-8 rounded-2xl shadow-xl transition-all duration-500 group -translate-y-2 hover-shake-y"
             >
               {/* Top gradient accent line */}
               <div className={`absolute top-0 left-6 right-6 h-1 bg-gradient-to-r ${service.accent} rounded-b-full`} />

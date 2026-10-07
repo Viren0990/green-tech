@@ -1,35 +1,22 @@
+import { pageMetadata, breadcrumbJsonLd } from '@/src/lib/seo';
+import JsonLd from '@/src/components/JsonLd';
 import Navbar from '@/src/components/Navbar';
 import Footer from '@/src/components/Footer';
 import EducationalPartnerShowcase from './EducationalPartnerShowcase';
 import EducationalPartnersHero from './EducationalPartnersHero';
 
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Educational Partners - Trusted Collaborations',
-  description:
-    'DMD Green Tech Revive partners with educational institutions like Priyadarshani School to drive sustainable e-waste management awareness across India.',
-  keywords: [
-    'DMD Green Tech educational partners',
-    'Priyadarshani School',
-    'e-waste recycling education',
-    'green tech collaborations',
-  ],
-  openGraph: {
-    title: 'Educational Partners - DMD Green Tech Revive',
-    description:
-      'Collaborating with educational institutions to build a sustainable future. Meet our trusted partners.',
-    url: 'https://dmdgreentechrevive.com/educational-partners',
-  },
-  alternates: {
-    canonical: 'https://dmdgreentechrevive.com/educational-partners',
-  },
-};
+export const metadata = pageMetadata({
+  title: 'School & College E-Waste Partners',
+  description: 'Schools partnering with DMD Green Tech Revive on e-waste awareness, including Priyadarshani School. Bring a collection drive to your campus.',
+  path: '/educational-partners',
+});
 
 export default function EducationalPartnersPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={breadcrumbJsonLd('Educational Partners', '/educational-partners')} />
       <main>
         <EducationalPartnersHero />
 

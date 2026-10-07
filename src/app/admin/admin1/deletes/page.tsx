@@ -1,7 +1,6 @@
 import Navbar from '@/src/components/Navbar';
 import Footer from '@/src/components/Footer';
 import { prisma } from '@/src/lib/prisma';
-import { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import DeletePost from '@/src/components/posts/DeletePost';
 import AdminAuthGate from '@/src/components/admin/AdminAuthGate';
@@ -13,11 +12,6 @@ const headingFont = Plus_Jakarta_Sans({
 });
 
 export const revalidate = 60; // Revalidate every 60 seconds
-
-export const metadata: Metadata = {
-  title: 'E-Waste Projects Gallery - Recycling & Refurbishment Work',
-  description: 'Explore DMD Green Tech Revive\'s e-waste recycling and refurbishment projects.',
-};
 
 async function getPosts() {
   try {

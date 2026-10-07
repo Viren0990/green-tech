@@ -26,7 +26,7 @@ const storyChapters = [
   {
     icon: TreePine,
     label: 'The Promise',
-    text: 'This belief led to action. I planted 2,500 trees, not as a symbolic gesture, but as a promise—to give back more than I take. Soon after, the vision of DMD Greentech Revive was born: a mission to revive value from e-waste, protect the environment, and build a responsible, transparent, and sustainable recycling ecosystem in India.',
+    text: 'This belief led to action. I planted 2,500 trees, not as a symbolic gesture, but as a promise—to give back more than I take. Soon after, the vision of DMD Green Tech Revive was born: a mission to revive value from e-waste, protect the environment, and build a responsible, transparent, and sustainable recycling ecosystem in India.',
   },
 ];
 
@@ -88,7 +88,7 @@ export default function FullStory() {
         <div className="mt-14 relative bg-gradient-to-br from-emerald-50 to-green-50 p-8 sm:p-10 rounded-2xl border border-emerald-100">
           <Quote className="absolute top-5 left-5 w-8 h-8 text-emerald-200" />
           <p className="relative z-10 text-emerald-800 font-medium italic text-center text-lg sm:text-xl leading-relaxed pl-4">
-            &ldquo;DMD Greentech Revive stands for responsibility, revival, and respect — for nature, for resources, and for future generations.&rdquo;
+            &ldquo;DMD Green Tech Revive stands for responsibility, revival, and respect — for nature, for resources, and for future generations.&rdquo;
           </p>
         </div>
 

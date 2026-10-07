@@ -1,36 +1,22 @@
+import { pageMetadata, breadcrumbJsonLd } from '@/src/lib/seo';
+import JsonLd from '@/src/components/JsonLd';
 import Navbar from '@/src/components/Navbar';
 import Footer from '@/src/components/Footer';
 import CommunityShowcase from './CommunityShowcase';
 import CommunityHero from './CommunityHero';
 
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Community Partners - Residential Societies We Work With',
-  description:
-    'DMD Green Tech Revive works with residential communities including Rohan Abhilasha, Wildwoods, Ivy Estate, Sai Galaxy, and Sai Tirupati Greens Society for responsible e-waste collection and disposal in Pune.',
-  keywords: [
-    'DMD Green Tech community partners',
-    'e-waste collection societies Pune',
-    'residential e-waste disposal',
-    'Rohan Abhilasha e-waste',
-    'community e-waste drives India',
-  ],
-  openGraph: {
-    title: 'Community Partners - DMD Green Tech Revive',
-    description:
-      'Residential societies partnering with us for responsible e-waste disposal.',
-    url: 'https://dmdgreentechrevive.com/community-partners',
-  },
-  alternates: {
-    canonical: 'https://dmdgreentechrevive.com/community-partners',
-  },
-};
+export const metadata = pageMetadata({
+  title: 'Housing Society E-Waste Partners',
+  description: 'Pune housing societies, including Rohan Abhilasha, Wildwoods and Ivy Estate, that run e-waste collection drives with DMD Green Tech Revive.',
+  path: '/community-partners',
+});
 
 export default function CommunityPartnersPage() {
   return (
     <>
       <Navbar />
+      <JsonLd data={breadcrumbJsonLd('Community Partners', '/community-partners')} />
       <main>
         <CommunityHero />
 

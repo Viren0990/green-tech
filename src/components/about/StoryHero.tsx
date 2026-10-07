@@ -13,6 +13,7 @@ export default function StoryHero() {
           src={hero}
           alt="Technology meeting nature"
           fill
+          sizes="100vw"
           className="object-cover object-center"
           priority
           placeholder="blur"
