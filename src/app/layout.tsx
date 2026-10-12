@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/next"
@@ -11,6 +11,13 @@ const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
 const defaultTitle = 'Free E-Waste Pickup in Pune | DMD Green Tech Revive';
 const defaultDescription =
   'Free e-waste pickup across Pune for offices and homes. Secure data wiping, responsible recycling and a certificate of recycling. Call +91 97631 23699.';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#0d1f0d',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -69,6 +76,7 @@ const headingFont = Plus_Jakarta_Sans({
   variable: '--font-heading',
 });
 import FloatingWhatsAppButton from '../components/FloatingWhatsAppButton';
+import MobileActionBar from '../components/MobileActionBar';
 
 export default function RootLayout({
   children,
@@ -135,7 +143,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body>
+      <body className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NM4SBQ6T"
@@ -155,6 +163,7 @@ export default function RootLayout({
         </noscript>
         {children}
         <FloatingWhatsAppButton />
+        <MobileActionBar />
         <Analytics />
       </body>
     </html>

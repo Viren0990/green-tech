@@ -43,7 +43,7 @@ const milestones = [
 
 export default function Timeline() {
   return (
-    <section className="w-full bg-white py-24">
+    <section className="w-full bg-white py-12 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
@@ -74,7 +74,7 @@ export default function Timeline() {
           {/* --- RIGHT COLUMN: Timeline --- */}
           <div className="lg:col-span-3">
             {/* Header */}
-            <div className="text-center lg:text-left mb-16">
+            <div className="text-center lg:text-left mb-8 md:mb-16">
               <span className="text-green-600 font-bold uppercase tracking-wider text-sm">
                 History
               </span>

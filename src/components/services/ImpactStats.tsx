@@ -23,7 +23,7 @@ export default function ImpactStats() {
   ];
 
   return (
-    <section id="our-impact" className="py-24 bg-gradient-to-br from-emerald-800 via-green-900 to-teal-900 relative overflow-hidden">
+    <section id="our-impact" className="py-12 md:py-24 bg-gradient-to-br from-emerald-800 via-green-900 to-teal-900 relative overflow-hidden">
       {/* Decorative glow behind stats */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
       
@@ -31,7 +31,7 @@ export default function ImpactStats() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-400/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <span className="inline-block text-sm font-bold uppercase tracking-[0.2em] text-green-300 mb-4 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
             Our Impact
           </span>
@@ -40,24 +40,24 @@ export default function ImpactStats() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-3 md:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div 
                 key={index}
-                className="text-center group"
+                className="text-left md:text-center group"
               >
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-10 transition-all duration-500 -translate-y-1">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.gradient} rounded-2xl mb-6 shadow-lg scale-110 rotate-3 transition-all duration-500`}>
-                    <Icon className="text-white" size={30} />
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 md:p-10 flex md:block items-center gap-4 transition-all duration-500 md:-translate-y-1">
+                  <div className={`inline-flex shrink-0 items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${stat.gradient} rounded-2xl md:mb-6 shadow-lg md:scale-110 md:rotate-3 transition-all duration-500`}>
+                    <Icon className="text-white w-6 h-6 md:w-[30px] md:h-[30px]" />
                   </div>
-                  <h3 className="text-5xl md:text-6xl font-bold text-white mb-3 tracking-tight">
+                  <div><h3 className="text-3xl md:text-6xl font-bold text-white md:mb-3 tracking-tight">
                     {stat.number}
                   </h3>
-                  <p className="text-green-200/80 font-medium text-lg">
+                  <p className="text-green-200/80 font-medium text-base md:text-lg">
                     {stat.label}
-                  </p>
+                  </p></div>
                 </div>
               </div>
             );

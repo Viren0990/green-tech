@@ -33,7 +33,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
   return (
     <>
       {/* ── Hero Section ── */}
-      <section className="relative pt-28 pb-16 min-h-[50vh] flex flex-col justify-end overflow-hidden bg-gray-900">
+      <section className="relative pt-24 pb-10 md:pt-28 md:pb-16 min-h-[40vh] md:min-h-[50vh] flex flex-col justify-end overflow-hidden bg-gray-900">
         {/* Subtle grid */}
         <div
           className="absolute inset-0 opacity-[0.04]"
@@ -98,7 +98,7 @@ export default function PostDetail({ post }: Readonly<PostDetailProps>) {
       </section>
 
       {/* ── Content Section (Light Theme) ── */}
-      <section className="py-16 bg-white">
+      <section className="py-10 md:py-16 bg-white">
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
           {/* Main / Featured Image */}

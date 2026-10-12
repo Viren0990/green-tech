@@ -1,6 +1,6 @@
 import Navbar from '@/src/components/Navbar';
 import Image from 'next/image';
-import { Check, Recycle, Truck, ShieldCheck, Leaf, Info } from 'lucide-react';
+import { Check, Recycle, Truck, ShieldCheck, Leaf, Info, ChevronDown } from 'lucide-react';
 import JsonLd from '@/src/components/JsonLd';
 import { BUSINESS } from '@/src/lib/business';
 import { pageMetadata, breadcrumbJsonLd } from '@/src/lib/seo';
@@ -10,6 +10,15 @@ export const metadata = pageMetadata({
   description: 'Laptops, phones, servers, TVs, appliances and more: see every type of e-waste we collect in Pune, grouped by the E-Waste (Management) Rules, 2022.',
   path: '/e-waste-categories',
 });
+
+// "IT & TELECOMMUNICATION EQUIPMENT (ITEW)" -> "IT & Telecommunication Equipment"
+function shortTitle(title: string) {
+  return title
+    .replace(/\s*\([A-Z]+\)$/, '')
+    .toLowerCase()
+    .replace(/(^|[\s/&-])([a-z])/g, (_, p, c) => p + c.toUpperCase())
+    .replace(/\bIt\b/, 'IT');
+}
 
 export default function EWasteCategories() {
   const categories = [
@@ -196,8 +205,40 @@ export default function EWasteCategories() {
         </div>
       </div>
 
+      {/* Phones: tap-to-open list instead of the dense poster grid */}
+      <div className="md:hidden px-4 pt-6 pb-2 w-full">
+        <p className="text-sm text-gray-600 mb-3">Tap a category to see every item we collect.</p>
+        <div className="space-y-3">
+          {categories.map((category) => (
+            <details key={category.id} className="group bg-white rounded-2xl border border-emerald-600/20 shadow-sm overflow-hidden">
+              <summary className="flex items-center gap-3 p-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <div className="relative w-16 h-16 shrink-0 rounded-xl bg-gray-50">
+                  <Image src={category.image} alt="" fill sizes="64px" className="object-contain p-1" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h2 className="text-[15px] font-bold text-gray-900 leading-snug">{shortTitle(category.title)}</h2>
+                  <p className="text-[13px] text-emerald-700 font-medium mt-0.5">{category.items.length} item types</p>
+                </div>
+                <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="border-t border-gray-100 px-4 pt-3 pb-4">
+                <ul className="space-y-2">
+                  {category.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-[15px] text-gray-800 leading-snug">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" strokeWidth={3} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-xs text-gray-500 whitespace-pre-line">{category.codes}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+
       {/* Main Content */}
-      <div className="flex-grow max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+      <div className="hidden md:block flex-grow max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Top Row (3 Columns) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           {categories.slice(0, 3).map((category) => (
@@ -287,55 +328,55 @@ export default function EWasteCategories() {
 
       {/* Bottom CTA Strip */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 mb-8 w-full">
-        <div className="bg-gradient-to-r from-[#e8f5e9] to-[#f1f8e9] rounded-xl shadow-sm border border-[#1b5e20]/10 p-3 lg:p-4 flex overflow-x-auto xl:overflow-visible">
+        <div className="bg-gradient-to-r from-[#e8f5e9] to-[#f1f8e9] rounded-xl shadow-sm border border-[#1b5e20]/10 p-4 lg:p-4">
           
-          <div className="flex flex-row items-center justify-between gap-4 lg:gap-6 min-w-max xl:min-w-0 w-full">
+          <div className="grid grid-cols-2 gap-4 md:flex md:flex-row md:flex-wrap xl:flex-nowrap md:items-center md:justify-between lg:gap-6 w-full">
             
             {/* CTA 1 */}
             <div className="flex items-center gap-2 lg:gap-3">
               <Recycle className="text-[#0d3a15] w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0 stroke-[2.5]" />
               <div>
-                <h4 className="font-extrabold text-[#0d3a15] text-[11px] lg:text-[13px] leading-tight">COMPLIANT & RESPONSIBLE</h4>
-                <p className="text-[10px] lg:text-[11px] text-[#0d3a15]/80 font-bold leading-tight mt-0.5">As per E-Waste (Management)<br/>Rules, 2022</p>
+                <h4 className="font-extrabold text-[#0d3a15] text-[13px] leading-tight">COMPLIANT & RESPONSIBLE</h4>
+                <p className="text-xs lg:text-[11px] text-[#0d3a15]/80 font-bold leading-tight mt-0.5">As per E-Waste (Management)<br className="hidden lg:block"/> Rules, 2022</p>
               </div>
             </div>
             
-            <div className="w-px h-10 bg-[#0d3a15]/30"></div>
+            <div className="hidden xl:block w-px h-10 bg-[#0d3a15]/30"></div>
             
             {/* CTA 2 */}
             <div className="flex items-center gap-2 lg:gap-3">
               <Truck className="text-[#0d3a15] w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0 fill-[#0d3a15]" strokeWidth={0} />
               <div>
-                <h4 className="font-extrabold text-[#0d3a15] text-[11px] lg:text-[13px] leading-tight">FREE E-WASTE<br/>PICKUP</h4>
-                <p className="text-[10px] lg:text-[11px] text-[#0d3a15]/80 font-bold leading-tight mt-0.5">(Pune & Nearby Areas)</p>
+                <h4 className="font-extrabold text-[#0d3a15] text-[13px] leading-tight">FREE E-WASTE<br/>PICKUP</h4>
+                <p className="text-xs lg:text-[11px] text-[#0d3a15]/80 font-bold leading-tight mt-0.5">(Pune & Nearby Areas)</p>
               </div>
             </div>
             
-            <div className="w-px h-10 bg-[#0d3a15]/30"></div>
+            <div className="hidden xl:block w-px h-10 bg-[#0d3a15]/30"></div>
             
             {/* CTA 3 */}
             <div className="flex items-center gap-2 lg:gap-3">
               <ShieldCheck className="text-[#0d3a15] w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0 stroke-[2.5]" />
               <div>
-                <h4 className="font-extrabold text-[#0d3a15] text-[11px] lg:text-[13px] leading-tight">SECURE DATA<br/>SANITIZATION</h4>
-                <p className="text-[10px] lg:text-[11px] text-[#0d3a15]/80 font-bold leading-tight mt-0.5">for IT Assets</p>
+                <h4 className="font-extrabold text-[#0d3a15] text-[13px] leading-tight">SECURE DATA<br/>SANITIZATION</h4>
+                <p className="text-xs lg:text-[11px] text-[#0d3a15]/80 font-bold leading-tight mt-0.5">for IT Assets</p>
               </div>
             </div>
             
-            <div className="w-px h-10 bg-[#0d3a15]/30"></div>
+            <div className="hidden xl:block w-px h-10 bg-[#0d3a15]/30"></div>
             
             {/* CTA 4 */}
             <div className="flex items-center gap-2 lg:gap-3">
               <Recycle className="text-[#0d3a15] w-8 h-8 lg:w-10 lg:h-10 flex-shrink-0 stroke-[2.5]" />
               <div>
-                <h4 className="font-extrabold text-[#0d3a15] text-[11px] lg:text-[13px] leading-tight">CERTIFIED RECYCLING<br/>& PROPER DISPOSAL</h4>
+                <h4 className="font-extrabold text-[#0d3a15] text-[13px] leading-tight">CERTIFIED RECYCLING<br/>& PROPER DISPOSAL</h4>
               </div>
             </div>
             
-            <div className="w-px h-10 bg-[#0d3a15]/30"></div>
+            <div className="hidden xl:block w-px h-10 bg-[#0d3a15]/30"></div>
             
             {/* CTA 5 Slogan */}
-            <div className="flex items-center gap-2 lg:gap-3">
+            <div className="col-span-2 flex items-center justify-center md:justify-start gap-2 lg:gap-3">
               <Leaf className="text-[#558b2f] w-8 h-8 lg:w-10 lg:h-10 fill-[#558b2f] flex-shrink-0" />
               <h4 className="font-extrabold text-[#0d3a15] text-[13px] lg:text-[15px] italic leading-tight">
                 A Greener Tomorrow,<br/>A Cleaner Planet.

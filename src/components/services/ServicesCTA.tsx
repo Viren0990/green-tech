@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ServicesCTA() {
   return (
-    <section className="py-24 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-10 right-20 w-72 h-72 bg-green-200/30 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-10 left-20 w-60 h-60 bg-teal-200/20 rounded-full blur-[60px] pointer-events-none" />

@@ -11,7 +11,7 @@ const playfair = Playfair_Display({
 
 export default function CommunityHero() {
   return (
-    <section className="relative pt-20 pb-10 min-h-[65vh] flex flex-col justify-center overflow-hidden bg-gray-800">
+    <section className="relative pt-20 pb-6 md:pb-10 md:min-h-[65vh] flex flex-col justify-center overflow-hidden bg-gray-800">
       {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"
@@ -38,7 +38,7 @@ export default function CommunityHero() {
       <div className="absolute bottom-40 right-[15%] w-1.5 h-1.5 bg-teal-400/35 rounded-full" />
 
       <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center py-10">
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center py-6 md:py-10">
           {/* Icon badge */}
           <div className="mb-6 w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center backdrop-blur-sm">
             <Users size={28} className="text-emerald-400" />
@@ -48,19 +48,19 @@ export default function CommunityHero() {
             Communities We Serve
           </p>
 
-          <h1 className={`${playfair.className} text-5xl md:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight`}>
+          <h1 className={`${playfair.className} text-4xl md:text-7xl font-extrabold text-white mb-4 md:mb-6 leading-[1.1] tracking-tight`}>
             Community{' '}
             <span className="bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">
               Partners
             </span>
           </h1>
 
-          <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: 'system-ui, sans-serif' }}>
+          <p className="text-gray-400 text-base md:text-xl leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: 'system-ui, sans-serif' }}>
             Residential societies and communities that have joined hands with us for responsible e-waste disposal.
           </p>
 
           {/* Scroll hint */}
-          <div className="mt-12 flex flex-col items-center gap-2 text-gray-500">
+          <div className="hidden md:flex mt-12 flex-col items-center gap-2 text-gray-500">
             <span className="text-xs tracking-widest uppercase">Scroll</span>
             <ArrowDown size={16} className="animate-bounce" />
           </div>

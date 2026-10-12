@@ -25,11 +25,11 @@ const philosophies = [
 
 export default function Philosophy() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-green-50/50">
+    <section className="py-12 md:py-24 bg-gradient-to-b from-white to-green-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <span className="text-green-600 font-bold uppercase tracking-wider text-sm">
             Why We Exist
           </span>

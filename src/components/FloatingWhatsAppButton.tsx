@@ -9,7 +9,7 @@ export default function FloatingWhatsAppButton() {
       aria-label="Chat with us on WhatsApp"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50"
+      className="hidden md:block fixed bottom-6 right-6 z-50"
     >
       <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-xl flex items-center justify-center transition transform hover:scale-105">
         {/* Simple WhatsApp-style icon using SVG so you don't depend on any extra library */}

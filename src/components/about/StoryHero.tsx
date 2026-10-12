@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function StoryHero() {
 
   return (
-    <section className="relative pt-32 pb-16 min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative pt-28 pb-12 md:pt-32 md:pb-16 min-h-[70svh] md:min-h-screen flex flex-col justify-center overflow-hidden">
       
       {/* --- BACKGROUND IMAGE & OVERLAY (Full Section) --- */}
       <div className="absolute inset-0 z-0">
@@ -29,7 +29,7 @@ export default function StoryHero() {
             About Us
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-tight drop-shadow-lg">
             Reviving Tech,<br />
             Restoring the Future
           </h1>

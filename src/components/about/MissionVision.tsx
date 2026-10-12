@@ -9,9 +9,9 @@ const headingFont = Plus_Jakarta_Sans({
 
 export default function MissionVision() {
     return (
-        <section className="py-24 bg-linear-to-b from-white to-green-50/50">
+        <section className="py-12 md:py-24 bg-linear-to-b from-white to-green-50/50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
                     <span className="text-green-600 font-semibold tracking-wider text-sm uppercase mb-3 block">
                         Core Values
                     </span>

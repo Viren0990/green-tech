@@ -41,18 +41,18 @@ export default function ContactForm() {
   }
 
   return (
-    <section className={`pt-24 pb-24 bg-zinc-50 min-h-[90vh] ${inter.className}`}>
+    <section className={`pt-24 pb-10 md:pb-24 bg-zinc-50 md:min-h-[90vh] ${inter.className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-emerald-800 font-bold tracking-widest text-sm mb-4 uppercase">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
+          <h2 className="text-emerald-800 font-bold tracking-widest text-sm mb-2 md:mb-4 uppercase">
             Let's Connect
           </h2>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-zinc-900 mb-6 tracking-tight">
+          <h1 className="text-3xl md:text-6xl font-extrabold text-zinc-900 mb-3 md:mb-6 tracking-tight">
             Schedule a Pickup
           </h1>
-          <p className="text-zinc-600 text-lg leading-relaxed">
+          <p className="text-zinc-600 text-base md:text-lg leading-relaxed">
             Have questions about our e-waste recycling services? Want to schedule a pickup?
             We're here to help make your electronics disposal process seamless and sustainable.
           </p>
@@ -100,9 +100,9 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-emerald-50 mb-1">Email Us</h4>
-                    <p className="text-emerald-100/70 text-sm">
-                      info@dmdgreentechrevive.com
-                    </p>
+                    <a href={`mailto:${BUSINESS.email}`} className="text-emerald-100/70 text-sm hover:text-emerald-200 break-all">
+                      {BUSINESS.email}
+                    </a>
                   </div>
                 </div>
                 
@@ -137,6 +137,7 @@ export default function ContactForm() {
                     type="text"
                     id="name"
                     name="name"
+                    autoComplete="name"
                     required
                     disabled={isSubmitting}
                     className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
@@ -152,6 +153,8 @@ export default function ContactForm() {
                     type="tel"
                     id="phone"
                     name="phone"
+                    autoComplete="tel"
+                    inputMode="tel"
                     disabled={isSubmitting}
                     className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                     placeholder="+91 XXXXX XXXXX"
@@ -167,6 +170,7 @@ export default function ContactForm() {
                   type="text"
                   id="address"
                   name="address"
+                  autoComplete="street-address"
                   required
                   disabled={isSubmitting}
                   className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-zinc-50 border border-zinc-200 rounded-xl focus:ring-2 focus:ring-emerald-700 focus:border-transparent focus:bg-white outline-none transition-all disabled:opacity-60 disabled:cursor-not-allowed"

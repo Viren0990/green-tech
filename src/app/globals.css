@@ -39,8 +39,11 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: translateY(-0.5rem) rotate(0deg); }
 }
 
-.hover-shake-y:hover {
-  animation: subtle-shake 0.4s ease-in-out infinite;
+/* Only on devices with a real pointer; taps on phones would leave it shaking */
+@media (hover: hover) {
+  .hover-shake-y:hover {
+    animation: subtle-shake 0.4s ease-in-out infinite;
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

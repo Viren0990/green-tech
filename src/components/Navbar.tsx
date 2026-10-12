@@ -31,8 +31,11 @@ export default function Navbar() {
   const desktopLinkClass = (path: string) => 
     `relative transition ${isActive(path) ? 'text-emerald-400 font-semibold after:absolute after:-bottom-2 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/80 hover:text-emerald-400'}`;
   
-  const mobileLinkClass = (path: string) => 
-    `block w-max relative transition py-2 ${isActive(path) ? 'text-emerald-400 font-semibold after:absolute after:bottom-0 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/80 hover:text-emerald-400'}`;
+  const mobileLinkClass = (path: string) =>
+    `block rounded-lg px-3 py-3 text-base transition ${isActive(path) ? 'bg-emerald-500/15 text-emerald-400 font-semibold' : 'text-white/85 active:bg-white/10'}`;
+
+  const mobileSubLinkClass = (path: string) =>
+    `block rounded-lg px-3 py-2.5 text-[15px] transition ${isActive(path) ? 'bg-emerald-500/15 text-emerald-400 font-semibold' : 'text-white/70 active:bg-white/10'}`;
 
   return (
     <nav className="fixed top-0 w-full bg-[#0d1f0d]/95 backdrop-blur-sm z-50 shadow-lg shadow-black/20">
@@ -40,11 +43,11 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-16 h-14 bg-white rounded-lg flex items-center justify-center p-1">
+            <div className="w-14 h-12 md:w-16 md:h-14 bg-white rounded-lg flex items-center justify-center p-1 shrink-0">
               <Image src={logo} alt="DMD Green Tech Revive logo" className="w-full h-full object-contain" />
             </div>
             <div>
-              <span className="font-semibold text-white text-xl">DMD <span className="text-emerald-400 font-bold">Green Tech</span> Revive</span>
+              <span className="font-semibold text-white text-lg md:text-xl leading-tight">DMD <span className="text-emerald-400 font-bold">Green Tech</span> Revive</span>
               <p className="text-xs text-gray-400">Unit Of DMD Gold Prosperity</p>
             </div>
           </Link>
@@ -114,8 +117,10 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-white"
+            className="lg:hidden -mr-2 w-11 h-11 flex items-center justify-center text-white"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -123,7 +128,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden pb-4 space-y-3">
+          <div className="lg:hidden pb-4 pt-1 space-y-1 border-t border-white/10 max-h-[calc(100dvh-72px)] overflow-y-auto">
             <Link href="/" className={mobileLinkClass('/')}>
               Home
             </Link>
@@ -141,20 +146,21 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobilePartnersOpen(!mobilePartnersOpen)}
-                className={`flex items-center justify-between w-full transition py-2 ${isPartnersActive ? 'text-emerald-400 font-semibold' : 'text-white/80 hover:text-emerald-400'}`}
+                className={`flex items-center justify-between w-full rounded-lg px-3 py-3 text-base transition ${isPartnersActive ? 'text-emerald-400 font-semibold' : 'text-white/85 active:bg-white/10'}`}
+                aria-expanded={mobilePartnersOpen}
               >
-                <span className={`relative ${isPartnersActive ? 'after:absolute after:-bottom-1.5 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : ''}`}>Partners</span>
+                <span>Partners</span>
                 <ChevronDown size={16} className={`transition-transform duration-200 ${mobilePartnersOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobilePartnersOpen && (
-                <div className="pl-4 space-y-1">
-                  <Link href="/our-partners" className={`block w-max relative transition py-1.5 text-sm ${isActive('/our-partners') ? 'text-emerald-400 font-semibold after:absolute after:bottom-0 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/60 hover:text-emerald-400'}`}>
+                <div className="pl-3 space-y-0.5">
+                  <Link href="/our-partners" className={mobileSubLinkClass('/our-partners')}>
                     Our Partners
                   </Link>
-                  <Link href="/community-partners" className={`block w-max relative transition py-1.5 text-sm ${isActive('/community-partners') ? 'text-emerald-400 font-semibold after:absolute after:bottom-0 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/60 hover:text-emerald-400'}`}>
+                  <Link href="/community-partners" className={mobileSubLinkClass('/community-partners')}>
                     Community Partners
                   </Link>
-                  <Link href="/educational-partners" className={`block w-max relative transition py-1.5 text-sm ${isActive('/educational-partners') ? 'text-emerald-400 font-semibold after:absolute after:bottom-0 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/60 hover:text-emerald-400'}`}>
+                  <Link href="/educational-partners" className={mobileSubLinkClass('/educational-partners')}>
                     Educational Partners
                   </Link>
                 </div>
@@ -166,7 +172,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="block bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition text-center"
+              className="block mt-3 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition text-center"
             >
               Schedule Pickup
             </Link>

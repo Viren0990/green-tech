@@ -36,7 +36,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative py-20 bg-gradient-to-b from-white via-emerald-50/40 to-green-50/60 overflow-hidden">
+    <section className="relative py-12 md:py-20 bg-gradient-to-b from-white via-emerald-50/40 to-green-50/60 overflow-hidden">
       
       {/* --- BACKGROUND DECORATION START --- */}
       {/* Technical Dot Pattern */}
@@ -63,19 +63,19 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-8 md:mb-14"
         >
           <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             Sustainable Solutions for Your{' '}
             <span className="text-green-600">E-Waste</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             We provide end-to-end electronic waste management services tailored for
             businesses and individuals, ensuring a greener future.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 hide-scrollbar">
           {services.map((service, index) => (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -83,10 +83,10 @@ export default function Services() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               key={index}
-              className="group bg-white/80 backdrop-blur-sm p-5 pb-8 rounded-3xl border border-emerald-100/80 shadow-sm hover:shadow-xl hover:shadow-emerald-900/10 hover:-translate-y-2 hover:border-emerald-200 hover:bg-emerald-50/30 transition-all duration-300 relative overflow-hidden"
+              className="group w-[80%] sm:w-[60%] md:w-auto shrink-0 snap-center bg-white/80 backdrop-blur-sm p-4 pb-6 md:p-5 md:pb-8 rounded-3xl border border-emerald-100/80 shadow-sm hover:shadow-xl hover:shadow-emerald-900/10 hover:-translate-y-2 hover:border-emerald-200 hover:bg-emerald-50/30 transition-all duration-300 relative overflow-hidden"
             >
               {/* Illustration header */}
-              <div className="w-full aspect-[4/3] mb-5 rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-100/90 via-green-100/60 to-emerald-50/50 border border-emerald-200/50">
+              <div className="w-full aspect-[16/10] md:aspect-[4/3] mb-4 md:mb-5 rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-100/90 via-green-100/60 to-emerald-50/50 border border-emerald-200/50">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -111,6 +111,7 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+        <p className="md:hidden mt-2 text-center text-sm text-gray-500">Swipe to see all 4 services →</p>
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ const highlights = [
 
 export default function Story() {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-12 md:py-24 bg-white overflow-hidden">
       {/* Top Wave Divider separating from Services */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-[calc(100%+1.3px)] h-[50px] md:h-[80px]">
@@ -37,7 +37,7 @@ export default function Story() {
       <div className="absolute -bottom-20 -right-20 w-[350px] h-[350px] bg-green-200/20 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Image side */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -51,7 +51,7 @@ export default function Story() {
               <Image
                 src={hero2}
                 alt="From nature to technology - The DMD Story"
-                className="w-full h-[420px] sm:h-[500px] object-cover"
+                className="w-full h-[280px] sm:h-[500px] object-cover"
                 placeholder="blur"
               />
               {/* Subtle dark overlay for depth */}
@@ -68,7 +68,7 @@ export default function Story() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
-            className="space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start"
+            className="space-y-5 md:space-y-6 text-left flex flex-col items-start"
           >
             {/* Tag */}
             <span className="inline-block text-sm font-bold uppercase tracking-[0.2em] text-emerald-600 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
@@ -82,7 +82,7 @@ export default function Story() {
             </h2>
 
             {/* Lead paragraph */}
-            <p className="text-gray-600 leading-relaxed text-lg mx-auto lg:mx-0 max-w-2xl">
+            <p className="text-gray-600 leading-relaxed text-base md:text-lg max-w-2xl">
               It started with a simple act of hope — planting 50 coconut saplings during a
               severe drought. That moment sparked a lifelong realization:{' '}
               <span className="font-semibold text-gray-800">
@@ -91,7 +91,7 @@ export default function Story() {
             </p>
 
             {/* Second paragraph */}
-            <p className="text-gray-500 leading-relaxed mx-auto lg:mx-0 max-w-2xl">
+            <p className="text-gray-500 leading-relaxed max-w-2xl">
               From the mineral-rich landscapes of India to witnessing the global impact of
               waste, our founder&apos;s journey bridged the gap between precious resources and
               neglected e-waste. DMD Green Tech Revive was born from the conviction that waste
@@ -99,7 +99,7 @@ export default function Story() {
             </p>
 
             {/* Highlight stats — clean, typography-driven design */}
-            <div className="flex flex-row justify-center lg:justify-start gap-2 sm:gap-6 pt-4 w-full flex-wrap sm:flex-nowrap">
+            <div className="grid grid-cols-3 sm:flex sm:flex-row justify-start gap-2 sm:gap-6 pt-2 md:pt-4 w-full sm:flex-nowrap">
               {highlights.map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -111,7 +111,7 @@ export default function Story() {
                       <p className="text-sm sm:text-2xl font-extrabold text-gray-900 leading-none tracking-tight">
                         {item.value}
                       </p>
-                      <p className="text-[10px] sm:text-sm text-gray-500 font-medium mt-1 leading-tight">{item.label}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1 leading-tight">{item.label}</p>
                     </div>
                   </div>
                 );
@@ -119,10 +119,10 @@ export default function Story() {
             </div>
 
             {/* CTA */}
-            <div className="pt-6">
+            <div className="pt-2 md:pt-6">
               <Link
                 href="/about-us"
-                className="inline-flex items-center gap-2 text-emerald-600 font-bold text-lg hover:text-emerald-700 transition-colors group justify-center lg:justify-start w-full lg:w-auto"
+                className="inline-flex items-center gap-2 text-emerald-600 font-bold text-lg hover:text-emerald-700 transition-colors group justify-start w-full lg:w-auto"
               >
                 Read Our Full Journey
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

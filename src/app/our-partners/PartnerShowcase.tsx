@@ -57,30 +57,49 @@ const partners = [
     initial: 'A',
     logo: '/AutoAlly.png',
   },
+  {
+    name: 'Kundan Pharmacon',
+    location: 'Pune, Maharashtra',
+    description:
+      'Kundan Pharmacon is a Pune-based partnership firm that works as a wholesaler, distributor and trader of pharmaceutical products and medical supplies. We are proud to count them among the businesses partnering with DMD Green Tech Revive.',
+    expertise: [
+      'Pharmaceutical Distribution',
+      'Medical Supplies',
+      'Wholesale Trade',
+    ],
+    icon: Building2,
+    accentColor: 'from-emerald-500 to-teal-600',
+    accentLight: 'bg-emerald-50',
+    accentText: 'text-emerald-700',
+    accentBorder: 'border-emerald-200',
+    initial: 'KP',
+    logo: undefined as string | undefined, // TODO: add logo to /public and set path
+  },
 ];
 
 export default function PartnerShowcase() {
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-10 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Intro */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-6 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             Who We Work With
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed">
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed">
             Our partnerships with industry leaders allow us to scale our impact and bring world-class recycling and refurbishment solutions to more businesses and communities.
           </p>
         </div>
 
         {/* Partner Cards */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <p className="md:hidden -mt-2 mb-4 text-center text-sm text-gray-500">Swipe to see all partners →</p>
+        <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-12 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 hide-scrollbar">
           {partners.map((partner) => {
             const Icon = partner.icon;
             return (
               <div
                 key={partner.name}
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 md:p-10 hover:shadow-xl transition-shadow duration-500"
+                className="group relative w-[85%] sm:w-[70%] md:w-auto shrink-0 snap-center bg-white border border-gray-200 rounded-2xl p-5 md:p-10 hover:shadow-xl transition-shadow duration-500"
               >
                 {/* Top accent bar */}
                 <div
@@ -88,15 +107,21 @@ export default function PartnerShowcase() {
                 />
 
                 {/* Logo placeholder + Name */}
-                <div className="flex items-start gap-5 mb-6">
+                <div className="flex items-start gap-4 md:gap-5 mb-4 md:mb-6">
                   <div
                     className={`flex-shrink-0 w-16 h-16 rounded-xl bg-white flex items-center justify-center border border-gray-200 overflow-hidden p-1.5`}
                   >
-                    <img
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      className="w-full h-full object-contain"
-                    />
+                    {partner.logo ? (
+                      <img
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <span className={`text-lg font-bold ${partner.accentText}`}>
+                        {partner.initial}
+                      </span>
+                    )}
                   </div>
                   <div>
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
@@ -110,7 +135,7 @@ export default function PartnerShowcase() {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 text-[15px] md:text-base leading-relaxed mb-4 md:mb-6">
                   {partner.description}
                 </p>
 

@@ -88,7 +88,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative py-20 sm:py-24 bg-gradient-to-b from-white via-emerald-50/30 to-white overflow-hidden"
+      className="relative py-12 sm:py-24 bg-gradient-to-b from-white via-emerald-50/30 to-white overflow-hidden"
     >
 
       {/* Background decoration */}
@@ -104,7 +104,7 @@ export default function FAQ() {
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-emerald-600 mb-4 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
             <HelpCircle size={16} />
             FAQ

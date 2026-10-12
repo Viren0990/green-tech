@@ -50,7 +50,7 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-32 bg-white relative overflow-hidden">
       
       {/* Top Wave Divider separating from CoreServices */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">

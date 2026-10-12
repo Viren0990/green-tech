@@ -40,7 +40,7 @@ export default function CoreServices() {
   ];
 
   return (
-    <section id="core-services" className="relative py-24 bg-gradient-to-b from-white via-emerald-50/40 to-green-50/60 min-h-screen overflow-hidden">
+    <section id="core-services" className="relative pt-24 pb-12 md:py-24 bg-gradient-to-b from-white via-emerald-50/40 to-green-50/60 md:min-h-screen overflow-hidden">
 
       {/* --- BACKGROUND DECORATION START --- */}
       {/* Technical Dot Pattern */}
@@ -62,50 +62,53 @@ export default function CoreServices() {
       {/* --- BACKGROUND DECORATION END --- */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <span className="inline-block text-sm font-bold uppercase tracking-[0.2em] text-emerald-600 mb-4 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
             Our Expertise
           </span>
-          <h1 className={`${headingFont.className} text-5xl font-bold text-gray-900 mb-6`}>
+          <h1 className={`${headingFont.className} text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6`}>
             Our Core Services
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             We offer end-to-end solutions tailored for corporate entities, educational
             institutions, and individuals looking to responsibly dispose of electronic assets.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
               id={service.id}
-              className="scroll-mt-28 relative bg-white/80 backdrop-blur-sm border-2 border-gray-200 p-5 pb-8 rounded-2xl shadow-xl transition-all duration-500 group -translate-y-2 hover-shake-y"
+              className="scroll-mt-28 relative flex md:block items-start gap-4 bg-white/80 backdrop-blur-sm border md:border-2 border-gray-200 p-3 md:p-5 md:pb-8 rounded-2xl shadow-sm md:shadow-xl transition-all duration-500 group md:-translate-y-2 hover-shake-y"
             >
               {/* Top gradient accent line */}
               <div className={`absolute top-0 left-6 right-6 h-1 bg-gradient-to-r ${service.accent} rounded-b-full`} />
 
               {/* Image header */}
-              <div className="w-full aspect-[4/3] mb-5 rounded-xl overflow-hidden bg-gradient-to-br from-emerald-50/60 via-green-50/40 to-white border border-emerald-100/50">
+              <div className="w-24 sm:w-32 md:w-full shrink-0 aspect-square md:aspect-[4/3] md:mb-5 rounded-xl overflow-hidden bg-gradient-to-br from-emerald-50/60 via-green-50/40 to-white border border-emerald-100/50">
                 <Image
                   src={service.image}
                   alt={service.title}
+                  sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 128px"
                   width={400}
                   height={300}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
-              <h3 className={`${headingFont.className} text-xl font-bold text-emerald-800 mb-3 transition-colors duration-300`}>
+              <div className="min-w-0">
+              <h3 className={`${headingFont.className} text-lg md:text-xl font-bold text-emerald-800 mb-1 md:mb-3 transition-colors duration-300`}>
                 {service.title}
               </h3>
 
               <p className="text-gray-500 text-sm leading-relaxed">
                 {service.description}
               </p>
+              </div>
 
               {/* Bottom decorative dot */}
-              <div className="mt-6 flex gap-1">
+              <div className="hidden md:flex mt-6 gap-1">
                 <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${service.accent} transition-all duration-500`} />
                 <div className="w-1 h-1 rounded-full bg-emerald-400 transition-colors duration-500" />
               </div>

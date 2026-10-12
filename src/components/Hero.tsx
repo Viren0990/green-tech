@@ -5,7 +5,7 @@ import heroImage from '@/public/new_hero.webp';
 
 export default function Hero() {
   return (
-    <section className="hero-font-reset relative min-h-screen overflow-hidden flex flex-col">
+    <section className="hero-font-reset relative min-h-[calc(100svh-4rem)] md:min-h-screen overflow-hidden flex flex-col">
 
       {/* --- FULL BLEED BACKGROUND IMAGE --- */}
       <Image
@@ -25,8 +25,8 @@ export default function Hero() {
 
       {/* --- MAIN CONTENT AREA --- */}
       <div className="relative z-10 flex-1 flex items-center">
-        <div className="w-full px-6 sm:px-10 lg:pl-16 xl:pl-24 2xl:pl-32 lg:pr-8 pt-32 pb-12 lg:pt-24 lg:pb-0">
-          <div className="max-w-2xl space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+        <div className="w-full px-6 sm:px-10 lg:pl-16 xl:pl-24 2xl:pl-32 lg:pr-8 pt-28 pb-8 lg:pt-24 lg:pb-0">
+          <div className="max-w-2xl space-y-5 md:space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
 
             {/* Badge */}
             <div className="font-sans hidden md:inline-flex items-center gap-2 bg-emerald-500/15 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 text-sm font-medium">
@@ -35,7 +35,7 @@ export default function Hero() {
             </div>
 
             {/* Heading */}
-            <h1 className="pt-8 md:pt-0 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white">
+            <h1 className="pt-2 md:pt-0 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white">
               Reviving Tech, <br />
               <span className="text-emerald-400">
                 Restoring Nature.
@@ -71,31 +71,31 @@ export default function Hero() {
             </div>
 
             {/* Feature Icons Row */}
-            <div className="pt-8 mt-4 border-t border-white/10 w-full">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-                <div className="flex flex-col items-center lg:items-start gap-2">
-                  <div className="w-10 h-10 bg-emerald-500/15 rounded-full flex items-center justify-center">
+            <div className="pt-5 md:pt-8 mt-2 md:mt-4 border-t border-white/10 w-full">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-3 sm:gap-8">
+                <div className="flex sm:flex-col items-center lg:items-start gap-2.5 sm:gap-2 text-left">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 bg-emerald-500/15 rounded-full flex items-center justify-center">
                     <ShieldCheck className="text-emerald-400" size={20} />
                   </div>
-                  <span className="text-white/80 text-xs sm:text-sm font-medium text-center lg:text-left">Secure Data Destruction</span>
+                  <span className="text-white/85 text-[13px] sm:text-sm font-medium leading-snug text-left sm:text-center lg:text-left">Secure Data Destruction</span>
                 </div>
-                <div className="flex flex-col items-center lg:items-start gap-2">
-                  <div className="w-10 h-10 bg-emerald-500/15 rounded-full flex items-center justify-center">
+                <div className="flex sm:flex-col items-center lg:items-start gap-2.5 sm:gap-2 text-left">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 bg-emerald-500/15 rounded-full flex items-center justify-center">
                     <Recycle className="text-emerald-400" size={20} />
                   </div>
-                  <span className="text-white/80 text-xs sm:text-sm font-medium text-center lg:text-left">Authorized Refurbisher</span>
+                  <span className="text-white/85 text-[13px] sm:text-sm font-medium leading-snug text-left sm:text-center lg:text-left">Authorized Refurbisher</span>
                 </div>
-                <div className="flex flex-col items-center lg:items-start gap-2">
-                  <div className="w-10 h-10 bg-emerald-500/15 rounded-full flex items-center justify-center">
+                <div className="flex sm:flex-col items-center lg:items-start gap-2.5 sm:gap-2 text-left">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 bg-emerald-500/15 rounded-full flex items-center justify-center">
                     <TreePine className="text-emerald-400" size={20} />
                   </div>
-                  <span className="text-white/80 text-xs sm:text-sm font-medium text-center lg:text-left">Environment <br></br>Friendly</span>
+                  <span className="text-white/85 text-[13px] sm:text-sm font-medium leading-snug text-left sm:text-center lg:text-left">Environment <br className="hidden sm:block" />Friendly</span>
                 </div>
-                <div className="flex flex-col items-center lg:items-start gap-2">
-                  <div className="w-10 h-10 bg-emerald-500/15 rounded-full flex items-center justify-center">
+                <div className="flex sm:flex-col items-center lg:items-start gap-2.5 sm:gap-2 text-left">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 bg-emerald-500/15 rounded-full flex items-center justify-center">
                     <FileCheck className="text-emerald-400" size={20} />
                   </div>
-                  <span className="text-white/80 text-xs sm:text-sm font-medium text-center lg:text-left">Certificates <br /> Provided</span>
+                  <span className="text-white/85 text-[13px] sm:text-sm font-medium leading-snug text-left sm:text-center lg:text-left">Certificates <br className="hidden sm:block" />Provided</span>
                 </div>
               </div>
             </div>
@@ -107,17 +107,17 @@ export default function Hero() {
       {/* --- BOTTOM STATS BAR --- */}
       <div className="relative z-10 w-full bg-emerald-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-3 divide-x divide-emerald-500/40">
-            <div className="py-5 lg:py-6 px-4 lg:px-6 text-center lg:text-left">
-              <p className="text-2xl lg:text-3xl font-bold text-white flex items-center justify-center lg:justify-start gap-2"><CheckCircle size={24} className="text-white" />MPCB</p>
+          <div className="grid grid-cols-3 divide-x divide-emerald-500/40">
+            <div className="py-4 lg:py-6 px-2 lg:px-6 text-center lg:text-left">
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white flex items-center justify-center lg:justify-start gap-1.5"><CheckCircle size={20} className="text-white" />MPCB</p>
               <p className="text-emerald-100/80 text-xs sm:text-sm font-medium mt-0.5">Verified</p>
             </div>
-            <div className="py-5 lg:py-6 px-4 lg:px-6 text-center lg:text-left">
-              <p className="text-2xl lg:text-3xl font-bold text-white">2,500+</p>
+            <div className="py-4 lg:py-6 px-2 lg:px-6 text-center lg:text-left">
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">2,500+</p>
               <p className="text-emerald-100/80 text-xs sm:text-sm font-medium mt-0.5">Trees Planted</p>
             </div>
-            <div className="py-5 lg:py-6 px-4 lg:px-6 text-center lg:text-left">
-              <p className="text-2xl lg:text-3xl font-bold text-white">10,000+</p>
+            <div className="py-4 lg:py-6 px-2 lg:px-6 text-center lg:text-left">
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">10,000+</p>
               <p className="text-emerald-100/80 text-xs sm:text-sm font-medium mt-0.5">Devices Processed</p>
             </div>
             

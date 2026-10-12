@@ -4,7 +4,7 @@ import heroImage from '@/src/images/service1.webp';
 
 export default function ServicesHero() {
   return (
-    <section className="pt-32 pb-16 min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 flex flex-col justify-center relative overflow-hidden">
+    <section className="pt-28 pb-12 md:pt-32 md:pb-16 md:min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 flex flex-col justify-center relative overflow-hidden">
       {/* Decorative background blobs */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/30 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl pointer-events-none" />
@@ -33,7 +33,7 @@ export default function ServicesHero() {
               What We Do
             </p>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-tight">
               Reviving Tech,<br />
               <span className="text-green-400">Reducing Waste</span>
             </h1>

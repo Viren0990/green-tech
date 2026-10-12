@@ -25,26 +25,26 @@ const partners = [
 
 export default function EducationalPartnerShowcase() {
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-10 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Intro */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-6 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             Our Educational Collaborators
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed">
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed">
             Our partnerships with educational institutions allow us to scale our impact by teaching students the importance of responsible e-waste recycling and environmental stewardship.
           </p>
         </div>
 
         {/* Partner Cards */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-12">
           {partners.map((partner) => {
             const Icon = partner.icon;
             return (
               <div
                 key={partner.name}
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 md:p-10 hover:shadow-xl transition-shadow duration-500"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-5 md:p-10 hover:shadow-xl transition-shadow duration-500"
               >
                 {/* Top accent bar */}
                 <div
@@ -52,7 +52,7 @@ export default function EducationalPartnerShowcase() {
                 />
 
                 {/* Logo placeholder + Name */}
-                <div className="flex items-start gap-5 mb-6">
+                <div className="flex items-start gap-4 md:gap-5 mb-4 md:mb-6">
                   <div
                     className={`flex-shrink-0 w-16 h-16 rounded-xl bg-white flex items-center justify-center border border-gray-200 overflow-hidden p-1.5`}
                   >
@@ -74,7 +74,7 @@ export default function EducationalPartnerShowcase() {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 text-[15px] md:text-base leading-relaxed mb-4 md:mb-6">
                   {partner.description}
                 </p>
 
