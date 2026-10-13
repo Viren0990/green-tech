@@ -39,6 +39,13 @@ const communities = [
     initial: 'STG',
   },
   {
+    name: 'Silver Springs Cooperative Housing Society Ltd',
+    location: 'Pune, Maharashtra',
+    description:
+      'Silver Springs Cooperative Housing Society has partnered with DMD Green Tech Revive to give its residents a safe and responsible way to dispose of their e-waste.',
+    initial: 'SS',
+  },
+  {
     name: 'Rotary Club of Akurdi Pune',
     location: 'Akurdi, Pune, Maharashtra',
     description:
