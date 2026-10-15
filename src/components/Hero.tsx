@@ -10,7 +10,7 @@ export default function Hero() {
       {/* --- FULL BLEED BACKGROUND IMAGE --- */}
       <Image
         src={heroImage}
-        alt="DMD Green Tech – e-waste recycling and refurbishment facility"
+        alt="DMD GreenTech – e-waste recycling and refurbishment facility"
         fill
         priority
         sizes="100vw"
@@ -31,22 +31,25 @@ export default function Hero() {
             {/* Badge */}
             <div className="font-sans hidden md:inline-flex items-center gap-2 bg-emerald-500/15 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 text-sm font-medium">
               <ShieldCheck size={16} />
-              <span>AUTHORIZED E-WASTE REFURBISHER</span>
+              <span>E-WASTE COLLECTION · DATA WIPING · RECYCLING</span>
             </div>
 
-            {/* Heading */}
-            <h1 className="pt-2 md:pt-0 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white">
-              Reviving Tech, <br />
-              <span className="text-emerald-400">
-                Restoring Nature.
+            {/* Heading: the founder's slogan is the main headline. The offer sits inside the
+                same h1 as a smaller line, so search engines still read "free e-waste pickup Pune". */}
+            <h1 className="pt-2 md:pt-0 font-bold tracking-tight text-white">
+              <span className="block text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.1]">
+                Reviving Tech, <br />
+                <span className="text-emerald-400">Restoring Nature.</span>
+              </span>
+              <span className="block mt-4 text-xl sm:text-2xl xl:text-3xl font-semibold leading-snug text-white/95">
+                Free e-waste pickup for Pune offices and homes
               </span>
             </h1>
 
             {/* Subtext */}
             <p className="text-gray-300 text-base sm:text-lg xl:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              India&apos;s premier certified e-waste recycling and restoration service in Pune.
-              We turn your obsolete electronics into resources, bridging the gap
-              between technology and sustainability.
+              Secure data wiping, responsible recycling and a certificate for your records.
+              Book a doorstep collection anywhere in Pune.
             </p>
 
             {/* CTA Buttons */}
@@ -60,7 +63,7 @@ export default function Hero() {
               </Link>
               <a
                 href="/dmd-green-tech-revive-brochure.pdf"
-                download="DMD Green Tech Revive Brochure.pdf"
+                download="DMD GreenTech Revive Brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group border border-white/30 text-white px-7 py-3.5 xl:px-8 xl:py-4 rounded-lg hover:border-white/60 hover:bg-white/10 transition-all text-center font-medium flex items-center justify-center gap-2"

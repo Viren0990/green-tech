@@ -52,7 +52,7 @@ export default function Timeline() {
           <div className="hidden lg:block lg:col-span-2 lg:sticky lg:top-32 h-[550px] rounded-[2.5rem] overflow-hidden relative shadow-2xl">
             <Image
               src={timelineImage}
-              alt="DMD Green Tech Journey"
+              alt="DMD GreenTech Journey"
               style={{ objectFit: "contain" }}
               className="w-full h-full object-cover scale-105"
             />

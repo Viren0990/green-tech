@@ -8,7 +8,7 @@ import EducationalPartnersHero from './EducationalPartnersHero';
 
 export const metadata = pageMetadata({
   title: 'School & College E-Waste Partners',
-  description: 'Schools partnering with DMD Green Tech Revive on e-waste awareness, including Priyadarshani School. Bring a collection drive to your campus.',
+  description: 'Schools partnering with DMD GreenTech Revive on e-waste awareness, including Priyadarshani School. Bring a collection drive to your campus.',
   path: '/educational-partners',
 });
 

@@ -10,7 +10,7 @@ Read this whole file before changing anything. Work through the tasks in priorit
 
 | Field | Value |
 |---|---|
-| Brand name | DMD Green Tech Revive (also written "DMD Greentech Revive"; pick ONE spelling and use it everywhere) |
+| Brand name | DMD GreenTech Revive (owner decision, Oct 2026: "GreenTech" is one word; use this spelling everywhere) |
 | Legal entity | DMD Green Tech Revive Private Limited — `[TODO: owner to confirm]` |
 | Parent line on site | "Unit of DMD Gold Prosperity" |
 | Address | Office No-01, Amaryllis, Domkhel Rd, Wagholi, Pune, Maharashtra 412207, India |
@@ -97,7 +97,7 @@ The name, address and phone (NAP) above must be written **identically** on every
 - Every page gets its own title (≤ 60 characters, main search phrase first, brand last) and description (≤ 155 characters, includes the offer and a reason to click).
 - Make social-share (Open Graph / Twitter) text match each page (K8).
 - Remove the `keywords` meta tag (K9).
-- Suggested homepage title: `Free E-Waste Pickup in Pune for Offices & Homes | DMD Green Tech Revive`
+- Suggested homepage title: `Free E-Waste Pickup in Pune for Offices & Homes | DMD GreenTech Revive`
 
 **T5. Structured data (K11)** — output as JSON-LD in the page head
 - **Site-wide:** `Organization` + `LocalBusiness` (use the most specific type that fits, e.g. `RecyclingCenter`) with exact NAP from section 1, `geo` coordinates `[TODO]`, `openingHoursSpecification` `[TODO]`, `areaServed`, `logo`, `sameAs` (the three social profiles plus outside listings as they go live).
@@ -114,7 +114,7 @@ The name, address and phone (NAP) above must be written **identically** on every
 - Report Lighthouse mobile scores before and after.
 
 **T7. One brand spelling (K10)**
-- Use "DMD Green Tech Revive" everywhere (copy, metadata, structured data, alt text). Leave the logo image alone.
+- Use "DMD GreenTech Revive" everywhere (copy, metadata, structured data, alt text). Leave the logo image alone. Done Oct 2026.
 
 ### P1 · Pages that match what buyers search for
 
@@ -140,8 +140,7 @@ Each page must contain:
 Keep `/what-we-do` as an overview hub that links to all service pages.
 
 **T9. Rewrite the homepage top section (K7)**
-- Headline that states the offer, e.g. "Free e-waste pickup for Pune offices and homes"; sub-line: "Certified data destruction and recycling paperwork for your records."
-- Keep "Reviving Tech, Restoring Nature" as a smaller tagline.
+- **Owner decision (Oct 2026):** "Reviving Tech, Restoring Nature." stays the main headline (chosen by the founder). Do not replace it. The offer "Free e-waste pickup for Pune offices and homes" sits below it as a smaller line inside the same `h1`.
 - Two buttons: **Office pickup** (form asking company, device count, preferred date) and **Home pickup**.
 - Directly below: a proof strip — authorization number, sample certificate link, client logos `[TODO: only with permission]`.
 

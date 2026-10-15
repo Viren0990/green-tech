@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { prisma } from '@/src/lib/prisma';
 import { SITE_URL } from '@/src/lib/business';
+import { guides } from '@/src/lib/guides';
+import { publishedServices } from '@/src/lib/services';
 
 type Entry = MetadataRoute.Sitemap[number];
 
@@ -11,6 +13,7 @@ const staticPages: { path: string; changeFrequency: Entry['changeFrequency']; pr
   { path: '/e-waste-categories', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/about-us', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/posts', changeFrequency: 'daily', priority: 0.8 },
+  { path: '/guides', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/our-partners', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/community-partners', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/educational-partners', changeFrequency: 'monthly', priority: 0.7 },
@@ -40,6 +43,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: page.changeFrequency,
       priority: page.priority,
+    })),
+    ...publishedServices.map((service) => ({
+      url: `${SITE_URL}/services/${service.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
+    ...guides.map((guide) => ({
+      url: `${SITE_URL}/guides/${guide.slug}`,
+      lastModified: new Date(guide.updated),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
     ...postUrls,
   ];

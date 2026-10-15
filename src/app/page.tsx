@@ -11,7 +11,7 @@ import FAQ from '@/src/components/FAQ';
 import Footer from '@/src/components/Footer';
 
 export const metadata = pageMetadata({
-  title: 'Free E-Waste Pickup in Pune | DMD Green Tech Revive',
+  title: 'Free E-Waste Pickup in Pune | DMD GreenTech Revive',
   description: 'Free e-waste pickup across Pune for offices and homes. Secure data wiping, responsible recycling and a certificate of recycling. Call +91 97631 23699.',
   path: '',
   absoluteTitle: true,

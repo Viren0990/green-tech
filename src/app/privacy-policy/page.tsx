@@ -4,7 +4,7 @@ import { pageMetadata } from '@/src/lib/seo';
 
 export const metadata = pageMetadata({
   title: 'Privacy Policy',
-  description: 'How DMD Green Tech Revive collects, uses and protects the details you share when you book an e-waste pickup or contact us.',
+  description: 'How DMD GreenTech Revive collects, uses and protects the details you share when you book an e-waste pickup or contact us.',
   path: '/privacy-policy',
 });
 

@@ -94,7 +94,7 @@ export default function Story() {
             <p className="text-gray-500 leading-relaxed max-w-2xl">
               From the mineral-rich landscapes of India to witnessing the global impact of
               waste, our founder&apos;s journey bridged the gap between precious resources and
-              neglected e-waste. DMD Green Tech Revive was born from the conviction that waste
+              neglected e-waste. DMD GreenTech Revive was born from the conviction that waste
               is not an end, but the beginning of a circular economy.
             </p>
 

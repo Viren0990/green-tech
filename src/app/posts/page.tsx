@@ -16,7 +16,7 @@ export const revalidate = 60; // Revalidate every 60 seconds
 
 export const metadata = pageMetadata({
   title: "E-Waste Collection Drives & Projects",
-  description: "Photos and updates from DMD Green Tech Revive's e-waste collection drives, recycling and refurbishment work with Pune societies, schools and companies.",
+  description: "Photos and updates from DMD GreenTech Revive's e-waste collection drives, recycling and refurbishment work with Pune societies, schools and companies.",
   path: "/posts",
 });
 

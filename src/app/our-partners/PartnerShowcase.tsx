@@ -61,7 +61,7 @@ const partners = [
     name: 'Kundan Pharmacon',
     location: 'Pune, Maharashtra',
     description:
-      'Kundan Pharmacon is a Pune-based partnership firm that works as a wholesaler, distributor and trader of pharmaceutical products and medical supplies. We are proud to count them among the businesses partnering with DMD Green Tech Revive.',
+      'Kundan Pharmacon is a Pune-based partnership firm that works as a wholesaler, distributor and trader of pharmaceutical products and medical supplies. We are proud to count them among the businesses partnering with DMD GreenTech Revive.',
     expertise: [
       'Pharmaceutical Distribution',
       'Medical Supplies',

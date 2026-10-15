@@ -4,7 +4,7 @@ export const faqData = [
   {
     question: 'Where can I dispose old electronics in Pune?',
     answer:
-      'DMD Green Tech Revive offers free door-to-door e-waste pickup across Pune. Simply schedule a pickup through our contact page or call us at +91 97631 23699. We accept laptops, desktops, mobile phones, printers, servers, and all types of electronic waste.',
+      'DMD GreenTech Revive offers free door-to-door e-waste pickup across Pune. Simply schedule a pickup through our contact page or call us at +91 97631 23699. We accept laptops, desktops, mobile phones, printers, servers, and all types of electronic waste.',
   },
   {
     question: 'What types of e-waste do you collect?',
@@ -14,7 +14,7 @@ export const faqData = [
   {
     question: 'Is e-waste disposal free?',
     answer:
-      'Yes! DMD Green Tech Revive offers free e-waste collection and disposal for both individuals and corporate clients in Pune. For bulk quantities, we provide scheduled pickups at no cost. We are a certified e-waste recycler operating under MPCB authorization.',
+      'Yes! DMD GreenTech Revive offers free e-waste collection and disposal for both individuals and corporate clients in Pune. For bulk quantities, we provide scheduled pickups at no cost. We are a certified e-waste recycler operating under MPCB authorization.',
   },
   {
     question: 'What happens to my data when I dispose my device?',
@@ -24,7 +24,7 @@ export const faqData = [
   {
     question: 'How does e-waste recycling help the environment?',
     answer:
-      'E-waste contains hazardous materials like lead, mercury, and cadmium that contaminate soil and water when sent to landfills. Proper recycling recovers valuable metals like gold, silver, and copper while preventing toxic substances from harming the environment. DMD Green Tech follows a zero-landfill policy — every component is either refurbished, recycled, or safely treated.',
+      'E-waste contains hazardous materials like lead, mercury, and cadmium that contaminate soil and water when sent to landfills. Proper recycling recovers valuable metals like gold, silver, and copper while preventing toxic substances from harming the environment. DMD GreenTech follows a zero-landfill policy — every component is either refurbished, recycled, or safely treated.',
   },
   
 ];

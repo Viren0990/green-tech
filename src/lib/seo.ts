@@ -1,20 +1,22 @@
 import type { Metadata } from 'next';
 import { BUSINESS, SITE_URL } from '@/src/lib/business';
 
-const DEFAULT_IMAGE = { url: '/og-image.png', width: 1200, height: 630, alt: 'DMD Green Tech Revive — e-waste recycling in Pune' };
+const DEFAULT_IMAGE = { url: '/og-image.png', width: 1200, height: 630, alt: 'DMD GreenTech Revive — e-waste recycling in Pune' };
 
 interface PageMetaInput {
   title: string;
   description: string;
   path: string;
-  // Set when the title should not get the "| DMD Green Tech Revive" suffix from the layout template.
+  // Set when the title should not get the "| DMD GreenTech Revive" suffix from the layout template.
   absoluteTitle?: boolean;
   image?: string;
+  // Set for guides so social shares and search engines see an article with dates.
+  article?: { publishedTime: string; modifiedTime: string; authors: string[] };
 }
 
 // Page-level metadata with full Open Graph / Twitter blocks. Next.js replaces (not merges)
 // the layout's openGraph object, so every page must carry the complete set.
-export function pageMetadata({ title, description, path, absoluteTitle, image }: PageMetaInput): Metadata {
+export function pageMetadata({ title, description, path, absoluteTitle, image, article }: PageMetaInput): Metadata {
   const url = `${SITE_URL}${path}`;
   const shareTitle = absoluteTitle ? title : `${title} | ${BUSINESS.name}`;
   const images = image ? [{ url: image, alt: title }] : [DEFAULT_IMAGE];
@@ -24,7 +26,7 @@ export function pageMetadata({ title, description, path, absoluteTitle, image }:
     description,
     alternates: { canonical: url },
     openGraph: {
-      type: 'website',
+      ...(article ? { type: 'article', ...article } : { type: 'website' }),
       locale: 'en_IN',
       siteName: BUSINESS.name,
       url,
@@ -41,13 +43,15 @@ export function pageMetadata({ title, description, path, absoluteTitle, image }:
   };
 }
 
-export function breadcrumbJsonLd(name: string, path: string) {
+// Pass `parent` for pages one level deeper, e.g. a guide under /guides.
+export function breadcrumbJsonLd(name: string, path: string, parent?: { name: string; path: string }) {
+  const trail = [{ name: 'Home', item: SITE_URL }];
+  if (parent) trail.push({ name: parent.name, item: `${SITE_URL}${parent.path}` });
+  trail.push({ name, item: `${SITE_URL}${path}` });
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name, item: `${SITE_URL}${path}` },
-    ],
+    itemListElement: trail.map((crumb, i) => ({ '@type': 'ListItem', position: i + 1, ...crumb })),
   };
 }

@@ -7,7 +7,7 @@ const communities = [
     name: 'Rohan Abhilasha',
     location: 'Pune, Maharashtra',
     description:
-      'Rohan Abhilasha is a well-known residential society that has partnered with DMD Green Tech Revive for organised e-waste collection and disposal, setting an example for sustainable living within their community.',
+      'Rohan Abhilasha is a well-known residential society that has partnered with DMD GreenTech Revive for organised e-waste collection and disposal, setting an example for sustainable living within their community.',
     initial: 'RA',
   },
   {
@@ -21,7 +21,7 @@ const communities = [
     name: 'Ivy Estate',
     location: 'Pune, Maharashtra',
     description:
-      'Ivy Estate has embraced sustainable e-waste management by partnering with DMD Green Tech Revive, ensuring that electronic waste from their households is processed responsibly and ethically.',
+      'Ivy Estate has embraced sustainable e-waste management by partnering with DMD GreenTech Revive, ensuring that electronic waste from their households is processed responsibly and ethically.',
     initial: 'IE',
   },
   {
@@ -42,14 +42,14 @@ const communities = [
     name: 'Silver Springs Cooperative Housing Society Ltd',
     location: 'Pune, Maharashtra',
     description:
-      'Silver Springs Cooperative Housing Society has partnered with DMD Green Tech Revive to give its residents a safe and responsible way to dispose of their e-waste.',
+      'Silver Springs Cooperative Housing Society has partnered with DMD GreenTech Revive to give its residents a safe and responsible way to dispose of their e-waste.',
     initial: 'SS',
   },
   {
     name: 'Rotary Club of Akurdi Pune',
     location: 'Akurdi, Pune, Maharashtra',
     description:
-      'The Rotary Club of Akurdi Pune, part of Rotary District 3131, has partnered with DMD Green Tech Revive to promote responsible e-waste collection and recycling in the community.',
+      'The Rotary Club of Akurdi Pune, part of Rotary District 3131, has partnered with DMD GreenTech Revive to promote responsible e-waste collection and recycling in the community.',
     initial: 'RC',
     logo: '/rotary-white-logo.svg',
     logoBg: 'bg-[#17458F]',

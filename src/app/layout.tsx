@@ -8,7 +8,7 @@ import JsonLd from '@/src/components/JsonLd';
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
 
-const defaultTitle = 'Free E-Waste Pickup in Pune | DMD Green Tech Revive';
+const defaultTitle = 'Free E-Waste Pickup in Pune | DMD GreenTech Revive';
 const defaultDescription =
   'Free e-waste pickup across Pune for offices and homes. Secure data wiping, responsible recycling and a certificate of recycling. Call +91 97631 23699.';
 
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'DMD Green Tech Revive — e-waste recycling in Pune',
+        alt: 'DMD GreenTech Revive — e-waste recycling in Pune',
       },
     ],
   },
@@ -83,8 +83,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Site-wide business details. Opening hours and geo coordinates are left out
-  // until the owner confirms them (CLAUDE.md section 1).
+  // Site-wide business details. Geo coordinates are left out until the owner
+  // confirms them (CLAUDE.md section 1); opening hours match the contact page.
   const siteJsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -96,6 +96,8 @@ export default function RootLayout({
         logo: `${SITE_URL}/images/invoice/logo.png`,
         email: BUSINESS.email,
         telephone: BUSINESS.phoneE164,
+        foundingDate: BUSINESS.incorporated,
+        founder: { '@type': 'Person', name: BUSINESS.founder.name, jobTitle: BUSINESS.founder.role },
         sameAs: Object.values(BUSINESS.social),
       },
       {
@@ -109,6 +111,12 @@ export default function RootLayout({
         email: BUSINESS.email,
         address: { '@type': 'PostalAddress', ...BUSINESS.address },
         areaServed: BUSINESS.areaServed.map((name) => ({ '@type': 'City', name })),
+        openingHoursSpecification: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: BUSINESS.hours.days,
+          opens: BUSINESS.hours.opens,
+          closes: BUSINESS.hours.closes,
+        },
         parentOrganization: { '@id': `${SITE_URL}/#organization` },
         sameAs: Object.values(BUSINESS.social),
       },

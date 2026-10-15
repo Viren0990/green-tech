@@ -7,12 +7,13 @@ import FullStory from '@/src/components/about/FullStory';
 import Timeline from '@/src/components/about/Timeline';
 import Team from '@/src/components/about/Team';
 import MissionVision from '@/src/components/about/MissionVision';
+import KeyFacts from '@/src/components/about/KeyFacts';
 
 
 
 export const metadata = pageMetadata({
   title: 'About Us: E-Waste Recycler in Pune',
-  description: 'Meet the team behind DMD Green Tech Revive in Wagholi, Pune, and why we collect, wipe, refurbish and recycle old electronics instead of landfilling them.',
+  description: 'Meet the team behind DMD GreenTech Revive in Wagholi, Pune, and why we collect, wipe, refurbish and recycle old electronics instead of landfilling them.',
   path: '/about-us',
 });
 export default function StoryPage() {
@@ -22,6 +23,7 @@ export default function StoryPage() {
       <JsonLd data={breadcrumbJsonLd('About Us', '/about-us')} />
       <main>
         <StoryHero />
+        <KeyFacts />
         <Team />
         <FullStory />
         <MissionVision />

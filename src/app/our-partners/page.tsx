@@ -8,7 +8,7 @@ import PartnersHero from './PartnersHero';
 
 export const metadata = pageMetadata({
   title: 'Our Corporate Partners',
-  description: 'Companies working with DMD Green Tech Revive on e-waste management, including Reliance Infrastructure Limited and SSS Technologies.',
+  description: 'Companies working with DMD GreenTech Revive on e-waste management, including Reliance Infrastructure Limited and SSS Technologies.',
   path: '/our-partners',
 });
 

@@ -8,7 +8,7 @@ import CommunityHero from './CommunityHero';
 
 export const metadata = pageMetadata({
   title: 'Housing Society E-Waste Partners',
-  description: 'Pune housing societies, including Rohan Abhilasha, Wildwoods and Ivy Estate, that run e-waste collection drives with DMD Green Tech Revive.',
+  description: 'Pune housing societies, including Rohan Abhilasha, Wildwoods and Ivy Estate, that run e-waste collection drives with DMD GreenTech Revive.',
   path: '/community-partners',
 });
 

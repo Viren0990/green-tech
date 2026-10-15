@@ -15,7 +15,7 @@ export default function Footer() {
               <div className="w-20 md:w-32 bg-white p-1.5 md:p-2 rounded-xl">
                 <Image
                   src={logo}
-                  alt="DMD Green Tech Revive logo"
+                  alt="DMD GreenTech Revive logo"
                   className="w-full h-auto"
                 />
               </div>
@@ -25,13 +25,13 @@ export default function Footer() {
               Empowering circular economy through responsible e-waste recycling and refurbishment.
             </p>
             <div className="flex gap-2 -ml-2">
-              <a href={BUSINESS.social.facebook} aria-label="DMD Green Tech Revive on Facebook" className="w-11 h-11 flex items-center justify-center hover:text-green-500 transition">
+              <a href={BUSINESS.social.facebook} aria-label="DMD GreenTech Revive on Facebook" className="w-11 h-11 flex items-center justify-center hover:text-green-500 transition">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href={BUSINESS.social.linkedin} aria-label="DMD Green Tech Revive on LinkedIn" className="w-11 h-11 flex items-center justify-center hover:text-green-500 transition">
+              <a href={BUSINESS.social.linkedin} aria-label="DMD GreenTech Revive on LinkedIn" className="w-11 h-11 flex items-center justify-center hover:text-green-500 transition">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href={BUSINESS.social.instagram} aria-label="DMD Green Tech Revive on Instagram" className="w-11 h-11 flex items-center justify-center hover:text-green-500 transition">
+              <a href={BUSINESS.social.instagram} aria-label="DMD GreenTech Revive on Instagram" className="w-11 h-11 flex items-center justify-center hover:text-green-500 transition">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -48,6 +48,7 @@ export default function Footer() {
               <li><Link href="/community-partners" className="block py-2 md:py-0 hover:text-green-500 transition">Community Partners</Link></li>
               <li><Link href="/e-waste-categories" className="block py-2 md:py-0 hover:text-green-500 transition">Items We Accept</Link></li>
               <li><Link href="/posts" className="block py-2 md:py-0 hover:text-green-500 transition">Gallery</Link></li>
+              <li><Link href="/guides" className="block py-2 md:py-0 hover:text-green-500 transition">Guides</Link></li>
               <li><Link href="/contact" className="block py-2 md:py-0 hover:text-green-500 transition">Contact</Link></li>
             </ul>
           </div>

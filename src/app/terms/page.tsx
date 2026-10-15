@@ -5,7 +5,7 @@ import { pageMetadata } from '@/src/lib/seo';
 
 export const metadata = pageMetadata({
   title: 'Terms of Service',
-  description: 'The terms that apply when you use the DMD Green Tech Revive website or book an e-waste pickup in Pune.',
+  description: 'The terms that apply when you use the DMD GreenTech Revive website or book an e-waste pickup in Pune.',
   path: '/terms',
 });
 

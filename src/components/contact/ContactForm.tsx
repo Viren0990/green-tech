@@ -113,7 +113,7 @@ export default function ContactForm() {
                   <div>
                     <h4 className="font-semibold text-emerald-50 mb-1">Working Hours</h4>
                     <p className="text-emerald-100/70 text-sm">
-                      Mon-Sat: 9:00 AM - 6:00 PM
+                      {BUSINESS.hours.display}
                     </p>
                   </div>
                 </div>
