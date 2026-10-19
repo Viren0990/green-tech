@@ -7,7 +7,7 @@ import hero2 from '@/src/images/w33.webp';
 import Image from 'next/image';
 
 const highlights = [
-  { icon: Leaf, value: '2,500+', label: 'Trees Planted', color: 'text-emerald-600', bg: 'bg-emerald-100' },
+  { icon: Leaf, value: '5,000+', label: 'Trees Planted', color: 'text-emerald-600', bg: 'bg-emerald-100' },
   { icon: Globe, value: '5+', label: 'Countries Visited', color: 'text-sky-600', bg: 'bg-sky-100' },
   { icon: Recycle, value: 'Zero', label: 'Landfill Policy', color: 'text-amber-600', bg: 'bg-amber-100' },
 ];

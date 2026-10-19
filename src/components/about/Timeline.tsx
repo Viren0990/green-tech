@@ -18,7 +18,7 @@ const milestones = [
   {
     year: '2023',
     subtitle: 'Team Building & CSR',
-    description: "We navigated initial funding challenges by liaising with government offices and hiring our first employees for specialized six-month training. Simultaneously, we launched eco-friendly initiatives, including green festival kits and planting 2,500 trees to offset carbon emissions.",
+    description: "We navigated initial funding challenges by liaising with government offices and hiring our first employees for specialized six-month training. Simultaneously, we launched eco-friendly initiatives, including green festival kits and planting 5,000 trees to offset carbon emissions.",
     icon: Sprout,
   },
   {

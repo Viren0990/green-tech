@@ -26,7 +26,7 @@ const storyChapters = [
   {
     icon: TreePine,
     label: 'The Promise',
-    text: 'This belief led to action. I planted 2,500 trees, not as a symbolic gesture, but as a promise—to give back more than I take. Soon after, the vision of DMD GreenTech Revive was born: a mission to revive value from e-waste, protect the environment, and build a responsible, transparent, and sustainable recycling ecosystem in India.',
+    text: 'This belief led to action. I planted 5,000 trees, not as a symbolic gesture, but as a promise—to give back more than I take. Soon after, the vision of DMD GreenTech Revive was born: a mission to revive value from e-waste, protect the environment, and build a responsible, transparent, and sustainable recycling ecosystem in India.',
   },
 ];
 

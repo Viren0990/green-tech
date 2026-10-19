@@ -116,7 +116,7 @@ export default function Hero() {
               <p className="text-emerald-100/80 text-xs sm:text-sm font-medium mt-0.5">Verified</p>
             </div>
             <div className="py-4 lg:py-6 px-2 lg:px-6 text-center lg:text-left">
-              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">2,500+</p>
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">5,000+</p>
               <p className="text-emerald-100/80 text-xs sm:text-sm font-medium mt-0.5">Trees Planted</p>
             </div>
             <div className="py-4 lg:py-6 px-2 lg:px-6 text-center lg:text-left">
