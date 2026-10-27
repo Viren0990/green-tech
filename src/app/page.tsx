@@ -8,6 +8,7 @@ import Story from '@/src/components/Story';
 import Gallery from '@/src/components/Gallery';
 import Cta from '@/src/components/CTA';
 import FAQ from '@/src/components/FAQ';
+import GuidesTeaser from '@/src/components/GuidesTeaser';
 import Footer from '@/src/components/Footer';
 
 export const metadata = pageMetadata({
@@ -27,6 +28,7 @@ export default function Home() {
       <Story />
       <Gallery />
       <FAQ />
+      <GuidesTeaser />
       <Footer />
     </main>
   );

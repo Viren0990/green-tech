@@ -15,19 +15,13 @@ const PARTNER_LINKS: MenuItem[] = [
   { href: '/educational-partners', label: 'Educational Partners' },
 ];
 
-// Gallery and Guides share one desktop menu to keep the bar short on laptop screens.
-const RESOURCE_LINKS: MenuItem[] = [
-  { href: '/posts', label: 'Gallery' },
-  { href: '/guides', label: 'Guides' },
-];
-
 // Sections whose detail pages (/posts/<id>, /guides/<slug>) keep the parent link highlighted
 const SECTIONS = ['/posts', '/guides'];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [openMenu, setOpenMenu] = useState<'partners' | 'resources' | null>(null);
+  const [openMenu, setOpenMenu] = useState<'partners' | null>(null);
   const [mobilePartnersOpen, setMobilePartnersOpen] = useState(false);
   const desktopNavRef = useRef<HTMLDivElement>(null);
 
@@ -49,7 +43,7 @@ export default function Navbar() {
   const desktopLinkClass = (path: string) => 
     `relative whitespace-nowrap transition ${isActive(path) ? 'text-emerald-400 font-semibold after:absolute after:-bottom-2 after:-left-1.5 after:-right-1.5 after:h-[3px] after:bg-emerald-400 after:rounded-full' : 'text-white/80 hover:text-emerald-400'}`;
 
-  const dropdown = (id: 'partners' | 'resources', label: string, items: MenuItem[]) => {
+  const dropdown = (id: 'partners', label: string, items: MenuItem[]) => {
     const open = openMenu === id;
     const active = items.some((l) => isActive(l.href));
     return (
@@ -118,7 +112,9 @@ export default function Navbar() {
             </Link>
 
             {dropdown('partners', 'Partners', PARTNER_LINKS)}
-            {dropdown('resources', 'Resources', RESOURCE_LINKS)}
+            <Link href="/posts" className={desktopLinkClass('/posts')}>
+              Gallery
+            </Link>
 
             <Link
               href="/contact"
